@@ -694,83 +694,6 @@
         </form>
       </div>
     </div>
-    <script>
-  const modalEl = document.getElementById('leadModal');
-  const intentEl = document.getElementById('leadIntent');
-
-  // ✅ Open modal with intent (consultation or download)
-  function openModal(intent) {
-    intentEl.value = intent || '';
-    modalEl.classList.remove('hidden');
-  }
-
-  // ✅ Close modal
-  function closeModal() {
-    modalEl.classList.add('hidden');
-  }
-
-  // ✅ Close modal on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  // ✅ Handle form submission
-  document.getElementById('leadForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-    const intent = data.intent; // "consultation" or "download"
-
-    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
-
-    try {
-      const response = await fetch(zapierHookUrl, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-      });
-
-      if (!response.ok) throw new Error("Zapier webhook failed");
-
-      console.log("✅ Lead submitted successfully to Zapier!");
-      closeModal();
-      this.reset();
-
-      // ✅ Only download for "Investment Guide"
-      if (intent === "download") {
-        window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-      }
-    } catch (error) {
-      console.error("⚠️ Error submitting lead to Zapier:", error);
-      alert("There was an error. Please try again.");
-    }
-  });
-
-  // ✅ Mobile menu functionality
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
-
-  function closeMobileMenu() {
-    mobileMenu.classList.add('hidden');
-  }
-
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('hidden');
-  });
-
-  closeMobileMenuBtn.addEventListener('click', () => {
-    closeMobileMenu();
-  });
-
-  // ✅ Close modal when clicking outside
-  window.addEventListener('click', (event) => {
-    if (event.target === modalEl) {
-      closeModal();
-    }
-  });
-</script>
   </main>
   
 <div id="chatbotBubble" 
@@ -904,6 +827,83 @@
   });
 </script>
 
+<script>
+  const modalEl = document.getElementById('leadModal');
+  const intentEl = document.getElementById('leadIntent');
+
+  // ✅ Open modal with intent (consultation or download)
+  function openModal(intent) {
+    intentEl.value = intent || '';
+    modalEl.classList.remove('hidden');
+  }
+
+  // ✅ Close modal
+  function closeModal() {
+    modalEl.classList.add('hidden');
+  }
+
+  // ✅ Close modal on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ✅ Handle form submission
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    const intent = data.intent; // "consultation" or "download"
+
+    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
+
+    try {
+      const response = await fetch(zapierHookUrl, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      });
+
+      if (!response.ok) throw new Error("Zapier webhook failed");
+
+      console.log("✅ Lead submitted successfully to Zapier!");
+      closeModal();
+      this.reset();
+
+      // ✅ Only download for "Investment Guide"
+      if (intent === "download") {
+        window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+      }
+    } catch (error) {
+      console.error("⚠️ Error submitting lead to Zapier:", error);
+      alert("There was an error. Please try again.");
+    }
+  });
+
+  // ✅ Mobile menu functionality
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+  }
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+  });
+
+  closeMobileMenuBtn.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+
+  // ✅ Close modal when clicking outside
+  window.addEventListener('click', (event) => {
+    if (event.target === modalEl) {
+      closeModal();
+    }
+  });
+</script>
   <!-- LEGAL MODAL (Privacy + Terms) -->
   <div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg shadow-lg p-6 max-w-2xl w-full relative overflow-y-auto max-h-[80vh]">
