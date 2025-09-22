@@ -810,7 +810,7 @@
   });
 </script>
 
-  <script>
+ <script>
   const modalEl = document.getElementById('leadModal');
   const intentEl = document.getElementById('leadIntent');
 
@@ -830,30 +830,27 @@
 
     const intent = intentEl.value;
 
-    // Collect form data properly
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
 
-    const zapierHookUrl = "https://webhook.site/180e2cc7-df18-4b5a-812f-a2e91774bb80";
+    // Use your Zapier webhook
+    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
     try {
-      const response = await fetch(zapierHookUrl, {
+      await fetch(zapierHookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-         mode: "no-cors"
+        body: JSON.stringify(data),
+        mode: "no-cors"   // ✅ correct placement
       });
 
-      if (response.ok) {
-        alert("✅ Thank you! Your details have been received.");
-        closeModal();
-        this.reset();
+      // Assume success (cannot check response with no-cors)
+      alert("✅ Thank you! Your details have been received.");
+      closeModal();
+      this.reset();
 
-        if (intent === "download") {
-          window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-        }
-      } else {
-        alert("❌ Something went wrong. Please try again.");
+      if (intent === "download") {
+        window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
       }
     } catch (error) {
       alert("⚠️ Error sending data. Please check your connection.");
@@ -920,6 +917,7 @@
   </script>
 </body>
 </html>
+
 
 
 
