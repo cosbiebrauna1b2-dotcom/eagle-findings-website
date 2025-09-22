@@ -810,7 +810,6 @@
   });
 </script>
 
-
   <script>
   const modalEl = document.getElementById('leadModal');
   const intentEl = document.getElementById('leadIntent');
@@ -831,33 +830,24 @@
 
     const intent = intentEl.value;
 
-    // Collect form data
+    // Collect form data properly
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
 
-    // Add intent field if needed
-    if (intent) {
-      data.intent = intent;
-    }
-
-    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
+    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/utq04zu/";
 
     try {
       const response = await fetch(zapierHookUrl, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
       if (response.ok) {
-        console.log("Lead submitted successfully to Zapier!", data);
         alert("✅ Thank you! Your details have been received.");
         closeModal();
         this.reset();
 
-        // If the intent was to download, trigger the download
         if (intent === "download") {
           window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
         }
@@ -865,32 +855,8 @@
         alert("❌ Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error("Error submitting lead to Zapier:", error);
       alert("⚠️ Error sending data. Please check your connection.");
-    }
-  });
-
-  // Mobile menu functionality
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
-
-  function closeMobileMenu() {
-    mobileMenu.classList.add('hidden');
-  }
-
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('hidden');
-  });
-
-  closeMobileMenuBtn.addEventListener('click', () => {
-    closeMobileMenu();
-  });
-
-  // Close modal on outside click
-  window.addEventListener('click', (event) => {
-    if (event.target === modalEl) {
-      closeModal();
+      console.error(error);
     }
   });
 </script>
@@ -953,5 +919,6 @@
   </script>
 </body>
 </html>
+
 
 
