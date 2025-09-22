@@ -1,0 +1,944 @@
+<!DOCTYPE html> 
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eagle Findings Limited - Professional property sourcing and investment services across Southeast UK & Midlands. Expert guidance for first-time investors, landlords, and developers." />
+  <title>Eagle Findings Limited - Property Investment & Sourcing Specialists | Southeast UK & Midlands</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta property="og:title" content="Eagle Findings Limited - Property Investment Specialists">
+  <meta property="og:description" content="Expert property sourcing and investment services across Southeast UK">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eaglefindings.uk">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eagle Findings Limited - Property Investment Specialists">
+  <meta name="twitter:description" content="Premium property sourcing and investment services across Southeast UK & Midlands.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eagle Findings Limited",
+    "url": "https://eaglefindings.uk",
+    "logo": "https://eaglefindings.uk/logo.jpg",
+    "sameAs": [
+      "https://www.facebook.com/share/19w9oxQ1mJ/",
+      "https://www.instagram.com/eagle_findings",
+      "https://www.linkedin.com/company/eaglefindings"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+44 203 1586 323",
+      "contactType": "customer service",
+      "areaServed": "GB"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'eagle-gold': '#F7E7CE',
+            'eagle-navy': '#000080',
+            'eagle-gray': '#F5F5DC'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+            'fade-in': 'fadeIn 0.8s ease-out forwards'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .bg-hero-image {
+      background-image: url('background1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    .bg-services-gradient {
+      background: linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(226, 232, 240, 0.9) 100%),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ffffff" width="1200" height="600"/><circle fill="%23f8fafc" cx="200" cy="150" r="100"/><circle fill="%23f1f5f9" cx="800" cy="300" r="150"/><circle fill="%23e2e8f0" cx="1000" cy="100" r="80"/></svg>');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Add this to maintain background on scroll */
+    }
+
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .cta-button {
+      transition: all 0.3s ease;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(247, 231, 206, 0.4);
+    }
+    
+    .text-shadow-strong {
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Improved mobile responsiveness */
+    @media (max-width: 768px) {
+      .bg-hero-image, .bg-services-gradient {
+        background-attachment: scroll;
+      }
+    }
+
+    /* Focus states for accessibility */
+    .focus-outline:focus {
+      outline: 2px solid #000080;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body class="bg-eagle-gold text-eagle-navy font-sans">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-eagle-gold text-eagle-navy px-4 py-2 rounded-lg font-semibold z-50">
+    Skip to main content
+  </a>
+
+  <header class="bg-eagle-gold text-eagle-navy p-4 flex justify-between items-center shadow-xl fixed w-full z-40 top-0">
+    <div class="flex items-center">
+      <div class="h-12 w-12 mr-3 flex-shrink-0">
+        <img src="logo.jpg" alt="Eagle Findings Limited Logo" class="w-full h-full object-cover rounded-full">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-lg font-bold leading-tight">Eagle Findings Limited</span>
+        <span class="text-xs opacity-80 leading-tight">Property Investment Specialists</span>
+      </div>
+    </div>
+    
+    <nav class="hidden lg:flex space-x-8 text-sm font-medium" role="navigation">
+      <a href="#services" class="hover:text-gray-700 focus-outline transition-colors duration-200">Services</a>
+      <a href="#who-we-serve" class="hover:text-gray-700 focus-outline transition-colors duration-200">Who We Serve</a>
+      <a href="#advantages" class="hover:text-gray-700 focus-outline transition-colors duration-200">Why Choose Us</a>
+      <a href="#testimonials" class="hover:text-gray-700 focus-outline transition-colors duration-200">Testimonials</a>
+      <a href="#contact" class="hover:text-gray-700 focus-outline transition-colors duration-200">Contact</a>
+    </nav>
+    
+    <button id="mobile-menu-btn" class="lg:hidden text-eagle-navy text-2xl focus-outline p-2" aria-label="Open mobile menu">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+  </header>
+  
+  <nav id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-eagle-gold bg-opacity-98 z-50 flex flex-col items-center justify-center space-y-8 text-xl text-eagle-navy lg:hidden" role="navigation">
+    <button id="close-mobile-menu-btn" class="absolute top-6 right-6 text-eagle-navy text-3xl focus-outline p-2" aria-label="Close mobile menu">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <a href="#services" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Services</a>
+    <a href="#who-we-serve" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Who We Serve</a>
+    <a href="#advantages" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Why Choose Us</a>
+    <a href="#testimonials" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Testimonials</a>
+    <a href="#contact" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Contact</a>
+  </nav>
+
+  <main id="main-content" class="pt-20">
+    <section class="bg-hero-image relative min-h-screen flex items-center" role="banner">
+      <div class="absolute inset-0 bg-gradient-to-r from-eagle-navy/80 to-[#00005C]/60"></div>
+      <div class="relative z-10 text-center pt-20 pb-40 px-6 w-full">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-eagle-gold text-shadow-strong animate-fade-in-up">
+          EAGLE FINDINGS LIMITED
+        </h1>
+        <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
+          Eagle Findings Limited connects serious investors with premium property opportunities across Southeast UK & Midlands. 
+          Our expert sourcing services and 4+ years of market expertise deliver results that matter.
+        </p>
+         <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s">
+          <button onclick="openModal('consultation')" class="cta-button bg-transparent border-2 border-eagle-gold text-eagle-gold px-8 py-4 rounded-lg font-semibold shadow-lg focus-outline">
+            <i class="fas fa-phone mr-2" aria-hidden="true"></i> Free Consultation
+          </button>
+          
+          <button onclick="openModal('download')" class="cta-button bg-transparent border-2 border-eagle-gold text-eagle-gold px-8 py-4 rounded-lg font-semibold shadow-lg focus-outline">
+            <i class="fas fa-download mr-2" aria-hidden="true"></i> Investment Guide
+          </button>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="animate-fade-in">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">4+</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Years Experience</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.1s">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">100%</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Southeast UK & Midlands Focus</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.2s">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">£50M+</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Properties Sourced</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.3s">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">24/7</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Expert Support</div>
+        </div>
+      </div>
+    </section>
+      <section id="listings" class="py-16 px-6 bg-white">
+    <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+      Explore our latest property opportunities. Thumbnails and details will be added soon.
+    </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
+        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
+          Image
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
+          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
+          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
+        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
+          Image
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
+          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
+          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
+        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
+          Image
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
+          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
+          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <section id="services" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Our Services</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Comprehensive property sourcing solutions designed to maximize your investment returns in the Southeast UK & Midlands market
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">Expert Property Sourcing</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              Our team identifies off-market and pre-market properties that match your specific investment criteria, budget, and location preferences across Southeast Uk & Midlands.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Off-market property access</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Detailed ROI analysis</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Negotiation support</li>
+            </ul>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-chart-line" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">Investment Strategy & Analysis</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              Comprehensive market analysis and investment strategy development tailored to your portfolio goals, risk tolerance, and timeline.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Market trend analysis</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Portfolio diversification</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Exit strategy planning</li>
+            </ul>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-users" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">Professional Network Access</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              Connect with our vetted network of mortgage brokers, solicitors, surveyors, and contractors to streamline your property investment process.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Mortgage broker referrals</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Legal support network</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Trusted contractors</li>
+            </ul>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-hands-helping" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">End-to-End Support</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              From initial consultation through property completion and beyond, our team provides ongoing support to ensure your investment success.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Due diligence support</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Completion assistance</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Ongoing portfolio advice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="who-we-serve" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Who We Serve</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Our specialist services are designed for serious property investors across all experience levels
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-seedling" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">First-Time Investors</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Comprehensive guidance and carefully selected properties perfect for building your initial investment portfolio with confidence.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">Experienced Investors</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Advanced investment opportunities and market insights for seasoned investors looking to expand and optimize their portfolios.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-building" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">Portfolio Landlords</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Strategic property additions to diversify and grow your rental portfolio with high-yield, low-maintenance investments.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-hard-hat" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">Property Developers</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Development opportunities, renovation projects, and value-add properties with significant profit potential across the Southeast.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advantages" class="py-20 px-6 bg-eagle-gold text-eagle-navy relative">
+      <div class="absolute inset-0 bg-black/5"></div>
+      <div class="relative z-10 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Eagle Findings Delivers Results</h2>
+          <p class="text-lg max-w-3xl mx-auto">
+            Our proven methodology and local expertise consistently identify profitable opportunities others miss
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-network-wired" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Exclusive Network Access</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Direct relationships with estate agents, developers, and property professionals provide access to opportunities before public listing.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-brain" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">AI-Enhanced Sourcing</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Advanced technology and data analysis tools help identify high-potential properties and predict market movements.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Local Market Intelligence</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Deep understanding of Southeast UK & Midlands micro-markets, planning permissions, and emerging regeneration areas.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-shield-alt" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Risk Assessment</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Thorough due diligence and risk analysis to protect your investment and ensure sustainable returns.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-handshake" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Transparent Process</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Clear communication, regular updates, and transparent fees with no hidden costs or surprise charges.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Speed to Market</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Fast-track property identification and acquisition process to secure opportunities before competition.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Client Success Stories</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Real results from real investors who chose Eagle Findings Limited
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-eagle-gray p-8 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold w-12 h-12 rounded-full flex items-center justify-center text-eagle-navy font-bold mr-4">
+                JM
+              </div>
+              <div>
+                <h4 class="font-bold text-eagle-navy">James M.</h4>
+                <p class="text-sm text-slate-700">First-Time Investor</p>
+              </div>
+            </div>
+            <p class="text-slate-700 italic leading-relaxed">
+              "Eagle Findings found me a fantastic BTL property in Canterbury that generates 8% yield. Their guidance through the entire process was invaluable."
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold w-12 h-12 rounded-full flex items-center justify-center text-eagle-navy font-bold mr-4">
+                SP
+              </div>
+              <div>
+                <h4 class="font-bold text-eagle-navy">Sarah P.</h4>
+                <p class="text-sm text-slate-700">Portfolio Landlord</p>
+              </div>
+            </div>
+            <p class="text-slate-700 italic leading-relaxed">
+              "Added three properties to my portfolio through Eagle Findings. Their market knowledge of Southeast UK is exceptional - couldn't be happier with the returns."
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold w-12 h-12 rounded-full flex items-center justify-center text-eagle-navy font-bold mr-4">
+                DK
+              </div>
+              <div>
+                <h4 class="font-bold text-eagle-navy">David K.</h4>
+                <p class="text-sm text-slate-700">Property Developer</p>
+              </div>
+            </div>
+            <p class="text-slate-700 italic leading-relaxed">
+              "Found a development opportunity in the Midlands that Eagle Findings sourced exclusively. The profit margins exceeded expectations by 30%."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Frequently Asked Questions</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Find answers to common questions about our property sourcing and investment process
+          </p>
+        </div>
+        <div class="space-y-4 max-w-4xl mx-auto">
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">What types of properties do you source?</h3>
+            <p class="text-sm text-slate-700">We specialize in sourcing a wide range of residential and commercial properties, including buy-to-let, HMOs, multi-unit blocks, and development sites. Our focus is on high-yield opportunities in the Southeast UK & Midlands.</p>
+          </div>
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">How do you find off-market properties?</h3>
+            <p class="text-sm text-slate-700">We leverage our extensive network of estate agents, mortgage brokers, and property professionals, along with our advanced technology, to identify properties before they are publicly listed. This gives our clients a competitive edge.</p>
+          </div>
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">What is the typical timeframe for sourcing a property?</h3>
+            <p class="text-sm text-slate-700">The timeframe can vary depending on your specific criteria and market conditions. However, our streamlined process and exclusive access to opportunities allow us to move quickly to secure deals for you.</p>
+          </div>
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">Do you work with new investors?</h3>
+            <p class="text-sm text-slate-700">Absolutely. We are passionate about helping first-time investors build a solid foundation. Our end-to-end support ensures you have all the guidance you need from your initial consultation to property completion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact" class="py-16 px-6 text-center bg-eagle-gold">
+      <h2 class="text-4xl font-bold mb-4 text-eagle-navy">Ready to Start Your Investment Journey?</h2>
+      <p class="text-slate-700 mb-12 max-w-2xl mx-auto">
+        Contact Eagle Findings Limited today to discover your next property investment opportunity
+      </p>
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="bg-eagle-gray text-eagle-navy p-8 rounded-2xl hover-lift">
+          <div class="text-4xl mb-4"><i class="fa-solid fa-phone"></i></div>
+          <h3 class="font-bold mb-2">Phone</h3>
+          <a href="tel:442031586323" class="text-eagle-navy hover:underline">+44 203 1586 323</a>
+        </div>
+        <div class="bg-eagle-gray text-eagle-navy p-8 rounded-2xl hover-lift">
+          <div class="text-4xl mb-4"><i class="fa-solid fa-envelope"></i></div>
+          <h3 class="font-bold mb-2">Email</h3>
+          <a href="mailto:info@eaglefindings.uk" class="text-eagle-navy hover:underline break-all">info@eaglefindings.uk</a>
+        </div>
+        <div class="bg-eagle-gray text-eagle-navy p-8 rounded-2xl hover-lift">
+          <div class="text-4xl mb-4"><i class="fa-solid fa-globe"></i></div>
+          <h3 class="font-bold mb-2">Website</h3>
+          <a href="https://eaglefindings.uk" target="_blank" class="text-eagle-navy hover:underline">eaglefindings.uk</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-eagle-gold text-eagle-navy text-center py-8">
+      <div class="flex flex-col items-center max-w-4xl mx-auto px-6">
+        <div class="h-16 w-16 mb-4">
+          <img src="logo.jpg" alt="Eagle Findings Limited Logo" class="w-full h-full object-cover rounded-full">
+        </div>
+        <span class="font-bold text-xl mb-2">Eagle Findings Limited</span>
+        <p class="text-sm opacity-80 mb-1 max-w-2xl">
+          © 2024 Eagle Findings Limited. All rights reserved.<br>
+          Professional Property Sourcing & Investment Services - Southeast UK & Midlands<br>
+          Connecting investors with exceptional opportunities through expertise and technology.
+        </p>
+        <div class="flex space-x-4 text-xl my-4">
+          <a href="https://www.facebook.com/share/19w9oxQ1mJ/" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/447706479651?text=Hello%20I%20am%20interested%20in%20your%20services" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="text-eagle-navy hover:text-gray-700">
+   <i class="fa-brands fa-whatsapp"></i>
+</a>
+          <a href="https://www.instagram.com/eagle_findings?igsh=MWVkN3I1Y2tjd2R0bg==" target="_blank" rel="noopener noreferrer" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@eagle.findings?_t=ZM-8zRdwN5ELuX&_r=1" target="_blank" rel="noopener noreferrer" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.linkedin.com/company/eaglefindings" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+       <p class="text-eagle-navy" style="font-size:14px; line-height:1.6; text-align:center; margin-left:20px;">
+  <strong>Location: Barnet</strong><br>
+ <strong>Company Registered Address:</strong><br>
+  128, City Road<br>
+  London<br>
+  EC1V 2NX
+</p>
+
+      <!-- LEGAL LINKS (opens modal) -->
+      <div class="mt-6 text-sm">
+        <button onclick="openLegalModal('privacy')" class="hover:underline mr-4">Privacy Policy</button>
+        <button onclick="openLegalModal('terms')" class="hover:underline">Terms & Conditions</button>
+      </div>
+    </div>
+  </footer>
+
+<footer class="bg-eagle-gold py-10">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <h3 class="text-eagle-navy text-sm font-semibold mb-4 text-center uppercase tracking-wide">Certified by</h3>
+    <div class="flex flex-wrap justify-center items-center gap-8 mb-8">
+      <div class="flex flex-col items-center text-center">
+        <img src="ico-logo.jpg" alt="ICO Certification" class="h-12">
+      </div>
+    <div class="flex flex-col items-center text-center">
+        <img src="veriphy-logo.jpg" alt="Veriphy" class="h-12">
+      </div>
+    <div class="flex flex-col items-center text-center">
+        <img src="property-redress-logo.jpg" alt="Property Redress" class="h-12">
+      </div>
+    </div>
+
+    <h3 class="text-eagle-navy text-sm font-semibold mb-4 text-center uppercase tracking-wide">Associates</h3>
+    <div class="flex flex-wrap justify-center items-center gap-8">
+      <div class="flex flex-col items-center text-center">
+        <img src="property-filter-logo.jpg" alt="Property Filter" class="h-12">
+      </div>
+
+      <div class="flex flex-col items-center text-center">
+        <img src="sourcing-investments-logo.jpg" alt="Sourcing Investments" class="h-12">
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+    <div id="leadModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+        <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-600 text-2xl leading-none" aria-label="Close Modal">&times;</button>
+        <h2 class="text-2xl font-bold mb-4 text-eagle-navy">Enter Your Details</h2>
+        <form id="leadForm" class="space-y-4">
+          <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 border rounded">
+          <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 border rounded">
+          <input type="tel" name="phone" placeholder="Phone Number (+44...)" required class="w-full p-3 border rounded">
+          <input type="hidden" id="leadIntent" name="intent" value="">
+          <button type="submit" class="bg-eagle-gold text-eagle-navy px-6 py-3 rounded font-semibold w-full cta-button">Submit</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  
+<div id="chatbotBubble" 
+     style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: eagle-gold; color: eagle-navy; width: 3.5rem; height: 3.5rem; border-radius: 9999px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5rem;">
+  💬
+</div>
+
+<div id="chatbotWindow" 
+     style="display: none; position: fixed; bottom: 6rem; right: 1.5rem; width: 20rem; background: white; border: 1px solid #ccc; border-radius: 0.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3); overflow: hidden;">
+  <div style="background: eagle-gold; color: eagle-navy; padding: 0.75rem; font-weight: bold;">
+    Eagle Findings - FAQ Assistant
+  </div>
+  <div id="chatLog" style="padding: 0.75rem; height: 16rem; overflow-y: auto; font-size: 0.875rem; color: #333;">
+    <p style="color: #777;">Ask me anything about our services...</p>
+  </div>
+  <div style="padding: 0.75rem; border-top: 1px solid #ddd; display: flex;">
+    <input id="chatInput" type="text" 
+           placeholder="Type your question..." 
+           style="flex: 1; border: 1px solid #ccc; border-radius: 0.5rem; padding: 0.5rem; font-size: 0.875rem; outline: none;">
+    <button id="sendBtn" 
+            style="margin-left: 0.5rem; background: eagle-navy; color: eagle-gold; bg: eagle-navy; padding: 0.5rem 0.75rem; border-radius: 0.5rem; border: none; cursor: pointer;">
+      Send
+    </button>
+  </div>
+</div>
+
+<script>
+  // FAQ Data
+  const faqs = [
+    {
+      q: "What types of properties do you source?",
+      a: "We specialize in sourcing a wide range of residential and commercial properties, including buy-to-let, HMOs, multi-unit blocks, and development sites. Our focus is on high-yield opportunities in the Southeast UK & Midlands."
+    },
+    {
+      q: "How do you find off-market properties?",
+      a: "We leverage our extensive network of estate agents, mortgage brokers, and property professionals, along with our advanced technology, to identify properties before they are publicly listed. This gives our clients a competitive edge."
+    },
+    {
+      q: "What is the typical timeframe for sourcing a property?",
+      a: "The timeframe can vary depending on your specific criteria and market conditions. However, our streamlined process and exclusive access to opportunities allow us to move quickly to secure deals for you."
+    },
+    {
+      q: "Do you work with new investors?",
+      a: "Absolutely. We are passionate about helping first-time investors build a solid foundation. Our end-to-end support ensures you have all the guidance you need from your initial consultation to property completion."
+    }
+  ];
+
+  const bubble = document.getElementById("chatbotBubble");
+  const windowEl = document.getElementById("chatbotWindow");
+  const input = document.getElementById("chatInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const log = document.getElementById("chatLog");
+
+  // Toggle chatbot window
+  bubble.addEventListener("click", () => {
+    windowEl.style.display = (windowEl.style.display === "none" || windowEl.style.display === "") ? "block" : "none";
+  });
+
+  // Function to calculate similarity (Levenshtein ratio)
+  function similarity(str1, str2) {
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+
+    const track = Array(str2.length + 1).fill(null).map(() =>
+      Array(str1.length + 1).fill(null)
+    );
+
+    for (let i = 0; i <= str1.length; i += 1) {
+      track[0][i] = i;
+    }
+    for (let j = 0; j <= str2.length; j += 1) {
+      track[j][0] = j;
+    }
+
+    for (let j = 1; j <= str2.length; j += 1) {
+      for (let i = 1; i <= str1.length; i += 1) {
+        const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+        track[j][i] = Math.min(
+          track[j][i - 1] + 1, // deletion
+          track[j - 1][i] + 1, // insertion
+          track[j - 1][i - 1] + indicator // substitution
+        );
+      }
+    }
+
+    const distance = track[str2.length][str1.length];
+    return 1 - distance / Math.max(str1.length, str2.length);
+  }
+
+  // Send user question
+  function sendMessage() {
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    // Display user message
+    log.innerHTML += `<div style="margin-bottom: 0.5rem; text-align: right;">
+      <span style="background: #C9A227; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block;">${userText}</span>
+    </div>`;
+
+    // AI-like matching: find the closest FAQ
+    let bestMatch = null;
+    let bestScore = 0;
+    faqs.forEach(faq => {
+      const score = similarity(userText, faq.q);
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = faq;
+      }
+    });
+
+    if (bestScore > 0.5) { // threshold
+      log.innerHTML += `<div style="margin-bottom: 0.5rem; text-align: left;">
+        <span style="background: #eee; padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block;">${bestMatch.a}</span>
+      </div>`;
+    } else {
+      log.innerHTML += `<div style="margin-bottom: 0.5rem; text-align: left;">
+        <span style="background: #eee; padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block;">
+          I couldn't find an answer. Please 
+          <a href="https://wa.me/447700900123" target="_blank" style="color: green; font-weight: bold;">message us on WhatsApp</a>.
+        </span>
+      </div>`;
+    }
+
+    input.value = "";
+    log.scrollTop = log.scrollHeight;
+  }
+
+  sendBtn.addEventListener("click", sendMessage);
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+</script>
+
+
+  <script>
+    const modalEl = document.getElementById('leadModal');
+    const intentEl = document.getElementById('leadIntent');
+
+    function openModal(intent) {
+      intentEl.value = intent || '';
+      modalEl.classList.remove('hidden');
+    }
+    function closeModal() {
+      modalEl.classList.add('hidden');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const intent = intentEl.value;
+      
+      const formData = new FormData(this);
+      const data = {};
+      for (const [key, value] of formData.entries()) {
+        data[key] = value;
+      }
+
+      const zapierHookUrl = 'https://hooks.zapier.com/hooks/catch/23572733/utq04zu/';
+      
+      fetch(zapierHookUrl, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => {
+        console.log('Lead submitted successfully to Zapier!');
+        // Close the modal
+        closeModal();
+        // If the intent was to download, trigger the download here
+        if (intent === 'download') {
+          window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+        }
+      }).catch(error => {
+        console.error('Error submitting lead to Zapier:', error);
+      });
+    });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+    }
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+    });
+
+    closeMobileMenuBtn.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+
+    // Close modal on outside click
+    window.addEventListener('click', (event) => {
+      if (event.target === modalEl) {
+        closeModal();
+      }
+    });
+  </script>
+
+  <!-- LEGAL MODAL (Privacy + Terms) -->
+  <div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-2xl w-full relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeLegalModal()" class="absolute top-2 right-3 text-gray-600 text-2xl">&times;</button>
+      <div id="legalContent" class="text-sm text-slate-700 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const legalModal = document.getElementById("legalModal");
+      const legalContent = document.getElementById("legalContent");
+
+      const legalDocs = {
+        privacy: `
+          <h2 class="text-xl font-bold mb-4 text-eagle-navy">Privacy Policy</h2>
+          <p><strong>Effective Date:</strong> September 2025</p>
+          <p>Eagle Findings Limited values your privacy and is committed to protecting your personal information.</p>
+          <h3 class="font-bold mt-4">1. Information We Collect</h3>
+          <p>Personal details (name, email, phone) and usage data via cookies.</p>
+          <h3 class="font-bold mt-4">2. How We Use Your Data</h3>
+          <p>To respond to enquiries, improve services, and comply with regulations.</p>
+          <h3 class="font-bold mt-4">3. Your Rights</h3>
+          <p>You may request access, correction, or deletion of your data: <a href="mailto:info@eaglefindings.uk">info@eaglefindings.uk</a></p>
+        `,
+        terms: `
+          <h2 class="text-xl font-bold mb-4 text-eagle-navy">Terms & Conditions</h2>
+          <p><strong>Effective Date:</strong> September 2025</p>
+          <p>These Terms govern your use of Eagle Findings Limited’s website and services.</p>
+          <h3 class="font-bold mt-4">1. Services</h3>
+          <p>We provide property sourcing and advisory services. No guarantees on investment outcomes.</p>
+          <h3 class="font-bold mt-4">2. User Responsibilities</h3>
+          <p>You must provide accurate information and are responsible for your investment decisions.</p>
+          <h3 class="font-bold mt-4">3. Governing Law</h3>
+          <p>These Terms are governed by the laws of England and Wales.</p>
+        `
+      };
+
+      window.openLegalModal = function(type) {
+        legalContent.innerHTML = legalDocs[type] || "";
+        legalModal.classList.remove("hidden");
+      };
+
+      window.closeLegalModal = function() {
+        legalModal.classList.add("hidden");
+      };
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") window.closeLegalModal();
+      });
+
+      // Close modal when clicking outside content
+      legalModal.addEventListener("click", function(e) {
+        if (e.target === legalModal) window.closeLegalModal();
+      });
+    })();
+  </script>
+</body>
+</html>
