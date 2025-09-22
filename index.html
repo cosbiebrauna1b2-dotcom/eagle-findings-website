@@ -827,58 +827,60 @@
   });
 </script>
 
- <script>
+<script>
   const modalEl = document.getElementById('leadModal');
   const intentEl = document.getElementById('leadIntent');
 
+  // ✅ Open modal with intent (consultation or download)
   function openModal(intent) {
     intentEl.value = intent || '';
     modalEl.classList.remove('hidden');
   }
 
+  // ✅ Close modal
   function closeModal() {
     modalEl.classList.add('hidden');
   }
 
+  // ✅ Close modal on ESC key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
 
-  document.getElementById('leadForm').addEventListener('submit', function(e) {
+  // ✅ Handle form submission
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const formData = new FormData(this);
-    const data = {};
-    for (const [key, value] of formData.entries()) {
-      data[key] = value;
-    }
-
-    const intent = data.intent; // ✅ get intent directly from form data
+    const data = Object.fromEntries(formData.entries());
+    const intent = data.intent; // "consultation" or "download"
 
     const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
-    fetch(zapierHookUrl, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
-    })
-    .then(response => {
-      console.log("Lead submitted successfully to Zapier!");
+    try {
+      const response = await fetch(zapierHookUrl, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      });
 
-      // Close the modal
+      if (!response.ok) throw new Error("Zapier webhook failed");
+
+      console.log("✅ Lead submitted successfully to Zapier!");
       closeModal();
+      this.reset();
 
-      // ✅ Only trigger download if Investment Guide (intent = download)
+      // ✅ Only download for "Investment Guide"
       if (intent === "download") {
         window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
       }
-    })
-    .catch(error => {
-      console.error("Error submitting lead to Zapier:", error);
-    });
+    } catch (error) {
+      console.error("⚠️ Error submitting lead to Zapier:", error);
+      alert("There was an error. Please try again.");
+    }
   });
 
-  // Mobile menu functionality
+  // ✅ Mobile menu functionality
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
@@ -895,7 +897,7 @@
     closeMobileMenu();
   });
 
-  // Close modal on outside click
+  // ✅ Close modal when clicking outside
   window.addEventListener('click', (event) => {
     if (event.target === modalEl) {
       closeModal();
@@ -961,6 +963,7 @@
   </script>
 </body>
 </html>
+
 
 
 
