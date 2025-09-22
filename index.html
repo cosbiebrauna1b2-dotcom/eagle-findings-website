@@ -812,77 +812,88 @@
 
 
   <script>
-    const modalEl = document.getElementById('leadModal');
-    const intentEl = document.getElementById('leadIntent');
+  const modalEl = document.getElementById('leadModal');
+  const intentEl = document.getElementById('leadIntent');
 
-    function openModal(intent) {
-      intentEl.value = intent || '';
-      modalEl.classList.remove('hidden');
+  function openModal(intent) {
+    intentEl.value = intent || '';
+    modalEl.classList.remove('hidden');
+  }
+  function closeModal() {
+    modalEl.classList.add('hidden');
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const intent = intentEl.value;
+
+    // Collect form data
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    // Add intent field if needed
+    if (intent) {
+      data.intent = intent;
     }
-    function closeModal() {
-      modalEl.classList.add('hidden');
-    }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
 
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const intent = intentEl.value;
-      
-      const formData = new FormData(this);
-      const data = {};
-      for (const [key, value] of formData.entries()) {
-        data[key] = value;
-      }
+    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
-      const zapierHookUrl = 'https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/';
-      
-      fetch(zapierHookUrl, {
-        method: 'POST',
-        body: JSON.stringify(data),
+    try {
+      const response = await fetch(zapierHookUrl, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(response => {
-        console.log('Lead submitted successfully to Zapier!');
-        // Close the modal
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        console.log("Lead submitted successfully to Zapier!", data);
+        alert("✅ Thank you! Your details have been received.");
         closeModal();
-        // If the intent was to download, trigger the download here
-        if (intent === 'download') {
+        this.reset();
+
+        // If the intent was to download, trigger the download
+        if (intent === "download") {
           window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
         }
-      }).catch(error => {
-        console.error('Error submitting lead to Zapier:', error);
-      });
-    });
-
-    // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
-
-    function closeMobileMenu() {
-      mobileMenu.classList.add('hidden');
-    }
-
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-    });
-
-    closeMobileMenuBtn.addEventListener('click', () => {
-      closeMobileMenu();
-    });
-
-    // Close modal on outside click
-    window.addEventListener('click', (event) => {
-      if (event.target === modalEl) {
-        closeModal();
+      } else {
+        alert("❌ Something went wrong. Please try again.");
       }
-    });
-  </script>
+    } catch (error) {
+      console.error("Error submitting lead to Zapier:", error);
+      alert("⚠️ Error sending data. Please check your connection.");
+    }
+  });
 
+  // Mobile menu functionality
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+  }
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+  });
+
+  closeMobileMenuBtn.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+
+  // Close modal on outside click
+  window.addEventListener('click', (event) => {
+    if (event.target === modalEl) {
+      closeModal();
+    }
+  });
+</script>
   <!-- LEGAL MODAL (Privacy + Terms) -->
   <div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg shadow-lg p-6 max-w-2xl w-full relative overflow-y-auto max-h-[80vh]">
@@ -942,4 +953,5 @@
   </script>
 </body>
 </html>
+
 
