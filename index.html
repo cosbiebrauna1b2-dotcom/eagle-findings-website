@@ -135,84 +135,6 @@
       outline-offset: 2px;
     }
   </style>
-
-  <script>
-        const modalEl = document.getElementById('leadModal');
-        const intentEl = document.getElementById('leadIntent');
-      
-        // ✅ Open modal with intent (consultation or download)
-        function openModal(intent) {
-          intentEl.value = intent || '';
-          modalEl.classList.remove('hidden');
-        }
-      
-        // ✅ Close modal
-        function closeModal() {
-          modalEl.classList.add('hidden');
-        }
-      
-        // ✅ Close modal on ESC key
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') closeModal();
-        });
-      
-        // ✅ Handle form submission
-        document.getElementById('leadForm').addEventListener('submit', async function(e) {
-          e.preventDefault();
-      
-          const formData = new FormData(this);
-          const data = Object.fromEntries(formData.entries());
-          const intent = data.intent; // "consultation" or "download"
-      
-          const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
-      
-          try {
-            const response = await fetch(zapierHookUrl, {
-              method: "POST",
-              body: JSON.stringify(data),
-              headers: { "Content-Type": "application/json" }
-            });
-      
-            if (!response.ok) throw new Error("Zapier webhook failed");
-      
-            console.log("✅ Lead submitted successfully to Zapier!");
-            closeModal();
-            this.reset();
-      
-            // ✅ Only download for "Investment Guide"
-            if (intent === "download") {
-              window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-            }
-          } catch (error) {
-            console.error("⚠️ Error submitting lead to Zapier:", error);
-            alert("There was an error. Please try again.");
-          }
-        });
-      
-        // ✅ Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
-      
-        function closeMobileMenu() {
-          mobileMenu.classList.add('hidden');
-        }
-      
-        mobileMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.remove('hidden');
-        });
-      
-        closeMobileMenuBtn.addEventListener('click', () => {
-          closeMobileMenu();
-        });
-      
-        // ✅ Close modal when clicking outside
-        window.addEventListener('click', (event) => {
-          if (event.target === modalEl) {
-            closeModal();
-          }
-        });
-      </script>
 </head>
 
 <body class="bg-eagle-gold text-eagle-navy font-sans">
@@ -759,19 +681,96 @@
   </div>
 </footer>
 
-     <div id="leadModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
-      <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-600 text-2xl">&times;</button>
-      <h2 class="text-2xl font-bold mb-4 text-eagle-navy">Enter Your Details</h2>
-      <form id="leadForm" class="space-y-4">
-        <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 border rounded">
-        <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 border rounded">
-        <input type="tel" name="phone" placeholder="Phone Number (+44...)" required class="w-full p-3 border rounded">
-        <input type="hidden" id="leadIntent" name="intent" value="">
-        <button type="submit" class="bg-eagle-gold text-eagle-navy px-6 py-3 rounded font-semibold w-full">Submit</button>
-      </form>
+    <div id="leadModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+        <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-600 text-2xl leading-none" aria-label="Close Modal">&times;</button>
+        <h2 class="text-2xl font-bold mb-4 text-eagle-navy">Enter Your Details</h2>
+        <form id="leadForm" class="space-y-4">
+          <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 border rounded">
+          <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 border rounded">
+          <input type="tel" name="phone" placeholder="Phone Number (+44...)" required class="w-full p-3 border rounded">
+          <input type="hidden" id="leadIntent" name="intent" value="">
+          <button type="submit" class="bg-eagle-gold text-eagle-navy px-6 py-3 rounded font-semibold w-full cta-button">Submit</button>
+        </form>
+      </div>
     </div>
-  </div>
+    <script>
+  const modalEl = document.getElementById('leadModal');
+  const intentEl = document.getElementById('leadIntent');
+
+  // ✅ Open modal with intent (consultation or download)
+  function openModal(intent) {
+    intentEl.value = intent || '';
+    modalEl.classList.remove('hidden');
+  }
+
+  // ✅ Close modal
+  function closeModal() {
+    modalEl.classList.add('hidden');
+  }
+
+  // ✅ Close modal on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ✅ Handle form submission
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+    const intent = data.intent; // "consultation" or "download"
+
+    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
+
+    try {
+      const response = await fetch(zapierHookUrl, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      });
+
+      if (!response.ok) throw new Error("Zapier webhook failed");
+
+      console.log("✅ Lead submitted successfully to Zapier!");
+      closeModal();
+      this.reset();
+
+      // ✅ Only download for "Investment Guide"
+      if (intent === "download") {
+        window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+      }
+    } catch (error) {
+      console.error("⚠️ Error submitting lead to Zapier:", error);
+      alert("There was an error. Please try again.");
+    }
+  });
+
+  // ✅ Mobile menu functionality
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+  }
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+  });
+
+  closeMobileMenuBtn.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+
+  // ✅ Close modal when clicking outside
+  window.addEventListener('click', (event) => {
+    if (event.target === modalEl) {
+      closeModal();
+    }
+  });
+</script>
   </main>
   
 <div id="chatbotBubble" 
@@ -964,14 +963,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
