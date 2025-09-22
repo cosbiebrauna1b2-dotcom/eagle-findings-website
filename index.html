@@ -835,43 +835,70 @@
     intentEl.value = intent || '';
     modalEl.classList.remove('hidden');
   }
+
   function closeModal() {
     modalEl.classList.add('hidden');
   }
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
 
-  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const intent = intentEl.value;
-
     const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
+    const data = {};
+    for (const [key, value] of formData.entries()) {
+      data[key] = value;
+    }
 
-    // Use your Zapier webhook
+    const intent = data.intent; // ✅ get intent directly from form data
+
     const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
-    try {
-      await fetch(zapierHookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-        mode: "no-cors"   // ✅ correct placement
-      });
+    fetch(zapierHookUrl, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(response => {
+      console.log("Lead submitted successfully to Zapier!");
 
-      // Assume success (cannot check response with no-cors)
-      alert("✅ Thank you! Your details have been received.");
+      // Close the modal
       closeModal();
-      this.reset();
 
+      // ✅ Only trigger download if Investment Guide (intent = download)
       if (intent === "download") {
         window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
       }
-    } catch (error) {
-      alert("⚠️ Error sending data. Please check your connection.");
-      console.error(error);
+    })
+    .catch(error => {
+      console.error("Error submitting lead to Zapier:", error);
+    });
+  });
+
+  // Mobile menu functionality
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+  }
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+  });
+
+  closeMobileMenuBtn.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+
+  // Close modal on outside click
+  window.addEventListener('click', (event) => {
+    if (event.target === modalEl) {
+      closeModal();
     }
   });
 </script>
@@ -934,6 +961,7 @@
   </script>
 </body>
 </html>
+
 
 
 
