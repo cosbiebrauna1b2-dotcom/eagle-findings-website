@@ -866,13 +866,13 @@
       if (event.target === modalEl) window.closeModal();
     });
   } else {
-    // safe no-op fallbacks if elements missing
+    // Safe no-op fallbacks if elements missing
     window.openModal = window.openModal || function(){};
     window.closeModal = window.closeModal || function(){};
   }
 
   // =========================
-  // FORM SUBMISSION (guarded)
+  // FORM SUBMISSION (JSON)
   // =========================
   if (leadForm) {
     leadForm.addEventListener('submit', function(e) {
@@ -881,13 +881,17 @@
       const intent = intentEl ? intentEl.value : '';
       const formData = new FormData(this);
 
+      // Convert FormData to JSON
+      const data = Object.fromEntries(formData.entries());
+
       // Zapier webhook
       const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
-      // Send data straight to Zapier (no blocking checks)
+      // Send as JSON
       fetch(zapierHookUrl, {
         method: "POST",
-        body: formData
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
       }).catch(err => console.error("Zapier error:", err));
 
       // Immediate feedback to user
@@ -965,4 +969,5 @@
   </script>
 </body>
 </html>
+
 
