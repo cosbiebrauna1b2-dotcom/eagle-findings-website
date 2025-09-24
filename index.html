@@ -816,69 +816,31 @@
 </script>
   
  <script>
-  const modalEl = document.getElementById('leadModal');
-  const intentEl = document.getElementById('leadIntent');
+ document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-  window.openModal = function(intent) {
-    intentEl.value = intent || '';
-    modalEl.classList.remove('hidden');
-  }
+  const intent = intentEl.value;
+  const formData = new FormData(this);
 
-  window.closeModal = function() {
-    modalEl.classList.add('hidden');
-  }
+  // Zapier webhook
+  const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') window.closeModal();
+  // Send data straight to Zapier (no extra checks)
+  fetch(zapierHookUrl, {
+    method: "POST",
+    body: formData
   });
 
-  // ✅ Hybrid form submission code
-  document.getElementById('leadForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+  // Immediate feedback to user
+  alert("✅ Thank you! Your details have been received.");
+  closeModal();
+  this.reset();
 
-    const intent = intentEl.value;
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-
-    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
-
-    async function sendJSON() {
-      return fetch(zapierHookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-    }
-
-    async function sendFormData() {
-      return fetch(zapierHookUrl, {
-        method: "POST",
-        body: formData
-      });
-    }
-
-    try {
-      let response = await sendJSON();
-      if (!response.ok) {
-        response = await sendFormData();
-      }
-
-      if (response.ok) {
-        alert("✅ Thank you! Your details have been received.");
-        window.closeModal();
-        this.reset();
-
-        if (intent === "download") {
-          window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-        }
-      } else {
-        alert("❌ Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      alert("⚠️ Error sending data. Please try again later.");
-      console.error("Form submission error:", error);
-    }
-  });
+  // Trigger download if needed
+  if (intent === "download") {
+    window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+  }
+});
 </script>
 <script>
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -958,6 +920,7 @@
   </script>
 </body>
 </html>
+
 
 
 
