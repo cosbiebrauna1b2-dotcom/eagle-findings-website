@@ -816,55 +816,54 @@
 </script>
 
 <script>
-  const modalEl = document.getElementById('leadModal');
-  const intentEl = document.getElementById('leadIntent');
-
-  function openModal(intent) {
-    intentEl.value = intent || '';
-    modalEl.classList.remove('hidden');
-  }
-  function closeModal() {
-    modalEl.classList.add('hidden');
-  }
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
   document.getElementById('leadForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const intent = intentEl.value;
+  const intent = intentEl.value;
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
 
-    // Collect form data properly
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-  
-    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
+  const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
-    try {
-      const response = await fetch(zapierHookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
+  async function sendJSON() {
+    return fetch(zapierHookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+  }
 
-      if (response.ok) {
-        alert("✅ Thank you! Your details have been received.");
-        closeModal();
-        this.reset();
+  async function sendFormData() {
+    return fetch(zapierHookUrl, {
+      method: "POST",
+      body: formData
+    });
+  }
 
-        if (intent === "download") {
-          window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-        }
-      } else {
-        alert("❌ Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      alert("⚠️ Error sending data. Please check your connection.");
-      console.error(error);
+  try {
+    let response = await sendJSON();
+
+    // If JSON fails, retry with FormData
+    if (!response.ok) {
+      response = await sendFormData();
     }
-  });
 
+    if (response.ok) {
+      alert("✅ Thank you! Your details have been received.");
+      closeModal();
+      this.reset();
+
+      if (intent === "download") {
+        window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+      }
+    } else {
+      alert("❌ Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    alert("⚠️ Error sending data. Please try again later.");
+    console.error("Form submission error:", error);
+  }
+});
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
@@ -942,4 +941,5 @@
   </script>
 </body>
 </html>
+
 
