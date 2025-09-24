@@ -594,7 +594,7 @@
         <div class="bg-eagle-gray text-eagle-navy p-8 rounded-2xl hover-lift">
           <div class="text-4xl mb-4"><i class="fa-solid fa-globe"></i></div>
           <h3 class="font-bold mb-2">Website</h3>
-         <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="text-eagle-navy hover:underline">eaglefindings.uk</a>
+          <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="text-eagle-navy hover:underline">eaglefindings.uk</a>
         </div>
       </div>
     </section>
@@ -846,7 +846,6 @@
   const leadForm = document.getElementById('leadForm');
 
   if (modalEl && intentEl) {
-    // Expose globally so onclick="openModal(...)" works
     window.openModal = function(intent) {
       intentEl.value = intent || '';
       modalEl.classList.remove('hidden');
@@ -856,59 +855,52 @@
       modalEl.classList.add('hidden');
     };
 
-    // Close with ESC key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') window.closeModal();
     });
 
-    // Close when clicking outside modal box
     window.addEventListener('click', (event) => {
       if (event.target === modalEl) window.closeModal();
     });
   } else {
-    // Safe no-op fallbacks if elements missing
     window.openModal = window.openModal || function(){};
     window.closeModal = window.closeModal || function(){};
   }
 
   // =========================
-  // FORM SUBMISSION (JSON)
+  // FORM SUBMISSION (Native POST via iframe, with flag)
   // =========================
+  let formSubmitted = false; // flag
+
   if (leadForm) {
-    leadForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+    leadForm.setAttribute("action", "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/");
+    leadForm.setAttribute("method", "POST");
+    leadForm.setAttribute("target", "hidden_iframe");
 
-      const intent = intentEl ? intentEl.value : '';
-      const formData = new FormData(this);
-
-      // Convert FormData to JSON
-      const data = Object.fromEntries(formData.entries());
-
-      // Zapier webhook
-      const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz";
-
-      // Send as JSON
-      fetch(zapierHookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      }).catch(err => console.error("Zapier error:", err));
-
-      // Immediate feedback to user
-      alert("✅ Thank you! Your details have been received.");
-
-      // Close modal if available
-      if (window.closeModal) window.closeModal();
-
-      this.reset();
-
-      // Trigger download if needed
-      if (intent === "download") {
-        window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-      }
+    // mark when submitted
+    leadForm.addEventListener("submit", () => {
+      formSubmitted = true;
     });
+
+    // Callback after submit
+    window.afterSubmit = function() {
+      if (!formSubmitted) return; // ignore initial iframe load
+      formSubmitted = false; // reset flag
+
+      alert("✅ Thank you! Your details have been received.");
+      if (window.closeModal) window.closeModal();
+      leadForm.reset();
+
+      if (intentEl && intentEl.value === "download") {
+        window.location.href =
+          "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+      }
+    };
   }
 </script>
+
+<!-- Hidden iframe to avoid reload -->
+<iframe name="hidden_iframe" style="display:none;" onload="afterSubmit()"></iframe>
 
   <!-- LEGAL MODAL (Privacy + Terms) -->
   <div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
@@ -969,6 +961,3 @@
   </script>
 </body>
 </html>
-
-
-
