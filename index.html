@@ -843,22 +843,80 @@
 });
 </script>
 <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+  // =========================
+  // MOBILE MENU HANDLING
+  // =========================
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
 
-    function closeMobileMenu() {
-      mobileMenu.classList.add('hidden');
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+  }
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+  });
+
+  closeMobileMenuBtn.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+
+  // =========================
+  // MODAL (FORM POPUP) HANDLING
+  // =========================
+  const modalEl = document.getElementById('leadModal');
+  const intentEl = document.getElementById('leadIntent');
+
+  // Open modal with correct intent
+  window.openModal = function(intent) {
+    intentEl.value = intent || '';
+    modalEl.classList.remove('hidden');
+  };
+
+  // Close modal
+  window.closeModal = function() {
+    modalEl.classList.add('hidden');
+  };
+
+  // Close with ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeModal();
+  });
+
+  // Close when clicking outside
+  window.addEventListener('click', (event) => {
+    if (event.target === modalEl) window.closeModal();
+  });
+
+  // =========================
+  // FORM SUBMISSION
+  // =========================
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const intent = intentEl.value;
+    const formData = new FormData(this);
+
+    // Zapier webhook
+    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
+
+    // Send data straight to Zapier (no blocking checks)
+    fetch(zapierHookUrl, {
+      method: "POST",
+      body: formData
+    }).catch(err => console.error("Zapier error:", err));
+
+    // Immediate feedback to user
+    alert("✅ Thank you! Your details have been received.");
+    window.closeModal();
+    this.reset();
+
+    // Trigger download if needed
+    if (intent === "download") {
+      window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
     }
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-    });
-    closeMobileMenuBtn.addEventListener('click', () => {
-      closeMobileMenu();
-    });
-    window.addEventListener('click', (event) => {
-      if (event.target === modalEl) closeModal();
-    });
+  });
 </script>
 
   <!-- LEGAL MODAL (Privacy + Terms) -->
@@ -920,6 +978,7 @@
   </script>
 </body>
 </html>
+
 
 
 
