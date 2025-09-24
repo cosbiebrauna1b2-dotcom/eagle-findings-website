@@ -188,8 +188,7 @@
         </h1>
         <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
           Eagle Findings Limited connects serious investors with premium property opportunities across Southeast UK & Midlands. 
-          Our expert sourcing services and 4+ years of market expertise deliver results that matter.
-        </p>
+          Our expert sourcing services and 4+ years of market expertise deliver results that matter.</p>
         <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
           For free intitial consultation, or a copy of our investment guide, click on the relevant button here.
         </p>
@@ -814,109 +813,97 @@
     if (e.key === "Enter") sendMessage();
   });
 </script>
-  
- <script>
- document.getElementById('leadForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
 
-  const intent = intentEl.value;
-  const formData = new FormData(this);
-
-  // Zapier webhook
-  const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
-
-  // Send data straight to Zapier (no extra checks)
-  fetch(zapierHookUrl, {
-    method: "POST",
-    body: formData
-  });
-
-  // Immediate feedback to user
-  alert("✅ Thank you! Your details have been received.");
-  closeModal();
-  this.reset();
-
-  // Trigger download if needed
-  if (intent === "download") {
-    window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-  }
-});
-</script>
 <script>
   // =========================
-  // MOBILE MENU HANDLING
+  // MOBILE MENU HANDLING (guarded)
   // =========================
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
 
   function closeMobileMenu() {
-    mobileMenu.classList.add('hidden');
+    if (mobileMenu) mobileMenu.classList.add('hidden');
   }
 
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('hidden');
-  });
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+      if (mobileMenu) mobileMenu.classList.remove('hidden');
+    });
+  }
 
-  closeMobileMenuBtn.addEventListener('click', () => {
-    closeMobileMenu();
-  });
+  if (closeMobileMenuBtn) {
+    closeMobileMenuBtn.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+  }
 
   // =========================
-  // MODAL (FORM POPUP) HANDLING
+  // MODAL (FORM POPUP) HANDLING (guarded + global)
   // =========================
   const modalEl = document.getElementById('leadModal');
   const intentEl = document.getElementById('leadIntent');
+  const leadForm = document.getElementById('leadForm');
 
-  // Open modal with correct intent
-  window.openModal = function(intent) {
-    intentEl.value = intent || '';
-    modalEl.classList.remove('hidden');
-  };
+  if (modalEl && intentEl) {
+    // Expose globally so onclick="openModal(...)" works
+    window.openModal = function(intent) {
+      intentEl.value = intent || '';
+      modalEl.classList.remove('hidden');
+    };
 
-  // Close modal
-  window.closeModal = function() {
-    modalEl.classList.add('hidden');
-  };
+    window.closeModal = function() {
+      modalEl.classList.add('hidden');
+    };
 
-  // Close with ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') window.closeModal();
-  });
+    // Close with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.closeModal();
+    });
 
-  // Close when clicking outside
-  window.addEventListener('click', (event) => {
-    if (event.target === modalEl) window.closeModal();
-  });
+    // Close when clicking outside modal box
+    window.addEventListener('click', (event) => {
+      if (event.target === modalEl) window.closeModal();
+    });
+  } else {
+    // safe no-op fallbacks if elements missing
+    window.openModal = window.openModal || function(){};
+    window.closeModal = window.closeModal || function(){};
+  }
 
   // =========================
-  // FORM SUBMISSION
+  // FORM SUBMISSION (guarded)
   // =========================
-  document.getElementById('leadForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+  if (leadForm) {
+    leadForm.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    const intent = intentEl.value;
-    const formData = new FormData(this);
+      const intent = intentEl ? intentEl.value : '';
+      const formData = new FormData(this);
 
-    // Zapier webhook
-    const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
+      // Zapier webhook
+      const zapierHookUrl = "https://hooks.zapier.com/hooks/catch/23572733/u1ba4mz/";
 
-    // Send data straight to Zapier (no blocking checks)
-    fetch(zapierHookUrl, {
-      method: "POST",
-      body: formData
-    }).catch(err => console.error("Zapier error:", err));
+      // Send data straight to Zapier (no blocking checks)
+      fetch(zapierHookUrl, {
+        method: "POST",
+        body: formData
+      }).catch(err => console.error("Zapier error:", err));
 
-    // Immediate feedback to user
-    alert("✅ Thank you! Your details have been received.");
-    window.closeModal();
-    this.reset();
+      // Immediate feedback to user
+      alert("✅ Thank you! Your details have been received.");
 
-    // Trigger download if needed
-    if (intent === "download") {
-      window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
-    }
-  });
+      // Close modal if available
+      if (window.closeModal) window.closeModal();
+
+      this.reset();
+
+      // Trigger download if needed
+      if (intent === "download") {
+        window.location.href = "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+      }
+    });
+  }
 </script>
 
   <!-- LEGAL MODAL (Privacy + Terms) -->
@@ -978,8 +965,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
