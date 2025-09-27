@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> 
 <html lang="en" class="scroll-smooth">
 <head>
@@ -186,24 +187,34 @@
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-eagle-gold text-shadow-strong animate-fade-in-up">
           EAGLE FINDINGS LIMITED
         </h1>
-        <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
-          Eagle Findings Limited connects serious investors with premium property opportunities across Southeast UK & Midlands. 
-          Our expert sourcing services and 4+ years of market expertise deliver results that matter.</p>
-        <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
-          For free intitial consultation, or a copy of our investment guide, click on the relevant button here.
-        </p>
-         <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s">
-          <button onclick="openModal('consultation')" class="cta-button bg-transparent border-2 border-eagle-gold text-eagle-gold px-8 py-4 rounded-lg font-semibold shadow-lg focus-outline">
-            <i class="fas fa-phone mr-2" aria-hidden="true"></i> Free Consultation
-          </button>
-          
-          <button onclick="openModal('download')" class="cta-button bg-transparent border-2 border-eagle-gold text-eagle-gold px-8 py-4 rounded-lg font-semibold shadow-lg focus-outline">
-            <i class="fas fa-download mr-2" aria-hidden="true"></i> Investment Guide
-          </button>
-          
-        </div>
-      </div>
-    </section>
+
+  <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s"> 
+    Eagle Findings Limited connects serious investors with premium property opportunities across Southeast UK & Midlands. 
+    Our expert sourcing services and 4+ years of market expertise deliver results that matter.
+  </p>
+  <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
+    For free initial consultation, a copy of our investment guide, or to explore property listings, use the buttons below.
+  </p>
+
+  <!-- CTA Buttons Row -->
+  <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s">
+    <a href="#listings" 
+       class="cta-button inline-flex items-center justify-center bg-transparent border-2 border-eagle-gold text-eagle-gold px-6 py-3 rounded-lg font-semibold shadow-lg focus-outline">
+      <i class="fas fa-home mr-2" aria-hidden="true"></i> Property Listings
+    </a>
+
+    <button onclick="openModal('consultation')" 
+            class="cta-button inline-flex items-center justify-center bg-transparent border-2 border-eagle-gold text-eagle-gold px-6 py-3 rounded-lg font-semibold shadow-lg focus-outline">
+      <i class="fas fa-phone mr-2" aria-hidden="true"></i> Free Consultation
+    </button>
+    
+    <button onclick="openModal('download')" 
+            class="cta-button inline-flex items-center justify-center bg-transparent border-2 border-eagle-gold text-eagle-gold px-6 py-3 rounded-lg font-semibold shadow-lg focus-outline">
+      <i class="fas fa-download mr-2" aria-hidden="true"></i> Investment Guide
+    </button>
+   </div>
+  </div>
+</section>
 
     <section class="py-16 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -225,48 +236,6 @@
         </div>
       </div>
     </section>
-      <section id="listings" class="py-16 px-6 bg-white">
-    <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
-    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-      Explore our latest property opportunities. Thumbnails and details will be added soon.
-    </p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      
-      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
-        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
-          Image
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
-          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
-          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
-        </div>
-      </div>
-
-      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
-        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
-          Image
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
-          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
-          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
-        </div>
-      </div>
-
-      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
-        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
-          Image
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
-          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
-          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
     <section id="services" class="py-20 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto">
@@ -488,6 +457,49 @@
       </div>
     </section>
 
+ <section id="listings" class="py-16 px-6 bg-white">
+    <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+      Explore our latest property opportunities. Thumbnails and details will be added soon.
+    </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
+        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
+          Image
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
+          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
+          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
+        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
+          Image
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
+          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
+          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
+        </div>
+      </div>
+
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
+        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
+          Image
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
+          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
+          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
     <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
@@ -574,30 +586,43 @@
         </div>
       </div>
     </section>
-    
-    <section id="contact" class="py-16 px-6 text-center bg-eagle-gold">
-      <h2 class="text-4xl font-bold mb-4 text-eagle-navy">Ready to Start Your Investment Journey?</h2>
-      <p class="text-slate-700 mb-12 max-w-2xl mx-auto">
-        Contact Eagle Findings Limited today to discover your next property investment opportunity
-      </p>
-      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        <div class="bg-eagle-gray text-eagle-navy p-8 rounded-2xl hover-lift">
-          <div class="text-4xl mb-4"><i class="fa-solid fa-phone"></i></div>
-          <h3 class="font-bold mb-2">Phone</h3>
-          <a href="tel:442031586323" class="text-eagle-navy hover:underline">+44 203 1586 323</a>
-        </div>
-        <div class="bg-eagle-gray text-eagle-navy p-8 rounded-2xl hover-lift">
-          <div class="text-4xl mb-4"><i class="fa-solid fa-envelope"></i></div>
-          <h3 class="font-bold mb-2">Email</h3>
-          <a href="mailto:info@eaglefindings.uk" class="text-eagle-navy hover:underline break-all">info@eaglefindings.uk</a>
-        </div>
-        <div class="bg-eagle-gray text-eagle-navy p-8 rounded-2xl hover-lift">
-          <div class="text-4xl mb-4"><i class="fa-solid fa-globe"></i></div>
-          <h3 class="font-bold mb-2">Website</h3>
-          <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="text-eagle-navy hover:underline">eaglefindings.uk</a>
-        </div>
-      </div>
-    </section>
+ 
+ <section id="contact" class="py-16 px-6 text-center bg-eagle-gold">
+  <h2 class="text-4xl font-bold mb-4 text-eagle-navy">
+    Ready to Start Your Investment Journey?
+  </h2>
+  <p class="text-slate-700 mb-12 max-w-2xl mx-auto">
+    Contact Eagle Findings Limited today to discover your next property investment opportunity
+  </p>
+
+  <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-solid fa-phone"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">Phone</h3>
+      <a href="tel:442031586323" class="text-eagle-navy hover:underline">+44 203 1586 323</a>
+    </div>
+
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-brands fa-whatsapp"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">WhatsApp</h3>
+      <a href="https://wa.me/447706479651?text=Hello%20I%20am%20interested%20in%20your%20services" class="text-eagle-navy hover:underline">+44 770 6479 651</a>
+    </div>
+
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-solid fa-envelope"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">Email</h3>
+      <a href="mailto:info@eaglefindings.uk" class="text-eagle-navy hover:underline whitespace-nowrap">
+        info@eaglefindings.uk
+      </a>
+    </div>
+
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-solid fa-globe"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">Website</h3>
+      <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="text-eagle-navy hover:underline">eaglefindings.uk</a>
+    </div>
+  </div>
+</section>
 
     <footer class="bg-eagle-gold text-eagle-navy text-center py-8">
       <div class="flex flex-col items-center max-w-4xl mx-auto px-6">
@@ -665,21 +690,15 @@
     <h3 class="text-eagle-navy text-sm font-semibold mb-4 text-center uppercase tracking-wide">Associates</h3>
     <div class="flex flex-wrap justify-center items-center gap-8">
       <div class="flex flex-col items-center text-center">
-        <a href="https://www.property-filter.co.uk" target="_blank" rel="noopener noreferrer">
           <img src="property-filter-logo.jpg" alt="Property Filter" class="h-12">
-        </a>
       </div>
 
       <div class="flex flex-col items-center text-center">
-        <a href="https://www.sourcinginvestments.co.uk" target="_blank" rel="noopener noreferrer">
           <img src="sourcing-investments-logo.jpg" alt="Sourcing Investments" class="h-12">
-        </a>
       </div>
 
       <div class="flex flex-col items-center text-center">
-        <a href="https://www.sitefindr.co.uk" target="_blank" rel="noopener noreferrer">
           <img src="site-findr-logo.jpg" alt="Sitefindr" class="h-12">
-        </a>
       </div>
     </div>
 
@@ -816,7 +835,7 @@
       log.innerHTML += `<div style="margin-bottom: 0.5rem; text-align: left;">
         <span style="background: #eee; padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block;">
           I couldn't find an answer. Please 
-          <a href="https://wa.me/447700900123" target="_blank" style="color: green; font-weight: bold;">message us on WhatsApp</a>.
+          <a href="https://wa.me/447706479651?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank" style="color: green; font-weight: bold;">message us on WhatsApp</a>.
         </span>
       </div>`;
     }
