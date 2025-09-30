@@ -457,49 +457,230 @@
       </div>
     </section>
 
- <section id="listings" class="py-16 px-6 bg-white">
-    <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
-    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-      Explore our latest property opportunities. Thumbnails and details will be added soon.
-    </p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      
-      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
-        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
-          Image
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
-          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
-          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
-        </div>
-      </div>
+<section id="listings" class="py-16 px-6 bg-white">
+  <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
+  <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+    Explore our latest property opportunities.
+  </p>
 
-      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
-        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
-          Image
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
-          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
-          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
-        </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    
+    <!-- Property Card 1 -->
+    <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden">
+      <div class="h-48 relative">
+        <img src="https://via.placeholder.com/400x200?text=House+1" 
+             class="absolute inset-0 w-full h-full object-cover rounded-t-2xl" />
       </div>
-
-      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift">
-        <div class="h-48 bg-gray-300 rounded-t-2xl flex items-center justify-center text-gray-500">
-          Image
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-bold text-lg text-blue-black">Property Title</h3>
-          <p class="text-sm text-gray-600 mb-4">Short description goes here...</p>
-          <a href="#" class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block">View Details</a>
-        </div>
+      <div class="p-6 text-center">
+        <h3 class="font-bold text-lg text-blue-black">Leasehold Properties</h3>
+        <p class="text-sm text-gray-600 mb-4">Exclusive residential properties.</p>
+        <button 
+          class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
+          data-category="houses">View Details</button>
       </div>
-
     </div>
-  </section>
 
+    <!-- Property Card 2 -->
+    <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden">
+      <div class="h-48 relative">
+        <img src="https://via.placeholder.com/400x200?text=Apartment+1" 
+             class="absolute inset-0 w-full h-full object-cover rounded-t-2xl" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-bold text-lg text-blue-black">Coming Soon</h3>
+        <p class="text-sm text-gray-600 mb-4">Comfortable city flats.</p>
+        <button 
+          class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
+          data-category="apartments">View Details</button>
+      </div>
+    </div>
+
+    <!-- Property Card 3 -->
+    <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden">
+      <div class="h-48 relative">
+        <img src="https://via.placeholder.com/400x200?text=Land+1" 
+             class="absolute inset-0 w-full h-full object-cover rounded-t-2xl" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-bold text-lg text-blue-black">Coming Soon</h3>
+        <p class="text-sm text-gray-600 mb-4">Prime locations for development.</p>
+        <button 
+          class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
+          data-category="lands">View Details</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl shadow-lg max-w-4xl w-full relative p-4">
+    <button id="closeModal" class="absolute top-2 right-2 text-gray-600 text-xl font-bold">&times;</button>
+    
+    <h2 id="modalTitle" class="text-xl font-bold mb-4"></h2>
+
+    <!-- Search Bar -->
+    <input type="text" id="searchInput" 
+           placeholder="Search properties..." 
+           class="w-full border px-3 py-2 rounded mb-4 hidden">
+
+    <!-- Options (locations or properties) -->
+    <div id="propertyOptions" class="flex flex-wrap gap-2 mb-4"></div>
+    
+    <!-- Document Display -->
+    <iframe id="propertyDoc" src="" class="w-full h-[500px] rounded-lg"></iframe>
+  </div>
+</div>
+
+<script>
+  // ===== Data: categories with locations and properties =====
+  const propertyData = {
+    houses: {
+      title: "Leasehold Properties",
+      locations: [
+        { 
+          name: "Barnet", 
+          properties: [
+            { name: "Warwick Road", doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview" },
+            { name: "Bells Hill", doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview" },
+            { name: "", doc: "" }
+          ]
+        },
+        { 
+          name: "Hertfordshire", 
+          properties: [
+            { name: "Hertsmere", doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview" }
+          ]
+        }
+      ]
+    },
+    apartments: {
+      title: "Coming Soon",
+      locations: [
+        {
+          name: "",
+          properties: [
+            { name: "Apt 1", doc: "" },
+            { name: "Apt 2", doc: "" }
+          ]
+        }
+      ]
+    },
+    lands: {
+      title: "Coming Soon",
+      locations: [
+        {
+          name: "",
+          properties: [
+            { name: "Land 1", doc: "" },
+            { name: "Land 2", doc: "" }
+          ]
+        }
+      ]
+    }
+  };
+
+  // ===== Modal Logic =====
+  const modal = document.getElementById('propertyModal');
+  const iframe = document.getElementById('propertyDoc');
+  const closeBtn = document.getElementById('closeModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const propertyOptions = document.getElementById('propertyOptions');
+  const searchInput = document.getElementById('searchInput');
+
+  let currentCategory = null;
+  let currentLocation = null;
+
+  // Open modal at category level
+  document.querySelectorAll('.open-modal').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-category');
+      currentCategory = propertyData[category];
+      currentLocation = null;
+      showLocations(currentCategory);
+      modal.classList.remove('hidden');
+    });
+  });
+
+  // Show locations in a category
+  function showLocations(category) {
+    modalTitle.textContent = category.title;
+    iframe.src = "";
+    propertyOptions.innerHTML = "";
+    searchInput.classList.add("hidden");
+
+    category.locations.forEach(loc => {
+      const locBtn = document.createElement('button');
+      locBtn.textContent = loc.name || "Unnamed Location";
+      locBtn.className = "bg-gray-200 px-3 py-1 rounded hover:bg-gray-300";
+      locBtn.addEventListener('click', () => {
+        currentLocation = loc;
+        showProperties(loc);
+      });
+      propertyOptions.appendChild(locBtn);
+    });
+  }
+
+  // Show properties inside a location
+  function showProperties(location) {
+    modalTitle.textContent = location.name;
+    propertyOptions.innerHTML = "";
+    iframe.src = "";
+    searchInput.classList.remove("hidden");
+    searchInput.value = "";
+
+    // Back button to go back to locations
+    const backBtn = document.createElement('button');
+    backBtn.textContent = "← Back to Locations";
+    backBtn.className = "bg-blue-200 px-3 py-1 rounded hover:bg-blue-300 mb-2";
+    backBtn.addEventListener('click', () => {
+      currentLocation = null;
+      showLocations(currentCategory);
+    });
+    propertyOptions.appendChild(backBtn);
+
+    renderProperties(location.properties);
+
+    // live search
+    searchInput.oninput = () => {
+      const query = searchInput.value.toLowerCase();
+      const filtered = location.properties.filter(p => 
+        p.name.toLowerCase().includes(query)
+      );
+      renderProperties(filtered);
+    };
+  }
+
+  // Render properties list
+  function renderProperties(properties) {
+    // clear old except back button
+    propertyOptions.querySelectorAll("button:not(:first-child)").forEach(el => el.remove());
+
+    properties.forEach(prop => {
+      const propBtn = document.createElement('button');
+      propBtn.textContent = prop.name || "Unnamed Property";
+      propBtn.className = "bg-gray-200 px-3 py-1 rounded hover:bg-gray-300";
+      propBtn.addEventListener('click', () => {
+        iframe.src = prop.doc;
+      });
+      propertyOptions.appendChild(propBtn);
+    });
+  }
+
+  // Close modal
+  closeBtn.addEventListener('click', () => {
+    iframe.src = "";
+    modal.classList.add('hidden');
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      iframe.src = "";
+      modal.classList.add('hidden');
+    }
+  });
+</script>
     <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
@@ -997,4 +1178,5 @@
   </script>
 </body>
 </html>
+
 
