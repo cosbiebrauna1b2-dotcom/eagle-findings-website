@@ -681,6 +681,7 @@
     }
   });
 </script>
+
     <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
@@ -885,19 +886,74 @@
 
   </div>
 </footer>
-    <div id="leadModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-      <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
-        <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-600 text-2xl leading-none" aria-label="Close Modal">&times;</button>
-        <h2 class="text-2xl font-bold mb-4 text-eagle-navy">Enter Your Details</h2>
-        <form id="leadForm" class="space-y-4">
-          <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 border rounded">
-          <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 border rounded">
-          <input type="tel" name="phone" placeholder="Phone Number (+44...)" required class="w-full p-3 border rounded">
-          <input type="hidden" id="leadIntent" name="intent" value="">
-          <button type="submit" class="bg-eagle-gold text-eagle-navy px-6 py-3 rounded font-semibold w-full cta-button">Submit</button>
-        </form>
+    <div id="leadModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"> 
+  <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+    <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-600 text-2xl leading-none" aria-label="Close Modal">&times;</button>
+    <h2 class="text-2xl font-bold mb-4 text-eagle-navy">Enter Your Details</h2>
+    
+    <form id="leadForm" class="space-y-4">
+      <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 border rounded">
+      <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 border rounded">
+
+      <div class="flex space-x-2">
+        <select id="countryCode" required class="p-3 border rounded w-1/3">
+          <option value="+44" selected>🇬🇧 (+44)</option>
+          <option value="+1">🇺🇸 (+1)</option>
+          <option value="+7">🇷🇺 (+7)</option>
+          <option value="+20">🇪🇬 (+20)</option>
+          <option value="+27">🇿🇦 (+27)</option>
+          <option value="+30">🇬🇷 (+30)</option>
+          <option value="+31">🇳🇱 (+31)</option>
+          <option value="+32">🇧🇪 (+32)</option>
+          <option value="+33">🇫🇷 (+33)</option>
+          <option value="+34">🇪🇸 (+34)</option>
+          <option value="+36">🇭🇺 (+36)</option>
+          <option value="+39">🇮🇹 (+39)</option>
+          <option value="+40">🇷🇴 (+40)</option>
+          <option value="+41">🇨🇭 (+41)</option>
+          <option value="+43">🇦🇹 (+43)</option>
+          <option value="+45">🇩🇰 (+45)</option>
+          <option value="+46">🇸🇪 (+46)</option>
+          <option value="+47">🇳🇴 (+47)</option>
+          <option value="+48">🇵🇱 (+48)</option>
+          <option value="+49">🇩🇪 (+49)</option>
+          <option value="+51">🇵🇪 (+51)</option>
+          <option value="+52">🇲🇽 (+52)</option>
+          <option value="+54">🇦🇷 (+54)</option>
+          <option value="+55">🇧🇷 (+55)</option>
+          <option value="+56">🇨🇱 (+56)</option>
+          <option value="+57">🇨🇴 (+57)</option>
+          <option value="+58">🇻🇪 (+58)</option>
+          <option value="+60">🇲🇾 (+60)</option>
+          <option value="+61">🇦🇺 (+61)</option>
+          <option value="+62">🇮🇩 (+62)</option>
+          <option value="+63">🇵🇭 (+63)</option>
+          <option value="+64">🇳🇿 (+64)</option>
+          <option value="+65">🇸🇬 (+65)</option>
+          <option value="+66">🇹🇭 (+66)</option>
+          <option value="+81">🇯🇵 (+81)</option>
+          <option value="+82">🇰🇷 (+82)</option>
+          <option value="+84">🇻🇳 (+84)</option>
+          <option value="+86">🇨🇳 (+86)</option>
+          <option value="+90">🇹🇷 (+90)</option>
+          <option value="+91">🇮🇳 (+91)</option>
+          <option value="+92">🇵🇰 (+92)</option>
+          <option value="+233">🇬🇭 (+233)</option>
+          <option value="+234">🇳🇬 (+234)</option>
+          <option value="+256">🇺🇬 (+256)</option>
+          <option value="+254">🇰🇪 (+254)</option>
+          <option value="+255">🇹🇿 (+255)</option>
+          </select>
+        <input type="tel" id="rawPhone" placeholder="Phone Number" required class="w-2/3 p-3 border rounded">
       </div>
-    </div>
+
+      <input type="hidden" name="phone" id="fullPhone">
+
+      <input type="hidden" id="leadIntent" name="intent" value="">
+      <button type="submit" class="bg-eagle-gold text-eagle-navy px-6 py-3 rounded font-semibold w-full cta-button">Submit</button>
+    </form>
+  </div>
+</div>
   </main>
   
 <div id="chatbotBubble" 
@@ -1031,7 +1087,46 @@
   });
 </script>
 
-<script>
+<iframe name="hidden_iframe" style="display:none;" onload="afterSubmit()"></iframe>
+
+<script> 
+  // =========================
+  // PHONE NUMBER DIGIT LENGTHS (EXACT DIGITS REQUIRED from PDF)
+  // =========================
+  // Maps country code value to the EXACT number of digits required (National Significant Number)
+  const phoneLengths = {
+    '+44': { exact: 10 }, // United Kingdom: Fixed 10 digits
+    '+1': { exact: 10 }, // USA/Canada: Fixed 10 digits
+    '+33': { exact: 9 },  // France: Fixed 9 digits
+    '+91': { exact: 10 }, // India: 10 digits
+    '+234': { exact: 8 }, // Nigeria: Usually 8 digits (after code)
+    '+62': { exact: 10 }, // Indonesia: Using 10 as a common value (Varies 9-11)
+    '+92': { exact: 10 }, // Pakistan: Mobile 10 digits
+    '+55': { exact: 11 }, // Brazil: Mobile 11 digits
+    '+7': { exact: 10 }, // Russia: Fixed 10 digits
+    '+52': { exact: 10 }, // Mexico: Fixed 10 digits
+    '+81': { exact: 10 }, // Japan: Fixed 10 digits
+    '+251': { exact: 9 }, // Ethiopia: Fixed 9 digits
+    '+63': { exact: 10 }, // Philippines: Fixed 10 digits
+    '+20': { exact: 10 }, // Egypt: Using 10 as a common value (Varies 9-10)
+    '+243': { exact: 9 }, // DR Congo: Fixed 9 digits
+    '+49': { exact: 10 }, // Germany: Using 10 as a common value (Varies 10-11)
+    '+66': { exact: 9 },  // Thailand: Fixed 9 digits
+    '+39': { exact: 10 }, // Italy: Mobile 10 digits
+    '+255': { exact: 9 }, // Tanzania: Fixed 9 digits
+    '+27': { exact: 9 },  // South Africa: Fixed 9 digits
+    '+254': { exact: 9 }, // Kenya: Fixed 9 digits
+    '+82': { exact: 10 }, // South Korea: Mobile 10 digits
+    '+57': { exact: 10 }, // Colombia: Fixed 10 digits
+    '+34': { exact: 9 },  // Spain: Fixed 9 digits
+    '+256': { exact: 9 }, // Uganda: Fixed 9 digits
+    '+54': { exact: 10 }, // Argentina: Fixed 10 digits
+    '+213': { exact: 9 }, // Algeria: Fixed 9 digits
+    '+86': { exact: 11 }, // China: Mobile 11 digits
+    // NOTE: If any other country code is in your HTML dropdown, please add its exact digit length here.
+  };
+
+
   // =========================
   // MOBILE MENU HANDLING (guarded)
   // =========================
@@ -1056,12 +1151,72 @@
   }
 
   // =========================
-  // MODAL (FORM POPUP) HANDLING (guarded + global)
+  // MODAL & FORM ELEMENT LOOKUP
   // =========================
   const modalEl = document.getElementById('leadModal');
   const intentEl = document.getElementById('leadIntent');
   const leadForm = document.getElementById('leadForm');
+  
+  // Phone number elements
+  const countryCodeEl = document.getElementById('countryCode'); 
+  const rawPhoneEl = document.getElementById('rawPhone'); // The visible input field
+  const fullPhoneEl = document.getElementById('fullPhone'); // The hidden field Zapier reads
 
+  // =========================
+  // DIGIT VALIDATION FUNCTION (ENFORCES EXACT LENGTH)
+  // =========================
+  function updatePhoneValidation() {
+    if (!countryCodeEl || !rawPhoneEl) return;
+
+    const selectedCode = countryCodeEl.value;
+    const validation = phoneLengths[selectedCode];
+
+    // Remove any non-digit characters (spaces, dashes, etc.) from the input for validation check
+    const cleanValue = rawPhoneEl.value.replace(/\D/g, '');
+
+    if (validation) {
+      const exactLength = validation.exact;
+      
+      // Set the HTML5 validation attributes to the exact length
+      rawPhoneEl.setAttribute('minlength', exactLength);
+      rawPhoneEl.setAttribute('maxlength', exactLength);
+      rawPhoneEl.placeholder = `Enter exactly ${exactLength} digits`;
+
+      // Use setCustomValidity to provide a clear error message
+      if (cleanValue.length !== exactLength) {
+        rawPhoneEl.setCustomValidity(`Please enter exactly ${exactLength} digits.`);
+      } else {
+        rawPhoneEl.setCustomValidity(''); // Valid
+      }
+    } else {
+      // Fallback for codes not defined in the list
+      rawPhoneEl.removeAttribute('minlength');
+      rawPhoneEl.removeAttribute('maxlength');
+      rawPhoneEl.placeholder = 'Enter phone number';
+      rawPhoneEl.setCustomValidity('');
+    }
+    // Force the browser to check and display the validity state
+    rawPhoneEl.reportValidity(); 
+  }
+  
+  // =========================
+  // EVENT LISTENERS for Validation
+  // =========================
+  if (countryCodeEl && rawPhoneEl) {
+    // 1. Update validation whenever a new country code is selected
+    countryCodeEl.addEventListener('change', updatePhoneValidation);
+    
+    // 2. Update validation whenever the user types
+    rawPhoneEl.addEventListener('input', updatePhoneValidation);
+
+    // Initial run to set the validation for the default selected country
+    setTimeout(updatePhoneValidation, 0); 
+  }
+
+
+  // =========================
+  // MODAL HANDLING (guarded + global)
+  // =========================
   if (modalEl && intentEl) {
     window.openModal = function(intent) {
       intentEl.value = intent || '';
@@ -1070,6 +1225,8 @@
 
     window.closeModal = function() {
       modalEl.classList.add('hidden');
+      if (leadForm) leadForm.reset(); // Clear form on close
+      updatePhoneValidation(); // Reset validation state
     };
 
     document.addEventListener('keydown', (e) => {
@@ -1085,18 +1242,30 @@
   }
 
   // =========================
-  // FORM SUBMISSION (Native POST via iframe, with flag)
+  // FORM SUBMISSION (Native POST via iframe, with flag and MERGING)
   // =========================
   let formSubmitted = false; // flag
 
-  if (leadForm) {
+  if (leadForm && countryCodeEl && rawPhoneEl && fullPhoneEl) {
+    // Set Zapier target attributes
     leadForm.setAttribute("action", "https://hooks.zapier.com/hooks/catch/24745727/u1xobb6/");
     leadForm.setAttribute("method", "POST");
     leadForm.setAttribute("target", "hidden_iframe");
 
-    // mark when submitted
-    leadForm.addEventListener("submit", () => {
+    // BEFORE SUBMIT: Merge country code + phone number into the hidden field
+    leadForm.addEventListener("submit", (e) => {
+      // Run final validation check
+      updatePhoneValidation(); 
+
+      // If the form is invalid (due to incorrect digit length), prevent submission
+      if (!leadForm.checkValidity()) {
+        e.preventDefault();
+        return; 
+      }
+      
       formSubmitted = true;
+      // CRUCIAL MERGING LOGIC: Takes values from visible fields (strips non-digits) and puts them in the hidden field 'phone' for Zapier
+      fullPhoneEl.value = countryCodeEl.value + " " + rawPhoneEl.value.replace(/\D/g, ''); 
     });
 
     // Callback after submit
@@ -1108,6 +1277,9 @@
       if (window.closeModal) window.closeModal();
       leadForm.reset();
 
+      // Reset validation state after a successful submission
+      updatePhoneValidation(); 
+
       if (intentEl && intentEl.value === "download") {
         window.location.href =
           "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
@@ -1115,9 +1287,6 @@
     };
   }
 </script>
-
-<!-- Hidden iframe to avoid reload -->
-<iframe name="hidden_iframe" style="display:none;" onload="afterSubmit()"></iframe>
 
   <!-- LEGAL MODAL (Privacy + Terms) -->
   <div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
@@ -1178,6 +1347,4 @@
   </script>
 </body>
 </html>
-
-
 
