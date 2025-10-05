@@ -1374,6 +1374,9 @@
       formSubmitted = true;
       // CRUCIAL MERGING LOGIC: Takes values from visible fields (strips non-digits) and puts them in the hidden field 'phone' for Zapier
       fullPhoneEl.value = countryCodeEl.value + " " + rawPhoneEl.value.replace(/\D/g, ''); 
+
+      // ✅ Log form data before submitting to Zapier
+      console.log("Form data:", Object.fromEntries(new FormData(leadForm)));
     });
 
     // Callback after submit
@@ -1455,4 +1458,5 @@
   </script>
 </body>
 </html>
+
 
