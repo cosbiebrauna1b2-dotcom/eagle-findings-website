@@ -458,259 +458,338 @@
     </section>
 
 
-<section id="listings" class="py-16 px-6 bg-white">
-  <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
-  <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-    Explore our latest property opportunities.
-  </p>
+<section id="listings" class="py-16 px-6 bg-white"> 
+  <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
+  <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+    Explore our latest property opportunities.
+  </p>
 
-    <div class="flex flex-row overflow-x-auto space-x-8 pb-4 max-w-6xl mx-auto">
-            <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
-      <div class="h-48 relative carousel">
-                <img src="https://drive.google.com/thumbnail?id=17SXFwC_xqwEqesW5qdiMlSli6NtiJKZO&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1ugVe4lCuf_r6U0tvLtHf69EyNwo6Cvtp&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1YbhW3ikZZGFySwppvKrwsgITvmrINehB&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="font-bold text-lg text-blue-black">Leasehold</h3>
-        <p class="text-sm text-gray-600 mb-4">Exclusive residential properties.</p>
-        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal" 
-                data-category="leasehold">View Details</button>
-      </div>
-    </div>
+  <div class="flex flex-row overflow-x-auto space-x-8 pb-4 max-w-6xl mx-auto">
+    <!-- Leasehold -->
+    <div class="relative bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
+      <div class="h-48 relative carousel">
+        <img src="https://drive.google.com/thumbnail?id=17SXFwC_xqwEqesW5qdiMlSli6NtiJKZO&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
+        <img src="https://drive.google.com/thumbnail?id=1ugVe4lCuf_r6U0tvLtHf69EyNwo6Cvtp&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
+        <img src="https://drive.google.com/thumbnail?id=1YbhW3ikZZGFySwppvKrwsgITvmrINehB&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-bold text-lg text-blue-black">Leasehold</h3>
+        <p class="text-sm text-gray-600 mb-4">Exclusive residential properties.</p>
+        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
+                data-category="leasehold">View Details</button>
+      </div>
+      <!-- Bottom-right badge (z-20 so it stays above images) -->
+      <div class="absolute bottom-3 right-3 z-20 flex items-center bg-gray-200 bg-opacity-80 rounded-full px-2 py-1 text-xs text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        <span id="leasehold-views">0</span>
+      </div>
+    </div>
 
-            <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
-      <div class="h-48 relative carousel">
-                <img src="https://drive.google.com/thumbnail?id=1tioBxl59WY6lYhX1HyeIkLESDlufuwBP&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1Sg4UP9WJaeQa4af0gIA8RKok4ak7GVY-&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1-Liv9NpqMUzHMsLYMING_-Ls0LxHUm_e&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="font-bold text-lg text-blue-black">Freehold</h3>
-        <p class="text-sm text-gray-600 mb-4">Comfortable city flats.</p>
-        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal" 
-                data-category="freehold">View Details</button>
-      </div>
-    </div>
+    <!-- Freehold -->
+    <div class="relative bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
+      <div class="h-48 relative carousel">
+        <img src="https://drive.google.com/thumbnail?id=1tioBxl59WY6lYhX1HyeIkLESDlufuwBP&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
+        <img src="https://drive.google.com/thumbnail?id=1Sg4UP9WJaeQa4af0gIA8RKok4ak7GVY-&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
+        <img src="https://drive.google.com/thumbnail?id=1-Liv9NpqMUzHMsLYMING_-Ls0LxHUm_e&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-bold text-lg text-blue-black">Freehold</h3>
+        <p class="text-sm text-gray-600 mb-4">Comfortable city flats.</p>
+        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
+                data-category="freehold">View Details</button>
+      </div>
+      <div class="absolute bottom-3 right-3 z-20 flex items-center bg-gray-200 bg-opacity-80 rounded-full px-2 py-1 text-xs text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        <span id="freehold-views">0</span>
+      </div>
+    </div>
 
-            <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
-      <div class="h-48 relative carousel">
-                <img src="https://via.placeholder.com/400x200?text=Rent+1" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
-        <img src="https://via.placeholder.com/400x200?text=Rent+2" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-        <img src="https://via.placeholder.com/400x200?text=Rent+3" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="font-bold text-lg text-blue-black">Rent </h3>
-        <p class="text-sm text-gray-600 mb-4">Prime locations for development.</p>
-        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal" 
-                data-category="rent">View Details</button>
-      </div>
-    </div>
-  </div>
+    <!-- Rent -->
+    <div class="relative bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
+      <div class="h-48 relative carousel">
+        <img src="https://via.placeholder.com/400x200?text=Rent+1" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
+        <img src="https://via.placeholder.com/400x200?text=Rent+2" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
+        <img src="https://via.placeholder.com/400x200?text=Rent+3" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
+      </div>
+      <div class="p-6 text-center">
+        <h3 class="font-bold text-lg text-blue-black">Rent</h3>
+        <p class="text-sm text-gray-600 mb-4">Prime locations for development.</p>
+        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
+                data-category="rent">View Details</button>
+      </div>
+      <div class="absolute bottom-3 right-3 z-20 flex items-center bg-gray-200 bg-opacity-80 rounded-full px-2 py-1 text-xs text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        <span id="rent-views">0</span>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ======================
+  PROPERTY MODAL
+======================= -->
 <div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50">
-  <div class="bg-white rounded-2xl shadow-lg max-w-5xl w-full relative p-6">
-    <button id="closeModal" class="absolute top-2 right-2 text-gray-600 text-xl font-bold">&times;</button>
-    <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+  <div class="bg-white rounded-2xl shadow-lg max-w-5xl w-full relative p-6">
+    <button id="closeModal" class="absolute top-2 right-2 text-gray-600 text-xl font-bold">&times;</button>
+    <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
 
-        <button id="backButton" class="hidden mb-4 px-3 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">&larr; Back</button>
+    <button id="backButton" class="hidden mb-4 px-3 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">&larr; Back</button>
 
-        <input type="text" id="searchInput" placeholder="Search properties..." 
-           class="w-full border px-3 py-2 rounded mb-4 hidden">
+    <input type="text" id="searchInput" placeholder="Search properties..."
+           class="w-full border px-3 py-2 rounded mb-4 hidden">
 
-        <div id="modalContent" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
-  </div>
+    <div id="modalContent" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+  </div>
 </div>
 
+<!-- ======================
+  DOCUMENT VIEWER
+======================= -->
 <div id="documentViewer" class="fixed inset-0 bg-white hidden flex flex-col z-50">
-  <div class="flex justify-between items-center p-4 bg-gray-200 shadow">
-    <button id="docBackButton" class="px-3 py-2 bg-gray-300 rounded hover:bg-gray-400">&larr; Back</button>
-    <button id="docCloseButton" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600">&times; Close</button>
-  </div>
-  <iframe id="docFrame" src="" class="flex-1 w-full"></iframe>
+  <div class="flex justify-between items-center p-4 bg-gray-200 shadow">
+    <button id="docBackButton" class="px-3 py-2 bg-gray-300 rounded hover:bg-gray-400">&larr; Back</button>
+    <button id="docCloseButton" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600">&times; Close</button>
+  </div>
+  <iframe id="docFrame" src="" class="flex-1 w-full"></iframe>
 </div>
 
 <script>
-  // -----------------
-  // IMAGE CAROUSEL
-  // -----------------
-  document.querySelectorAll(".carousel").forEach(carousel => {
-    const images = carousel.querySelectorAll("img");
-    let index = 0;
-    setInterval(() => {
-      // The image is hidden instantly, but the CSS transition makes it fade out over 5s
-      images[index].classList.add("hidden");
-      images[index].classList.remove("active");
-      index = (index + 1) % images.length;
-      // The next image is shown instantly, and the CSS transition makes it fade in over 5s
-      images[index].classList.remove("hidden");
-      images[index].classList.add("active");
-    }, 5000); // 🌟 UPDATED: Interval set to 5000ms (5 seconds) to match the transition duration
-  });
+  // -----------------
+  // IMAGE CAROUSEL (keeps original fade/change logic)
+  // -----------------
+  document.querySelectorAll(".carousel").forEach(carousel => {
+    const images = carousel.querySelectorAll("img");
+    let index = 0;
+    setInterval(() => {
+      // hide current
+      images[index].classList.add("hidden");
+      images[index].classList.remove("active");
+      // next index
+      index = (index + 1) % images.length;
+      // show next
+      images[index].classList.remove("hidden");
+      images[index].classList.add("active");
+    }, 5000);
+  });
 
-  // -----------------
-  // PROPERTY MODAL
-  // -----------------
-  const modal = document.getElementById("propertyModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalContent = document.getElementById("modalContent");
-  const searchInput = document.getElementById("searchInput");
-  const backButton = document.getElementById("backButton");
+  // -----------------
+  // PROPERTY MODAL LOGIC
+  // -----------------
+  const modal = document.getElementById("propertyModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalContent = document.getElementById("modalContent");
+  const searchInput = document.getElementById("searchInput");
+  const backButton = document.getElementById("backButton");
 
-  const docViewer = document.getElementById("documentViewer");
-  const docFrame = document.getElementById("docFrame");
-  const docBackButton = document.getElementById("docBackButton");
-  const docCloseButton = document.getElementById("docCloseButton");
+  const docViewer = document.getElementById("documentViewer");
+  const docFrame = document.getElementById("docFrame");
+  const docBackButton = document.getElementById("docBackButton");
+  const docCloseButton = document.getElementById("docCloseButton");
 
-  let currentStep = "category";
-  let currentData = {};
-  let currentLocation = "";
+  // main view counter elements (bottom-right spans)
+  const viewCounters = {
+    leasehold: document.getElementById("leasehold-views"),
+    freehold: document.getElementById("freehold-views"),
+    rent: document.getElementById("rent-views")
+  };
 
-  // Example Data
-  const data = {
-    leasehold: {
-      locations: {
-        Hertfordshire: [
-          // 'thumb' property removed
-          { title: "Barnet", desc: "Modern flat with balcony and parking space.", doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview" },
-          { title: "Warwick", desc: "A beautiful countryside home with garden.", doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview" }
-        ]
-      }
-    },
-    freehold: {
-      locations: {
-        Hertfordshire: [
-          // 'thumb' property removed
-          { title: "Hertsmere", desc: "Spacious 3-bedroom house near city center.", doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview" }
-        ]
-      }
-    },
-    rent: {
-      locations: {
-        London: [
-          // 'thumb' property removed
-          { title: "Peckham", desc: "2-bedroom flat available for rent.", doc: "" }
-        ]
-      }
-    }
-  };
+  // State variables
+  let currentStep = "category";
+  let currentData = {};
+  let currentLocation = "";
 
-  // Open modal
-  document.querySelectorAll(".open-modal").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const category = btn.getAttribute("data-category");
-      currentData = data[category];
-      modalTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1) + " Locations";
-      renderLocations();
-      modal.classList.remove("hidden");
-    });
-  });
+  // Example property data (kept as you originally provided)
+  const data = {
+    leasehold: {
+      locations: {
+        Hertfordshire: [
+          { title: "Barnet", desc: "Modern flat with balcony and parking space.", doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview" },
+          { title: "Warwick", desc: "A beautiful countryside home with garden.", doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview" }
+        ]
+      }
+    },
+    freehold: {
+      locations: {
+        Hertfordshire: [
+          { title: "Hertsmere", desc: "Spacious 3-bedroom house near city center.", doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview" }
+        ]
+      }
+    },
+    rent: {
+      locations: {
+        London: [
+          { title: "Peckham", desc: "2-bedroom flat available for rent.", doc: "" }
+        ]
+      }
+    }
+  };
 
-  // Close modal
-  document.getElementById("closeModal").addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
+  // Initialize main category counts (safe localStorage usage)
+  Object.keys(viewCounters).forEach(cat => {
+    try {
+      const c = parseInt(localStorage.getItem(`views_${cat}_total`)) || 0;
+      viewCounters[cat].textContent = c;
+    } catch (e) {
+      viewCounters[cat].textContent = 0;
+    }
+  });
 
-  // Back button
-  backButton.addEventListener("click", () => {
-    if (currentStep === "properties") {
-      renderLocations();
-    }
-  });
+  // Open modal when main "View Details" is clicked
+  document.querySelectorAll(".open-modal").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const category = btn.getAttribute("data-category");
+      // increment main category total (key: views_{category}_total)
+      try {
+        const key = `views_${category}_total`;
+        let total = parseInt(localStorage.getItem(key)) || 0;
+        total++;
+        localStorage.setItem(key, total);
+        if (viewCounters[category]) viewCounters[category].textContent = total;
+      } catch (e) {
+        // ignore storage errors
+      }
 
-  // Render locations
-  function renderLocations() {
-    currentStep = "category";
-    backButton.classList.add("hidden");
-    searchInput.classList.add("hidden");
-    modalContent.innerHTML = "";
+      // load current data and show modal
+      currentData = data[category] || { locations: {} };
+      modalTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1) + " Locations";
+      renderLocations();
+      modal.classList.remove("hidden");
+    });
+  });
 
-    if (!currentData.locations || Object.keys(currentData.locations).length === 0) {
-      modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No locations available for this category.</p>`;
-      return;
-    }
+  // Close modal
+  document.getElementById("closeModal").addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
 
-    for (let location in currentData.locations) {
-      const div = document.createElement("div");
-      div.className = "p-4 bg-gray-100 rounded-lg shadow cursor-pointer hover:bg-gray-200";
-      div.textContent = location;
-      div.addEventListener("click", () => renderProperties(location));
-      modalContent.appendChild(div);
-    }
-  }
+  // Back button logic (go back to locations)
+  backButton.addEventListener("click", () => {
+    if (currentStep === "properties") renderLocations();
+  });
 
-  // Render properties
-  function renderProperties(location) {
-    currentStep = "properties";
-    currentLocation = location;
-    backButton.classList.remove("hidden");
-    searchInput.classList.remove("hidden");
-    modalTitle.textContent = `${location} Properties`;
-    modalContent.innerHTML = "";
+  // Render locations (first modal screen)
+  function renderLocations() {
+    currentStep = "category";
+    backButton.classList.add("hidden");
+    searchInput.classList.add("hidden");
+    modalContent.innerHTML = "";
 
-    const properties = currentData.locations[location] || [];
+    if (!currentData.locations || Object.keys(currentData.locations).length === 0) {
+      modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No locations available for this category.</p>`;
+      return;
+    }
 
-    if (properties.length === 0) {
-      modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No properties found for ${location}.</p>`;
-      return;
-    }
+    for (let location in currentData.locations) {
+      const div = document.createElement("div");
+      div.className = "p-4 bg-gray-100 rounded-lg shadow cursor-pointer hover:bg-gray-200";
+      div.textContent = location;
+      div.addEventListener("click", () => renderProperties(location));
+      modalContent.appendChild(div);
+    }
+  }
 
-    displayProperties(properties);
+  // Render properties for a selected location
+  function renderProperties(location) {
+    currentStep = "properties";
+    currentLocation = location;
+    backButton.classList.remove("hidden");
+    searchInput.classList.remove("hidden");
+    modalTitle.textContent = `${location} Properties`;
+    modalContent.innerHTML = "";
 
-    // Search function
-    searchInput.oninput = function () {
-      const keyword = this.value.toLowerCase();
-      const filtered = properties.filter(
-        p => p.title.toLowerCase().includes(keyword) || p.desc.toLowerCase().includes(keyword)
-      );
+    const properties = (currentData.locations && currentData.locations[location]) ? currentData.locations[location] : [];
 
-      if (filtered.length === 0) {
-        modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No matching properties found.</p>`;
-      } else {
-        displayProperties(filtered);
-      }
-    };
-  }
+    if (properties.length === 0) {
+      modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No properties found for ${location}.</p>`;
+      return;
+    }
 
-  // Helper to show property cards
-  function displayProperties(properties) {
-    modalContent.innerHTML = "";
-    properties.forEach(prop => {
-      const card = document.createElement("div");
-      card.className = "p-4 bg-white border rounded-lg shadow cursor-pointer hover:bg-gray-50";
-      card.innerHTML = `
-        <h4 class="font-bold">${prop.title}</h4>
-        <p class="text-sm text-gray-600">${prop.desc}</p>
-      `;
-      card.addEventListener("click", () => openDocument(prop.doc));
-      modalContent.appendChild(card);
-    });
-  }
+    displayProperties(properties);
 
-  // Open document in full screen
-  function openDocument(url) {
-    if (!url) {
-      alert("No document available for this property.");
-      return;
-    }
-    modal.classList.add("hidden");
-    docViewer.classList.remove("hidden");
-    docFrame.src = url;
-  }
+    // Search: filter the in-memory properties array
+    searchInput.oninput = function () {
+      const keyword = this.value.toLowerCase();
+      const filtered = properties.filter(
+        p => p.title.toLowerCase().includes(keyword) || p.desc.toLowerCase().includes(keyword)
+      );
 
-  // Document back button
-  docBackButton.addEventListener("click", () => {
-    docViewer.classList.add("hidden");
-    modal.classList.remove("hidden");
-  });
+      if (filtered.length === 0) {
+        modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No matching properties found.</p>`;
+      } else {
+        displayProperties(filtered);
+      }
+    };
+  }
 
-  // Document close button
-  docCloseButton.addEventListener("click", () => {
-    docViewer.classList.add("hidden");
-  });
+  // Display property cards inside the modal (each with its own eye count)
+  function displayProperties(properties) {
+    modalContent.innerHTML = "";
+    properties.forEach(prop => {
+      const viewsKey = `views_${prop.title}`;
+      let views = parseInt(localStorage.getItem(viewsKey)) || 0;
+
+      const card = document.createElement("div");
+      card.className = "relative p-4 bg-white border rounded-lg shadow cursor-pointer hover:bg-gray-50 transition";
+      card.innerHTML = `
+        <!-- Eye + view count badge for property -->
+        <div class="absolute top-2 right-2 flex items-center bg-gray-200 bg-opacity-70 rounded-full px-2 py-1 text-xs text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <span>${views}</span>
+        </div>
+
+        <h4 class="font-bold mt-2">${prop.title}</h4>
+        <p class="text-sm text-gray-600">${prop.desc}</p>
+      `;
+
+      card.addEventListener("click", () => {
+        // increment property view count and persist
+        views++;
+        try { localStorage.setItem(viewsKey, views); } catch (e) { /* ignore */ }
+        const span = card.querySelector("span");
+        if (span) span.textContent = views;
+
+        // open document viewer (iframe)
+        openDocument(prop.doc);
+      });
+
+      modalContent.appendChild(card);
+    });
+  }
+
+  // Open property document in iframe viewer
+  function openDocument(url) {
+    if (!url) {
+      alert("No document available for this property.");
+      return;
+    }
+    modal.classList.add("hidden");
+    docViewer.classList.remove("hidden");
+    docFrame.src = url;
+  }
+
+  // Document viewer controls
+  docBackButton.addEventListener("click", () => {
+    docViewer.classList.add("hidden");
+    modal.classList.remove("hidden");
+  });
+
+  docCloseButton.addEventListener("click", () => {
+    docViewer.classList.add("hidden");
+  });
 </script>
-
+    
     <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
@@ -1376,3 +1455,4 @@
   </script>
 </body>
 </html>
+
