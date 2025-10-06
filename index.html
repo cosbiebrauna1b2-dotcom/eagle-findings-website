@@ -1768,6 +1768,26 @@ function displayProperties(properties) {
       });
     })();
   </script>
+
+  <script>
+  // Ensure smooth scroll to Property Listings works immediately after page load
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('a[href="#listings"]');
+    const listings = document.getElementById("listings");
+
+    if (!listings) return;
+
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        listings.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Close mobile menu if it's open
+        if (typeof closeMobileMenu === "function") closeMobileMenu();
+      });
+    });
+  });
+</script>
 </body>
 </html>
+
 
