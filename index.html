@@ -10,14 +10,14 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <meta property="og:title" content="Eagle Findings Limited - Property Investment Specialists">
+  <meta property="og:title" content="Eagle Findings Limited - Property Sourcing & Investment">
   <meta property="og:description" content="Expert property sourcing and investment services across Southeast UK">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://eaglefindings.uk">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Eagle Findings Limited - Property Investment Specialists">
+  <meta name="twitter:title" content="Eagle Findings Limited - Property Sourcing & Investment">
   <meta name="twitter:description" content="Premium property sourcing and investment services across Southeast UK & Midlands.">
 
   <!-- Structured Data -->
@@ -146,11 +146,11 @@
   <header class="bg-eagle-gold text-eagle-navy p-4 flex justify-between items-center shadow-xl fixed w-full z-40 top-0">
     <div class="flex items-center">
       <div class="h-12 w-12 mr-3 flex-shrink-0">
-        <img src="logo.jpg" alt="Eagle Findings Limited Logo" class="w-full h-full object-cover rounded-full">
+        <img src="logo.jpg" alt="Eagle Findings Logo" class="w-full h-full object-cover rounded-full">
       </div>
       <div class="flex flex-col">
-        <span class="text-lg font-bold leading-tight">Eagle Findings Limited</span>
-        <span class="text-xs opacity-80 leading-tight">Property Investment Specialists</span>
+        <span class="text-lg font-bold leading-tight">Eagle Findings</span>
+        <span class="text-xs opacity-80 leading-tight">Property Sourcing & Investment</span>
       </div>
     </div>
     
@@ -185,11 +185,11 @@
       <div class="absolute inset-0 bg-gradient-to-r from-eagle-navy/80 to-[#00005C]/60"></div>
       <div class="relative z-10 text-center pt-20 pb-40 px-6 w-full">
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-eagle-gold text-shadow-strong animate-fade-in-up">
-          EAGLE FINDINGS LIMITED
+          EAGLE FINDINGS
         </h1>
 
   <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s"> 
-    Eagle Findings Limited connects serious investors with premium property opportunities across Southeast UK & Midlands. 
+    Eagle Findings connects serious investors with premium property opportunities across Southeast UK & Midlands. 
     Our expert sourcing services and 4+ years of market expertise deliver results that matter.
   </p>
   <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
@@ -458,13 +458,34 @@
     </section>
 
 
-<section id="listings" class="py-16 px-6 bg-white"> 
+<section id="listings" class="py-16 px-6 bg-white relative"> 
   <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
   <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
     Explore our latest property opportunities.
   </p>
 
-  <div class="flex flex-row overflow-x-auto space-x-8 pb-4 max-w-6xl mx-auto">
+ <!-- Swipe arrows (mobile hint). Hidden by default; JS will show on mobile when section enters view -->
+  <div id="swipeArrows" class="absolute inset-y-0 w-full pointer-events-none hidden z-30">
+    <button id="swipeLeft" aria-label="Scroll left"
+            class="swipe-arrow absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 opacity-60 text-3xl rounded-full p-1"
+            style="pointer-events:auto; background: rgba(255,255,255,0.65);">
+      &#10094;
+    </button>
+    <button id="swipeRight" aria-label="Scroll right"
+            class="swipe-arrow absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 opacity-60 text-3xl rounded-full p-1"
+            style="pointer-events:auto; background: rgba(255,255,255,0.65);">
+      &#10095;
+    </button>
+  </div>
+
+  <!-- Center "swipe to explore" text -->
+  <div id="swipeHint" class="absolute inset-0 flex items-center justify-center pointer-events-none z-20 hidden md:hidden">
+    <span class="text-white text-base font-semibold opacity-90 animate-flicker drop-shadow-lg">
+      ← Swipe to explore →
+    </span>
+  </div>
+
+  <div id="listScroller" class="flex flex-row overflow-x-auto space-x-8 pb-4 max-w-6xl mx-auto scroll-smooth">
     <!-- Leasehold -->
     <div class="relative bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
       <div class="h-48 relative carousel">
@@ -562,6 +583,119 @@
   <iframe id="docFrame" src="" class="flex-1 w-full"></iframe>
 </div>
 
+<style>
+  /* Simple bounce animation for arrows */
+  @keyframes bounceLeft {
+    0%, 100% { transform: translate(-6px, -50%); opacity: 0.6; }
+    50% { transform: translate(0px, -50%); opacity: 1; }
+  }
+
+  @keyframes bounceRight {
+    0%, 100% { transform: translate(6px, -50%); opacity: 0.6; }
+    50% { transform: translate(0px, -50%); opacity: 1; }
+  }
+
+  .animate-bounce-left {
+    animation: bounceLeft 1.5s infinite ease-in-out;
+  }
+
+  .animate-bounce-right {
+    animation: bounceRight 1.5s infinite ease-in-out;
+  }
+
+  /* make arrows subtle on small screens */
+  #swipeArrows .swipe-arrow {
+    font-weight: 600;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+  }
+
+  /* ensure arrows don't show on larger screens (JS also checks window width) */
+  @media (min-width: 768px) {
+    #swipeArrows { display: none !important; }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  .animate-flicker {
+    animation: flicker 1.5s infinite ease-in-out;
+  }
+
+  .desc-short {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* show 3 lines only */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .read-more-btn {
+    color: #1e40af; /* blue tone */
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+.desc-short {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+}
+
+.desc-expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.read-more-btn {
+  color: #2563eb;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 4px;
+  transition: color 0.3s;
+}
+
+.read-more-btn:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Make modal content scrollable on small screens */
+#propertyModal .bg-white {
+  max-height: 90vh; /* 90% of viewport height */
+  overflow-y: auto;
+}
+
+/* Ensure close button stays visible at the top */
+#closeModal {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 50;
+  padding: 4px 8px;
+}
+
+/* For better spacing on mobile */
+@media (max-width: 640px) {
+  #propertyModal .bg-white {
+    width: 95%;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+  }
+}
+
+</style>
+
 <script>
   // -----------------
   // IMAGE CAROUSEL (keeps original fade/change logic)
@@ -569,6 +703,18 @@
   document.querySelectorAll(".carousel").forEach(carousel => {
     const images = carousel.querySelectorAll("img");
     let index = 0;
+    // if there's only one image, don't run interval
+    if (images.length <= 1) {
+      images.forEach((img, i) => {
+        if (i === 0) img.classList.add('active');
+        else img.classList.add('hidden');
+      });
+      return;
+    }
+    images.forEach((img, i) => {
+      if (i === 0) img.classList.add('active');
+      else img.classList.add('hidden');
+    });
     setInterval(() => {
       // hide current
       images[index].classList.add("hidden");
@@ -612,15 +758,15 @@
     leasehold: {
       locations: {
         Hertfordshire: [
-          { title: "Barnet", desc: "Modern flat with balcony and parking space.", doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview" },
-          { title: "Warwick", desc: "A beautiful countryside home with garden.", doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview" }
+          { title: "Barnet", desc: "This below market value investment property in a sought-after Barnet location, presents an excellent opportunity for potential growth. Priced at £310,000, significantly below the area's average sale price of £370,400, this two-bedroom flat is ideal for both first-time buyers and buy-to-let investors. With modern amenities, communal gardens, and off-street parking, it offers convenience and potential for conversion into a three-bedroom property.", doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview" },
+          { title: "Warwick", desc: "Situated in Barnet, this two-bedroom apartment offers the opportunity for conversion into a three-bedrooms property. Priced below market value at £380,000, it presents a prime investment opportunity. With an attractive average monthly rent of £1,833 and the current average sale price in the area at £454,333, this property promises strong returns. The flat features a bright living and dining area, a garage, and a convenient location near transport links and amenities.", doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview" }
         ]
       }
     },
     freehold: {
       locations: {
         Hertfordshire: [
-          { title: "Hertsmere", desc: "Spacious 3-bedroom house near city center.", doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview" }
+          { title: "Hertsmere", desc: "This below market value property in Baker Street, Potters Bar, is listed for £710,000 with an average monthly rent potential of £2,600 in the area. The property benefits from STPP for extensions and offers excellent growth potential. Chain-free, close to schools, and with a spacious garden, it presents an enticing opportunity for customization and investment.", doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview" }
         ]
       }
     },
@@ -637,15 +783,15 @@
   Object.keys(viewCounters).forEach(cat => {
     try {
       const c = parseInt(localStorage.getItem(`views_${cat}_total`)) || 0;
-      viewCounters[cat].textContent = c;
+      if (viewCounters[cat]) viewCounters[cat].textContent = c;
     } catch (e) {
-      viewCounters[cat].textContent = 0;
+      if (viewCounters[cat]) viewCounters[cat].textContent = 0;
     }
   });
 
   // Open modal when main "View Details" is clicked
   document.querySelectorAll(".open-modal").forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
       const category = btn.getAttribute("data-category");
       // increment main category total (key: views_{category}_total)
       try {
@@ -654,7 +800,7 @@
         total++;
         localStorage.setItem(key, total);
         if (viewCounters[category]) viewCounters[category].textContent = total;
-      } catch (e) {
+      } catch (err) {
         // ignore storage errors
       }
 
@@ -730,43 +876,64 @@
     };
   }
 
-  // Display property cards inside the modal (each with its own eye count)
-  function displayProperties(properties) {
-    modalContent.innerHTML = "";
-    properties.forEach(prop => {
-      const viewsKey = `views_${prop.title}`;
-      let views = parseInt(localStorage.getItem(viewsKey)) || 0;
+ // Display property cards inside the modal (each with its own eye count)
+function displayProperties(properties) {
+  modalContent.innerHTML = "";
+  properties.forEach(prop => {
+    // make a safe key for localStorage
+    const safeTitleKey = prop.title.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '').toLowerCase();
+    const viewsKey = `views_${safeTitleKey}`;
+    let views = parseInt(localStorage.getItem(viewsKey)) || 0;
 
-      const card = document.createElement("div");
-      card.className = "relative p-4 bg-white border rounded-lg shadow cursor-pointer hover:bg-gray-50 transition";
-      card.innerHTML = `
-        <!-- Eye + view count badge for property -->
-        <div class="absolute top-2 right-2 flex items-center bg-gray-200 bg-opacity-70 rounded-full px-2 py-1 text-xs text-gray-700">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-          <span>${views}</span>
-        </div>
+    const card = document.createElement("div");
+    card.className = "relative p-4 bg-white border rounded-lg shadow cursor-pointer hover:bg-gray-50 transition";
+    card.innerHTML = `
+      <!-- Eye + view count badge for property -->
+      <div class="absolute top-2 right-2 flex items-center bg-gray-200 bg-opacity-70 rounded-full px-2 py-1 text-xs text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        <span>${views}</span>
+      </div>
 
-        <h4 class="font-bold mt-2">${prop.title}</h4>
-        <p class="text-sm text-gray-600">${prop.desc}</p>
-      `;
+      <h4 class="font-bold mt-2">${prop.title}</h4>
+      <p class="text-sm text-gray-600 desc-short" id="desc-${safeTitleKey}">
+        ${prop.desc}
+      </p>
+      <span class="read-more-btn" data-target="desc-${safeTitleKey}">Read more</span>
+    `;
 
-      card.addEventListener("click", () => {
-        // increment property view count and persist
-        views++;
-        try { localStorage.setItem(viewsKey, views); } catch (e) { /* ignore */ }
-        const span = card.querySelector("span");
-        if (span) span.textContent = views;
-
-        // open document viewer (iframe)
-        openDocument(prop.doc);
-      });
-
-      modalContent.appendChild(card);
+    // Increment views when card is clicked
+    card.addEventListener("click", () => {
+      views++;
+      try { localStorage.setItem(viewsKey, views); } catch (e) { /* ignore */ }
+      const span = card.querySelector("span");
+      if (span) span.textContent = views;
+      openDocument(prop.doc);
     });
-  }
+
+    // Handle "Read more / less" toggle (prevents opening doc)
+    const readMoreBtn = card.querySelector(".read-more-btn");
+    if (readMoreBtn) {
+      readMoreBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // prevent triggering document viewer
+        const targetId = readMoreBtn.getAttribute("data-target");
+        const descEl = document.getElementById(targetId);
+        if (!descEl) return;
+
+        descEl.classList.toggle("desc-short");
+        descEl.classList.toggle("desc-expanded");
+
+        readMoreBtn.textContent = descEl.classList.contains("desc-expanded")
+          ? "Read less"
+          : "Read more";
+      });
+    }
+
+    modalContent.appendChild(card);
+  });
+}
 
   // Open property document in iframe viewer
   function openDocument(url) {
@@ -789,13 +956,157 @@
     docViewer.classList.add("hidden");
   });
 </script>
-    
+
+<script>
+  // -----------------
+  // SWIPE ARROWS: show when listings section enters view (mobile only) + clickable arrows
+  // -----------------
+  (function () {
+    const swipeArrows = document.getElementById("swipeArrows");
+    const swipeLeft = document.getElementById("swipeLeft");
+    const swipeRight = document.getElementById("swipeRight");
+    const listingsSection = document.getElementById("listings");
+    const scroller = document.getElementById("listScroller");
+
+    if (!swipeArrows || !listingsSection || !scroller) return;
+
+    // add bounce classes to arrows so they animate while visible
+    swipeLeft.classList.add('animate-bounce-left');
+    swipeRight.classList.add('animate-bounce-right');
+
+    let fadeTimer = null;
+    let removeTimer = null;
+
+    function showArrows() {
+      // only on small screens
+      if (window.innerWidth >= 768) return;
+
+      // clear any pending hide timers
+      if (fadeTimer) { clearTimeout(fadeTimer); fadeTimer = null; }
+      if (removeTimer) { clearTimeout(removeTimer); removeTimer = null; }
+
+      swipeArrows.classList.remove("hidden");
+      swipeArrows.style.opacity = "1";
+      swipeArrows.style.transition = "";
+
+      // schedule fade out after 4s
+      fadeTimer = setTimeout(() => {
+        swipeArrows.style.transition = "opacity 1s ease";
+        swipeArrows.style.opacity = "0";
+        removeTimer = setTimeout(() => {
+          swipeArrows.classList.add("hidden");
+          swipeArrows.style.opacity = "";
+        }, 1000);
+      }, 4000);
+    }
+
+    // Intersection observer to detect when listings enters view
+    const arrowObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && window.innerWidth < 768) {
+          showArrows();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    arrowObserver.observe(listingsSection);
+
+    // optional: if user resizes to desktop, ensure arrows hide
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        swipeArrows.classList.add('hidden');
+        swipeArrows.style.opacity = '';
+        if (fadeTimer) { clearTimeout(fadeTimer); fadeTimer = null; }
+        if (removeTimer) { clearTimeout(removeTimer); removeTimer = null; }
+      }
+    });
+
+    // Click handlers to gently scroll the scroller left/right
+    const scrollAmount = () => Math.max(200, Math.round(scroller.clientWidth * 0.6));
+    swipeLeft.addEventListener('click', (e) => {
+      e.stopPropagation();
+      scroller.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+      // show arrows again briefly when user interacts
+      showArrows();
+    });
+    swipeRight.addEventListener('click', (e) => {
+      e.stopPropagation();
+      scroller.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+      showArrows();
+    });
+
+    // Also show arrows if user focuses or touches the scroller (helpful for accessibility)
+    scroller.addEventListener('touchstart', () => showArrows());
+    scroller.addEventListener('focusin', () => showArrows());
+  })();
+</script>
+
+<script>
+  // -----------------
+  // SWIPE TO EXPLORE CENTER TEXT
+  // -----------------
+  (function () {
+    const swipeHint = document.getElementById("swipeHint");
+    const listingsSection = document.getElementById("listings");
+    const scroller = document.getElementById("listScroller");
+
+    if (!swipeHint || !scroller) return;
+
+    let fadeTimer = null;
+    let reappearTimer = null;
+
+    function showHint() {
+      if (window.innerWidth >= 768) return;
+      clearTimeout(fadeTimer);
+      clearTimeout(reappearTimer);
+      swipeHint.classList.remove("hidden");
+      swipeHint.classList.add("flex");
+      swipeHint.style.transition = "";
+      swipeHint.style.opacity = "1";
+    }
+
+    function hideHint() {
+      swipeHint.style.transition = "opacity 0.8s ease";
+      swipeHint.style.opacity = "0";
+      fadeTimer = setTimeout(() => swipeHint.classList.add("hidden"), 800);
+    }
+
+    // When listings come into view, show it
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && window.innerWidth < 768) showHint();
+      });
+    }, { threshold: 0.3 });
+    observer.observe(listingsSection);
+
+    // Detect user scroll/touch to hide hint
+    let isTouching = false;
+    scroller.addEventListener("touchstart", () => {
+      isTouching = true;
+      hideHint();
+      clearTimeout(reappearTimer);
+    });
+    scroller.addEventListener("touchend", () => {
+      isTouching = false;
+      clearTimeout(reappearTimer);
+      reappearTimer = setTimeout(() => {
+        if (!isTouching) showHint();
+      }, 4000);
+    });
+    scroller.addEventListener("scroll", () => {
+      hideHint();
+      clearTimeout(reappearTimer);
+      reappearTimer = setTimeout(() => showHint(), 4000);
+    });
+  })();
+</script>
+
     <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Client Success Stories</h2>
           <p class="text-lg text-slate-700 max-w-3xl mx-auto">
-            Real results from real investors who chose Eagle Findings Limited
+            Real results from real investors who chose Eagle Findings
           </p>
         </div>
         
@@ -882,7 +1193,7 @@
     Ready to Start Your Investment Journey?
   </h2>
   <p class="text-slate-700 mb-12 max-w-2xl mx-auto">
-    Contact Eagle Findings Limited today to discover your next property investment opportunity
+    Contact Eagle Findings today to discover your next property investment opportunity
   </p>
 
   <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -917,9 +1228,9 @@
     <footer class="bg-eagle-gold text-eagle-navy text-center py-8">
       <div class="flex flex-col items-center max-w-4xl mx-auto px-6">
         <div class="h-16 w-16 mb-4">
-          <img src="logo.jpg" alt="Eagle Findings Limited Logo" class="w-full h-full object-cover rounded-full">
+          <img src="logo.jpg" alt="Eagle Findings Logo" class="w-full h-full object-cover rounded-full">
         </div>
-        <span class="font-bold text-xl mb-2">Eagle Findings Limited</span>
+        <span class="font-bold text-xl mb-2">Eagle Findings</span>
         <p class="text-sm opacity-80 mb-1 max-w-2xl">
           © 2024 Eagle Findings Limited. All rights reserved.<br>
           Professional Property Sourcing & Investment Services - Southeast UK & Midlands<br>
@@ -1377,6 +1688,7 @@
 
       // ✅ Log form data before submitting to Zapier
       console.log("Form data:", Object.fromEntries(new FormData(leadForm)));
+
     });
 
     // Callback after submit
@@ -1416,7 +1728,7 @@
         privacy: `
           <h2 class="text-xl font-bold mb-4 text-eagle-navy">Privacy Policy</h2>
           <p><strong>Effective Date:</strong> September 2025</p>
-          <p>Eagle Findings Limited values your privacy and is committed to protecting your personal information.</p>
+          <p>Eagle Findings values your privacy and is committed to protecting your personal information.</p>
           <h3 class="font-bold mt-4">1. Information We Collect</h3>
           <p>Personal details (name, email, phone) and usage data via cookies.</p>
           <h3 class="font-bold mt-4">2. How We Use Your Data</h3>
@@ -1427,7 +1739,7 @@
         terms: `
           <h2 class="text-xl font-bold mb-4 text-eagle-navy">Terms & Conditions</h2>
           <p><strong>Effective Date:</strong> September 2025</p>
-          <p>These Terms govern your use of Eagle Findings Limited’s website and services.</p>
+          <p>These Terms govern your use of Eagle Findings’ website and services.</p>
           <h3 class="font-bold mt-4">1. Services</h3>
           <p>We provide property sourcing and advisory services. No guarantees on investment outcomes.</p>
           <h3 class="font-bold mt-4">2. User Responsibilities</h3>
@@ -1458,5 +1770,4 @@
   </script>
 </body>
 </html>
-
 
