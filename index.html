@@ -457,648 +457,409 @@
       </div>
     </section>
 
-
-<section id="listings" class="py-16 px-6 bg-white relative"> 
-  <h2 class="text-4xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
-  <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+<section id="listings" class="py-16 px-6 bg-white relative">
+  <h2 class="text-3xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
+  <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
     Explore our latest property opportunities.
   </p>
 
- <!-- Swipe arrows (mobile hint). Hidden by default; JS will show on mobile when section enters view -->
-  <div id="swipeArrows" class="absolute inset-y-0 w-full pointer-events-none hidden z-30">
-    <button id="swipeLeft" aria-label="Scroll left"
-            class="swipe-arrow absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 opacity-60 text-3xl rounded-full p-1"
-            style="pointer-events:auto; background: rgba(255,255,255,0.65);">
-      &#10094;
-    </button>
-    <button id="swipeRight" aria-label="Scroll right"
-            class="swipe-arrow absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 opacity-60 text-3xl rounded-full p-1"
-            style="pointer-events:auto; background: rgba(255,255,255,0.65);">
-      &#10095;
-    </button>
-  </div>
-
-  <!-- Center "swipe to explore" text -->
-  <div id="swipeHint" class="absolute inset-0 flex items-center justify-center pointer-events-none z-20 hidden md:hidden">
-    <span class="text-white text-base font-semibold opacity-90 animate-flicker drop-shadow-lg">
-      ← Swipe to explore →
-    </span>
-  </div>
-
-  <div id="listScroller" class="flex flex-row overflow-x-auto space-x-8 pb-4 max-w-6xl mx-auto scroll-smooth">
+  <!-- PROPERTY CARDS -->
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
     <!-- Leasehold -->
-    <div class="relative bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
-      <div class="h-48 relative carousel">
-        <img src="https://drive.google.com/thumbnail?id=17SXFwC_xqwEqesW5qdiMlSli6NtiJKZO&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1ugVe4lCuf_r6U0tvLtHf69EyNwo6Cvtp&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1YbhW3ikZZGFySwppvKrwsgITvmrINehB&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="font-bold text-lg text-blue-black">Leasehold</h3>
-        <p class="text-sm text-gray-600 mb-4">Exclusive residential properties.</p>
-        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
-                data-category="leasehold">View Details</button>
-      </div>
-      <!-- Bottom-right badge (z-20 so it stays above images) -->
-      <div class="absolute bottom-3 right-3 z-20 flex items-center bg-gray-200 bg-opacity-80 rounded-full px-2 py-1 text-xs text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-        <span id="leasehold-views">0</span>
-      </div>
+    <div
+      class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden p-8 text-center"
+      role="group"
+      aria-label="Leasehold category"
+    >
+      <h3 class="font-bold text-xl text-blue-black mb-3">Leasehold</h3>
+      <a href="#" class="view-more inline-block text-sm underline text-blue-600" data-category="leasehold" aria-controls="propertyModal">View more</a>
     </div>
 
     <!-- Freehold -->
-    <div class="relative bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
-      <div class="h-48 relative carousel">
-        <img src="https://drive.google.com/thumbnail?id=1tioBxl59WY6lYhX1HyeIkLESDlufuwBP&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1Sg4UP9WJaeQa4af0gIA8RKok4ak7GVY-&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-        <img src="https://drive.google.com/thumbnail?id=1-Liv9NpqMUzHMsLYMING_-Ls0LxHUm_e&sz=w400" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="font-bold text-lg text-blue-black">Freehold</h3>
-        <p class="text-sm text-gray-600 mb-4">Comfortable city flats.</p>
-        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
-                data-category="freehold">View Details</button>
-      </div>
-      <div class="absolute bottom-3 right-3 z-20 flex items-center bg-gray-200 bg-opacity-80 rounded-full px-2 py-1 text-xs text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-        <span id="freehold-views">0</span>
-      </div>
+    <div
+      class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden p-8 text-center"
+      role="group"
+      aria-label="Freehold category"
+    >
+      <h3 class="font-bold text-xl text-blue-black mb-3">Freehold</h3>
+      <a href="#" class="view-more inline-block text-sm underline text-blue-600" data-category="freehold" aria-controls="propertyModal">View more</a>
     </div>
 
-    <!-- Rent -->
-    <div class="relative bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden flex-none w-80">
-      <div class="h-48 relative carousel">
-        <img src="https://via.placeholder.com/400x200?text=Rent+1" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl active transition-opacity duration-[5000ms]" />
-        <img src="https://via.placeholder.com/400x200?text=Rent+2" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-        <img src="https://via.placeholder.com/400x200?text=Rent+3" class="absolute inset-0 w-full h-full object-cover rounded-t-2xl hidden transition-opacity duration-[5000ms]" />
-      </div>
-      <div class="p-6 text-center">
-        <h3 class="font-bold text-lg text-blue-black">Rent</h3>
-        <p class="text-sm text-gray-600 mb-4">Prime locations for development.</p>
-        <button class="bg-gold text-blue-black px-4 py-2 rounded font-semibold inline-block open-modal"
-                data-category="rent">View Details</button>
-      </div>
-      <div class="absolute bottom-3 right-3 z-20 flex items-center bg-gray-200 bg-opacity-80 rounded-full px-2 py-1 text-xs text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-        <span id="rent-views">0</span>
-      </div>
+    <!-- Lettings -->
+    <div
+      class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden p-8 text-center"
+      role="group"
+      aria-label="Lettings category"
+    >
+      <h3 class="font-bold text-xl text-blue-black mb-3">Lettings</h3>
+      <a href="#" class="view-more inline-block text-sm underline text-blue-600" data-category="rent" aria-controls="propertyModal">View more</a>
     </div>
   </div>
 </section>
 
-<!-- ======================
-  PROPERTY MODAL
-======================= -->
-<div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50">
-  <div class="bg-white rounded-2xl shadow-lg max-w-5xl w-full relative p-6">
-    <button id="closeModal" class="absolute top-2 right-2 text-gray-600 text-xl font-bold">&times;</button>
+<!-- PROPERTY MODAL -->
+<div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="bg-white rounded-2xl shadow-lg max-w-6xl w-full relative p-6">
+    <button id="closeModal" class="absolute top-3 right-3 text-gray-600 text-2xl font-bold focus-outline" aria-label="Close modal">&times;</button>
     <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
 
-    <button id="backButton" class="hidden mb-4 px-3 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">&larr; Back</button>
+    <button id="backButton" class="hidden mb-4 px-3 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus-outline" aria-hidden="true">&larr; Back</button>
 
-    <input type="text" id="searchInput" placeholder="Search properties..."
-           class="w-full border px-3 py-2 rounded mb-4 hidden">
+    <input type="text" id="searchInput" placeholder="Search properties..." class="w-full border px-3 py-2 rounded mb-4" aria-label="Search properties" />
 
-    <div id="modalContent" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    <div id="modalContent" class="flex flex-wrap gap-6 overflow-y-auto max-h-[70vh] pr-2" aria-live="polite"></div>
   </div>
 </div>
 
-<!-- ======================
-  DOCUMENT VIEWER
-======================= -->
-<div id="documentViewer" class="fixed inset-0 bg-white hidden flex flex-col z-50">
+<!-- DOCUMENT VIEWER -->
+<div id="documentViewer" class="fixed inset-0 bg-white hidden flex flex-col z-50" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="flex justify-between items-center p-4 bg-gray-200 shadow">
-    <button id="docBackButton" class="px-3 py-2 bg-gray-300 rounded hover:bg-gray-400">&larr; Back</button>
-    <button id="docCloseButton" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600">&times; Close</button>
+    <button id="docBackButton" class="px-3 py-2 bg-gray-300 rounded hover:bg-gray-400 focus-outline" aria-label="Back to listings">&larr; Back</button>
+    <button id="docCloseButton" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus-outline" aria-label="Close document">&times; Close</button>
   </div>
-  <iframe id="docFrame" src="" class="flex-1 w-full"></iframe>
+  <iframe id="docFrame" src="" class="flex-1 w-full" title="Property document viewer"></iframe>
 </div>
 
 <style>
-  /* Simple bounce animation for arrows */
-  @keyframes bounceLeft {
-    0%, 100% { transform: translate(-6px, -50%); opacity: 0.6; }
-    50% { transform: translate(0px, -50%); opacity: 1; }
-  }
-
-  @keyframes bounceRight {
-    0%, 100% { transform: translate(6px, -50%); opacity: 0.6; }
-    50% { transform: translate(0px, -50%); opacity: 1; }
-  }
-
-  .animate-bounce-left {
-    animation: bounceLeft 1.5s infinite ease-in-out;
-  }
-
-  .animate-bounce-right {
-    animation: bounceRight 1.5s infinite ease-in-out;
-  }
-
-  /* make arrows subtle on small screens */
-  #swipeArrows .swipe-arrow {
-    font-weight: 600;
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
-  }
-
-  /* ensure arrows don't show on larger screens (JS also checks window width) */
-  @media (min-width: 768px) {
-    #swipeArrows { display: none !important; }
-  }
-
+  /* small flicker animation for the swipe text */
   @keyframes flicker {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
   }
-  .animate-flicker {
-    animation: flicker 1.5s infinite ease-in-out;
-  }
+  .animate-flicker { animation: flicker 1.6s infinite ease-in-out; }
 
-  .desc-short {
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* show 3 lines only */
-    -webkit-box-orient: vertical;
+  /* Listing card sizes: approx 2/3 on desktop */
+  .listing-card {
+    width: 26.666rem;
+    border-radius: 0.75rem;
     overflow: hidden;
-    text-overflow: ellipsis;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: relative;
+  }
+  .listing-image {
+    width: 100%;
+    height: 19rem;
+    object-fit: cover;
+  }
+  .listing-body {
+    padding: 0.9rem 1rem;
+  }
+  .meta-line { margin-bottom: 0.45rem; line-height: 1.25; }
+  .meta-location { font-weight: 700; }
+  .meta-price { font-weight: 700; }
+  .view-details { margin-top: 0.5rem; display: inline-block; text-decoration: underline; color: #2563eb; cursor: pointer; }
+
+  /* fade animation for inline arrows */
+  .arrow-fade-in { animation: arrowFadeIn 0.9s forwards; }
+  .arrow-fade-out { animation: arrowFadeOut 0.9s forwards; }
+  @keyframes arrowFadeIn {
+    0% { opacity: 0; transform: translateX(-4px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes arrowFadeOut {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(4px); }
   }
 
-  .read-more-btn {
-    color: #1e40af; /* blue tone */
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: underline;
-    display: inline-block;
-    margin-top: 4px;
+  /* responsive: shrink cards for medium screens */
+  @media (max-width: 1100px) {
+    .listing-card { width: 100%; }
   }
 
-.desc-short {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* limit to 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: all 0.3s ease;
-}
-
-.desc-expanded {
-  display: block;
-  -webkit-line-clamp: unset;
-  overflow: visible;
-}
-
-.read-more-btn {
-  color: #2563eb;
-  font-size: 0.85rem;
-  cursor: pointer;
-  display: inline-block;
-  margin-top: 4px;
-  transition: color 0.3s;
-}
-
-.read-more-btn:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
-}
-
-/* Make modal content scrollable on small screens */
-#propertyModal .bg-white {
-  max-height: 90vh; /* 90% of viewport height */
-  overflow-y: auto;
-}
-
-/* Ensure close button stays visible at the top */
-#closeModal {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 50;
-  padding: 4px 8px;
-}
-
-/* For better spacing on mobile */
-@media (max-width: 640px) {
-  #propertyModal .bg-white {
-    width: 95%;
-    height: auto;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding-bottom: 2rem;
+  /* ✅ new: reduce card size by half for phones */
+  @media (max-width: 640px) {
+    .listing-card {
+      width: 13.333rem; /* half of original width */
+      font-size: 0.85rem;
+    }
+    .listing-image {
+      height: 9.5rem; /* half of original height */
+    }
+    .listing-body {
+      padding: 0.6rem 0.7rem;
+    }
+    .meta-line { margin-bottom: 0.35rem; }
+    .view-details { font-size: 0.8rem; }
   }
-}
-
 </style>
 
 <script>
-  // -----------------
-  // IMAGE CAROUSEL (keeps original fade/change logic)
-  // -----------------
-  document.querySelectorAll(".carousel").forEach(carousel => {
-    const images = carousel.querySelectorAll("img");
-    let index = 0;
-    // if there's only one image, don't run interval
-    if (images.length <= 1) {
-      images.forEach((img, i) => {
-        if (i === 0) img.classList.add('active');
-        else img.classList.add('hidden');
-      });
-      return;
-    }
-    images.forEach((img, i) => {
-      if (i === 0) img.classList.add('active');
-      else img.classList.add('hidden');
-    });
-    setInterval(() => {
-      // hide current
-      images[index].classList.add("hidden");
-      images[index].classList.remove("active");
-      // next index
-      index = (index + 1) % images.length;
-      // show next
-      images[index].classList.remove("hidden");
-      images[index].classList.add("active");
-    }, 5000);
-  });
 
-  // -----------------
-  // PROPERTY MODAL LOGIC
-  // -----------------
-  const modal = document.getElementById("propertyModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalContent = document.getElementById("modalContent");
-  const searchInput = document.getElementById("searchInput");
-  const backButton = document.getElementById("backButton");
-
-  const docViewer = document.getElementById("documentViewer");
-  const docFrame = document.getElementById("docFrame");
-  const docBackButton = document.getElementById("docBackButton");
-  const docCloseButton = document.getElementById("docCloseButton");
-
-  // main view counter elements (bottom-right spans)
-  const viewCounters = {
-    leasehold: document.getElementById("leasehold-views"),
-    freehold: document.getElementById("freehold-views"),
-    rent: document.getElementById("rent-views")
-  };
-
-  // State variables
-  let currentStep = "category";
-  let currentData = {};
-  let currentLocation = "";
-
-  // Example property data (kept as you originally provided)
-  const data = {
-    leasehold: {
-      locations: {
-        Hertfordshire: [
-          { title: "Barnet", desc: "This below market value investment property in a sought-after Barnet location, presents an excellent opportunity for potential growth. Priced at £310,000, significantly below the area's average sale price of £370,400, this two-bedroom flat is ideal for both first-time buyers and buy-to-let investors. With modern amenities, communal gardens, and off-street parking, it offers convenience and potential for conversion into a three-bedroom property.", doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview" },
-          { title: "Warwick", desc: "Situated in Barnet, this two-bedroom apartment offers the opportunity for conversion into a three-bedrooms property. Priced below market value at £380,000, it presents a prime investment opportunity. With an attractive average monthly rent of £1,833 and the current average sale price in the area at £454,333, this property promises strong returns. The flat features a bright living and dining area, a garage, and a convenient location near transport links and amenities.", doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview" }
-        ]
-      }
+const data_flat = {
+  leasehold: [
+    {
+      title: "Bells Hill, Barnet, EN5",
+      location: "Bells Hill, Barnet, EN5",
+      desc: "2 Bedroom FLat",
+      marketPrice: "—",
+      price: "£310,000",
+      img: "https://drive.google.com/thumbnail?id=1ugVe4lCuf_r6U0tvLtHf69EyNwo6Cvtp&sz=w1200",
+      doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview"
     },
-    freehold: {
-      locations: {
-        Hertfordshire: [
-          { title: "Hertsmere", desc: "This below market value property in Baker Street, Potters Bar, is listed for £710,000 with an average monthly rent potential of £2,600 in the area. The property benefits from STPP for extensions and offers excellent growth potential. Chain-free, close to schools, and with a spacious garden, it presents an enticing opportunity for customization and investment.", doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview" }
-        ]
-      }
-    },
-    rent: {
-      locations: {
-        London: [
-          { title: "Peckham", desc: "2-bedroom flat available for rent.", doc: "" }
-        ]
-      }
+    {
+      title: "Warwick Road, EN5",
+      location: "Warwick Road, EN5",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£380,000",
+      img: "https://drive.google.com/thumbnail?id=1YbhW3ikZZGFySwppvKrwsgITvmrINehB&sz=w1200",
+      doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview"
     }
-  };
+  ],
+  freehold: [
+    {
+      title: "Baker Street, Potters Bar, Hertsmere, Hertfordshire, EN6",
+      location: "Baker Street, Potters Bar, Hertsmere, Hertfordshire, EN6",
+      desc: "3 Bedroom House",
+      marketPrice: "—",
+      price: "£710,000",
+      img: "https://drive.google.com/thumbnail?id=1tioBxl59WY6lYhX1HyeIkLESDlufuwBP&sz=w1200",
+      doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview"
+    }
+  ],
+  rent: [
+    {
+      title: "Peckham",
+      location: "Peckham, London",
+      desc: "2-bedroom flat available for rent. Prime location close to transport and amenities.",
+      marketPrice: "—",
+      price: "Contact for price",
+      img: "https://via.placeholder.com/1200x700?text=Peckham+2-bed",
+      doc: ""
+    }
+  ]
+};
 
-  // Initialize main category counts (safe localStorage usage)
-  Object.keys(viewCounters).forEach(cat => {
-    try {
-      const c = parseInt(localStorage.getItem(`views_${cat}_total`)) || 0;
-      if (viewCounters[cat]) viewCounters[cat].textContent = c;
-    } catch (e) {
-      if (viewCounters[cat]) viewCounters[cat].textContent = 0;
-    }
+/* DOM refs */
+const modal = document.getElementById("propertyModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalContent = document.getElementById("modalContent");
+const closeModalBtn = document.getElementById("closeModal");
+const backButton = document.getElementById("backButton");
+const searchInput = document.getElementById("searchInput");
+
+const docViewer = document.getElementById("documentViewer");
+const docFrame = document.getElementById("docFrame");
+const docBackButton = document.getElementById("docBackButton");
+const docCloseButton = document.getElementById("docCloseButton");
+
+const swipeArrowsInline = document.getElementById("swipeArrowsInline");
+const swipeHintContainer = document.getElementById("swipeHintContainer");
+const listScroller = document.getElementById("listScroller");
+
+/* Prevent View more from scrolling to top and open modal */
+document.querySelectorAll(".view-more").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault(); // prevent default anchor behavior (no scrolling)
+    const category = btn.getAttribute("data-category");
+    // open listings modal
+    renderListings(category);
+    showModal();
+    // clear search
+    searchInput.value = "";
   });
+});
 
-  // Open modal when main "View Details" is clicked
-  document.querySelectorAll(".open-modal").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      const category = btn.getAttribute("data-category");
-      // increment main category total (key: views_{category}_total)
-      try {
-        const key = `views_${category}_total`;
-        let total = parseInt(localStorage.getItem(key)) || 0;
-        total++;
-        localStorage.setItem(key, total);
-        if (viewCounters[category]) viewCounters[category].textContent = total;
-      } catch (err) {
-        // ignore storage errors
-      }
-
-      // load current data and show modal
-      currentData = data[category] || { locations: {} };
-      modalTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1) + " Locations";
-      renderLocations();
-      modal.classList.remove("hidden");
-    });
-  });
-
-  // Close modal
-  document.getElementById("closeModal").addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  // Back button logic (go back to locations)
-  backButton.addEventListener("click", () => {
-    if (currentStep === "properties") renderLocations();
-  });
-
-  // Render locations (first modal screen)
-  function renderLocations() {
-    currentStep = "category";
-    backButton.classList.add("hidden");
-    searchInput.classList.add("hidden");
-    modalContent.innerHTML = "";
-
-    if (!currentData.locations || Object.keys(currentData.locations).length === 0) {
-      modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No locations available for this category.</p>`;
-      return;
-    }
-
-    for (let location in currentData.locations) {
-      const div = document.createElement("div");
-      div.className = "p-4 bg-gray-100 rounded-lg shadow cursor-pointer hover:bg-gray-200";
-      div.textContent = location;
-      div.addEventListener("click", () => renderProperties(location));
-      modalContent.appendChild(div);
-    }
-  }
-
-  // Render properties for a selected location
-  function renderProperties(location) {
-    currentStep = "properties";
-    currentLocation = location;
-    backButton.classList.remove("hidden");
-    searchInput.classList.remove("hidden");
-    modalTitle.textContent = `${location} Properties`;
-    modalContent.innerHTML = "";
-
-    const properties = (currentData.locations && currentData.locations[location]) ? currentData.locations[location] : [];
-
-    if (properties.length === 0) {
-      modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No properties found for ${location}.</p>`;
-      return;
-    }
-
-    displayProperties(properties);
-
-    // Search: filter the in-memory properties array
-    searchInput.oninput = function () {
-      const keyword = this.value.toLowerCase();
-      const filtered = properties.filter(
-        p => p.title.toLowerCase().includes(keyword) || p.desc.toLowerCase().includes(keyword)
-      );
-
-      if (filtered.length === 0) {
-        modalContent.innerHTML = `<p class="col-span-full text-center text-gray-500">No matching properties found.</p>`;
-      } else {
-        displayProperties(filtered);
-      }
-    };
-  }
-
- // Display property cards inside the modal (each with its own eye count)
-function displayProperties(properties) {
+/* Modal controls */
+closeModalBtn.addEventListener("click", hideModal);
+backButton.addEventListener("click", () => {
+  // Currently listings open directly; back could be used for a categories view later.
+  // We'll hide back button to match current flow.
+  backButton.classList.add("hidden");
+  modalTitle.textContent = "Listings";
   modalContent.innerHTML = "";
-  properties.forEach(prop => {
-    // make a safe key for localStorage
-    const safeTitleKey = prop.title.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '').toLowerCase();
-    const viewsKey = `views_${safeTitleKey}`;
-    let views = parseInt(localStorage.getItem(viewsKey)) || 0;
+});
+/* close modal if clicking outside content (on backdrop) */
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) hideModal();
+});
+function showModal() {
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+}
+function hideModal() {
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+}
 
+/* Search */
+searchInput.addEventListener("input", function () {
+  const q = this.value.trim().toLowerCase();
+  const cat = (modalTitle.textContent || "").split(" ")[0].toLowerCase();
+  if (!cat || !data_flat[cat]) return;
+  const filtered = data_flat[cat].filter(p =>
+    (p.title || '').toLowerCase().includes(q) ||
+    (p.location || '').toLowerCase().includes(q) ||
+    (p.desc || '').toLowerCase().includes(q)
+  );
+  renderListingCards(filtered);
+});
+
+/* Render listings */
+function renderListings(category) {
+  modalTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1) + " Listings";
+  modalContent.innerHTML = "";
+  backButton.classList.add("hidden");
+  const listings = data_flat[category] || [];
+  if (listings.length === 0) {
+    modalContent.innerHTML = `<p class="text-center col-span-full text-gray-500">No listings available for ${category}.</p>`;
+    return;
+  }
+  renderListingCards(listings);
+}
+
+/* Create listing cards */
+function renderListingCards(listings) {
+  modalContent.innerHTML = "";
+  listings.forEach(prop => {
     const card = document.createElement("div");
-    card.className = "relative p-4 bg-white border rounded-lg shadow cursor-pointer hover:bg-gray-50 transition";
-    card.innerHTML = `
-      <!-- Eye + view count badge for property -->
-      <div class="absolute top-2 right-2 flex items-center bg-gray-200 bg-opacity-70 rounded-full px-2 py-1 text-xs text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-        <span>${views}</span>
-      </div>
+    card.className = "listing-card";
 
-      <h4 class="font-bold mt-2">${prop.title}</h4>
-      <p class="text-sm text-gray-600 desc-short" id="desc-${safeTitleKey}">
-        ${prop.desc}
-      </p>
-      <span class="read-more-btn" data-target="desc-${safeTitleKey}">Read more</span>
+    // Build inner HTML: Market Price label (no value), then price-amount only (bold)
+    card.innerHTML = `
+      <img src="${prop.img || 'https://via.placeholder.com/1200x700?text=No+image'}" alt="${prop.title || 'Property'}" class="listing-image" loading="lazy" />
+      <div class="listing-body">
+        <div class="meta-line meta-location">${prop.location || prop.title}</div>
+        <div class="meta-line text-sm text-gray-700">${prop.desc || ''}</div>
+        <div class="meta-line text-sm text-gray-700">Market Price</div>
+        <div class="meta-line meta-price-amount text-sm text-gray-900">${prop.price || '—'}</div>
+        <a class="view-details" data-doc="${prop.doc || ''}">View details</a>
+      </div>
     `;
 
-    // Increment views when card is clicked
-    card.addEventListener("click", () => {
-      views++;
-      try { localStorage.setItem(viewsKey, views); } catch (e) { /* ignore */ }
-      const span = card.querySelector("span");
-      if (span) span.textContent = views;
-      openDocument(prop.doc);
+    // Link & card click open document viewer
+    const link = card.querySelector(".view-details");
+    link.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const doc = link.getAttribute("data-doc");
+      openDocument(doc);
     });
-
-    // Handle "Read more / less" toggle (prevents opening doc)
-    const readMoreBtn = card.querySelector(".read-more-btn");
-    if (readMoreBtn) {
-      readMoreBtn.addEventListener("click", (e) => {
-        e.stopPropagation(); // prevent triggering document viewer
-        const targetId = readMoreBtn.getAttribute("data-target");
-        const descEl = document.getElementById(targetId);
-        if (!descEl) return;
-
-        descEl.classList.toggle("desc-short");
-        descEl.classList.toggle("desc-expanded");
-
-        readMoreBtn.textContent = descEl.classList.contains("desc-expanded")
-          ? "Read less"
-          : "Read more";
-      });
-    }
+    card.addEventListener("click", () => openDocument(prop.doc));
 
     modalContent.appendChild(card);
   });
 }
 
-  // Open property document in iframe viewer
-  function openDocument(url) {
-    if (!url) {
-      alert("No document available for this property.");
-      return;
-    }
-    modal.classList.add("hidden");
-    docViewer.classList.remove("hidden");
-    docFrame.src = url;
+/* Document viewer */
+function openDocument(url) {
+  if (!url) {
+    alert("No document available for this property.");
+    return;
   }
+  hideModal();
+  docViewer.classList.remove("hidden");
+  docViewer.setAttribute("aria-hidden", "false");
+  docFrame.src = url;
+}
+docBackButton.addEventListener("click", () => {
+  docViewer.classList.add("hidden");
+  docViewer.setAttribute("aria-hidden", "true");
+  showModal();
+});
+docCloseButton.addEventListener("click", () => {
+  docViewer.classList.add("hidden");
+  docViewer.setAttribute("aria-hidden", "true");
+});
 
-  // Document viewer controls
-  docBackButton.addEventListener("click", () => {
-    docViewer.classList.add("hidden");
-    modal.classList.remove("hidden");
+/* Escape key closes modal or document */
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (!modal.classList.contains("hidden")) hideModal();
+    if (!docViewer.classList.contains("hidden")) {
+      docViewer.classList.add("hidden");
+      docViewer.setAttribute("aria-hidden", "true");
+    }
+  }
+});
+
+/* ---------------------------
+   Swipe hint arrows behavior:
+   - arrows fade in beside the text every 4s of inactivity
+   - they fade out after being visible for ~1.5s
+   - any user interaction resets the inactivity timer
+--------------------------- */
+let inactivityTimer = null;
+let arrowsVisible = false;
+const INACTIVITY_INTERVAL = 4000; // 4 seconds
+const ARROW_SHOW_DURATION = 1500; // arrows visible for 1.5s
+
+function showInlineArrows() {
+  if (!swipeArrowsInline) return;
+  if (arrowsVisible) return;
+  arrowsVisible = true;
+  swipeArrowsInline.classList.remove('opacity-0');
+  swipeArrowsInline.classList.add('arrow-fade-in');
+  swipeArrowsInline.classList.remove('arrow-fade-out');
+  // hide after ARROW_SHOW_DURATION
+  setTimeout(() => {
+    swipeArrowsInline.classList.remove('arrow-fade-in');
+    swipeArrowsInline.classList.add('arrow-fade-out');
+    // after fade out completes, hide entirely
+    setTimeout(() => {
+      swipeArrowsInline.classList.add('opacity-0');
+      arrowsVisible = false;
+    }, 800); // match arrowFadeOut duration
+  }, ARROW_SHOW_DURATION);
+}
+
+function resetInactivityTimer() {
+  if (inactivityTimer) clearTimeout(inactivityTimer);
+  // schedule next show
+  inactivityTimer = setTimeout(() => {
+    showInlineArrows();
+    resetInactivityTimer(); // schedule again after showing
+  }, INACTIVITY_INTERVAL);
+}
+
+/* Start the inactivity timer initially */
+resetInactivityTimer();
+
+/* Reset timer on user interactions */
+['scroll', 'touchstart', 'mousemove', 'keydown', 'focusin'].forEach(evt => {
+  window.addEventListener(evt, () => {
+    resetInactivityTimer();
+  }, { passive: true });
+});
+
+/* Also reset when user interacts with scroller specifically */
+if (listScroller) {
+  listScroller.addEventListener('touchstart', resetInactivityTimer, { passive: true });
+  listScroller.addEventListener('scroll', resetInactivityTimer, { passive: true });
+}
+
+/* Accessibility: ensure swipeHint is announced briefly on focus of scroller */
+listScroller.addEventListener('focus', () => {
+  const t = document.getElementById('swipeText');
+  if (t) t.setAttribute('aria-hidden', 'false');
+  resetInactivityTimer();
+});
+
+/* Keep any .carousel logic intact if present elsewhere on page */
+document.querySelectorAll(".carousel").forEach(carousel => {
+  const images = carousel.querySelectorAll("img");
+  let index = 0;
+  if (images.length <= 1) {
+    images.forEach((img, i) => {
+      if (i === 0) img.classList.add('active'); else img.classList.add('hidden');
+    });
+    return;
+  }
+  images.forEach((img, i) => {
+    if (i === 0) img.classList.add('active'); else img.classList.add('hidden');
   });
-
-  docCloseButton.addEventListener("click", () => {
-    docViewer.classList.add("hidden");
-  });
-</script>
-
-<script>
-  // -----------------
-  // SWIPE ARROWS: show when listings section enters view (mobile only) + clickable arrows
-  // -----------------
-  (function () {
-    const swipeArrows = document.getElementById("swipeArrows");
-    const swipeLeft = document.getElementById("swipeLeft");
-    const swipeRight = document.getElementById("swipeRight");
-    const listingsSection = document.getElementById("listings");
-    const scroller = document.getElementById("listScroller");
-
-    if (!swipeArrows || !listingsSection || !scroller) return;
-
-    // add bounce classes to arrows so they animate while visible
-    swipeLeft.classList.add('animate-bounce-left');
-    swipeRight.classList.add('animate-bounce-right');
-
-    let fadeTimer = null;
-    let removeTimer = null;
-
-    function showArrows() {
-      // only on small screens
-      if (window.innerWidth >= 768) return;
-
-      // clear any pending hide timers
-      if (fadeTimer) { clearTimeout(fadeTimer); fadeTimer = null; }
-      if (removeTimer) { clearTimeout(removeTimer); removeTimer = null; }
-
-      swipeArrows.classList.remove("hidden");
-      swipeArrows.style.opacity = "1";
-      swipeArrows.style.transition = "";
-
-      // schedule fade out after 4s
-      fadeTimer = setTimeout(() => {
-        swipeArrows.style.transition = "opacity 1s ease";
-        swipeArrows.style.opacity = "0";
-        removeTimer = setTimeout(() => {
-          swipeArrows.classList.add("hidden");
-          swipeArrows.style.opacity = "";
-        }, 1000);
-      }, 4000);
-    }
-
-    // Intersection observer to detect when listings enters view
-    const arrowObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && window.innerWidth < 768) {
-          showArrows();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    arrowObserver.observe(listingsSection);
-
-    // optional: if user resizes to desktop, ensure arrows hide
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        swipeArrows.classList.add('hidden');
-        swipeArrows.style.opacity = '';
-        if (fadeTimer) { clearTimeout(fadeTimer); fadeTimer = null; }
-        if (removeTimer) { clearTimeout(removeTimer); removeTimer = null; }
-      }
-    });
-
-    // Click handlers to gently scroll the scroller left/right
-    const scrollAmount = () => Math.max(200, Math.round(scroller.clientWidth * 0.6));
-    swipeLeft.addEventListener('click', (e) => {
-      e.stopPropagation();
-      scroller.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-      // show arrows again briefly when user interacts
-      showArrows();
-    });
-    swipeRight.addEventListener('click', (e) => {
-      e.stopPropagation();
-      scroller.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-      showArrows();
-    });
-
-    // Also show arrows if user focuses or touches the scroller (helpful for accessibility)
-    scroller.addEventListener('touchstart', () => showArrows());
-    scroller.addEventListener('focusin', () => showArrows());
-  })();
-</script>
-
-<script>
-  // -----------------
-  // SWIPE TO EXPLORE CENTER TEXT
-  // -----------------
-  (function () {
-    const swipeHint = document.getElementById("swipeHint");
-    const listingsSection = document.getElementById("listings");
-    const scroller = document.getElementById("listScroller");
-
-    if (!swipeHint || !scroller) return;
-
-    let fadeTimer = null;
-    let reappearTimer = null;
-
-    function showHint() {
-      if (window.innerWidth >= 768) return;
-      clearTimeout(fadeTimer);
-      clearTimeout(reappearTimer);
-      swipeHint.classList.remove("hidden");
-      swipeHint.classList.add("flex");
-      swipeHint.style.transition = "";
-      swipeHint.style.opacity = "1";
-    }
-
-    function hideHint() {
-      swipeHint.style.transition = "opacity 0.8s ease";
-      swipeHint.style.opacity = "0";
-      fadeTimer = setTimeout(() => swipeHint.classList.add("hidden"), 800);
-    }
-
-    // When listings come into view, show it
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && window.innerWidth < 768) showHint();
-      });
-    }, { threshold: 0.3 });
-    observer.observe(listingsSection);
-
-    // Detect user scroll/touch to hide hint
-    let isTouching = false;
-    scroller.addEventListener("touchstart", () => {
-      isTouching = true;
-      hideHint();
-      clearTimeout(reappearTimer);
-    });
-    scroller.addEventListener("touchend", () => {
-      isTouching = false;
-      clearTimeout(reappearTimer);
-      reappearTimer = setTimeout(() => {
-        if (!isTouching) showHint();
-      }, 4000);
-    });
-    scroller.addEventListener("scroll", () => {
-      hideHint();
-      clearTimeout(reappearTimer);
-      reappearTimer = setTimeout(() => showHint(), 4000);
-    });
-  })();
+  setInterval(() => {
+    images[index].classList.add("hidden");
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.remove("hidden");
+    images[index].classList.add("active");
+  }, 5000);
+});
 </script>
 
     <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
@@ -1769,7 +1530,7 @@ function displayProperties(properties) {
     })();
   </script>
 
-  <script>
+<script>
   // Ensure smooth scroll to Property Listings works immediately after page load
   document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll('a[href="#listings"]');
@@ -1789,5 +1550,4 @@ function displayProperties(properties) {
 </script>
 </body>
 </html>
-
 
