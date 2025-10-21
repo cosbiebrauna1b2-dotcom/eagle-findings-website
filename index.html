@@ -529,9 +529,9 @@
   .animate-flicker { animation: flicker 1.6s infinite ease-in-out; }
 
   /* Listing card sizes: approx 2/3 on desktop */
-  .listing-card {
-  flex: 1 1 calc(25% - 1.2rem); /* 4 cards per row */
-  max-width: calc(25% - 1.2rem); /* prevent wrapping early */
+ .listing-card {
+  flex: 1 1 calc(25% - 1.2rem); /* 4 per row on desktop */
+  max-width: calc(25% - 1.2rem);
   border-radius: 0.75rem;
   overflow: hidden;
   border: 1px solid #e5e7eb;
@@ -541,6 +541,21 @@
   flex-direction: column;
   text-align: left;
   position: relative;
+}
+
+/* Tablet & mobile responsiveness */
+@media (max-width: 768px) {
+  .listing-card {
+    flex: 1 1 calc(50% - 1rem); /* 2 per row */
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .listing-card {
+    flex: 1 1 100%; /* 1 per row on very small screens */
+    max-width: 100%;
+  }
 }
 
   .listing-image {
