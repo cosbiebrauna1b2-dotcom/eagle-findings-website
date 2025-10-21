@@ -372,7 +372,7 @@
     </section>
 
     <section id="advantages" class="py-20 px-6 bg-eagle-gold text-eagle-navy relative">
-      <div class="absolute inset-0 bg-black/5"></div>
+      <div class="absolute inset-0 bg-eagle-gold/5"></div>
       <div class="relative z-10 max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Eagle Findings Delivers Results</h2>
@@ -457,7 +457,7 @@
       </div>
     </section>
 
-<section id="listings" class="py-16 px-6 bg-white relative">
+<section id="listings" class="py-16 px-6 bg-eagle-gold relative">
   <h2 class="text-3xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
   <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
     Explore our latest property opportunities.
@@ -530,29 +530,55 @@
 
   /* Listing card sizes: approx 2/3 on desktop */
   .listing-card {
-    width: 26.666rem;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    background: white;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    position: relative;
-  }
+  flex: 1 1 calc(25% - 1.2rem); /* 4 cards per row */
+  max-width: calc(25% - 1.2rem); /* prevent wrapping early */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+}
+
   .listing-image {
     width: 100%;
-    height: 19rem;
+    height: 9.5rem; /* half of original 19rem */
     object-fit: cover;
   }
+
   .listing-body {
-    padding: 0.9rem 1rem;
+    padding: 0.45rem 0.5rem; /* half of original padding */
   }
-  .meta-line { margin-bottom: 0.45rem; line-height: 1.25; }
-  .meta-location { font-weight: 700; }
-  .meta-price { font-weight: 700; }
-  .view-details { margin-top: 0.5rem; display: inline-block; text-decoration: underline; color: #2563eb; cursor: pointer; }
+
+  .meta-line { 
+    margin-bottom: 0.25rem; 
+    line-height: 1.25; 
+  }
+
+  .meta-location, .meta-price { 
+    font-weight: 700; 
+  }
+
+  .view-details { 
+    margin-top: 0.25rem; 
+    display: inline-block; 
+    text-decoration: underline; 
+    color: #2563eb; 
+    cursor: pointer; 
+    font-size: 0.85rem;
+  }
+
+  /* Responsive fallback: stack cards on narrow screens */
+  @media (max-width: 950px) {
+    .listing-card { width: 48%; }
+  }
+
+  @media (max-width: 600px) {
+    .listing-card { width: 100%; }
+  }
 
   /* fade animation for inline arrows */
   .arrow-fade-in { animation: arrowFadeIn 0.9s forwards; }
@@ -567,18 +593,18 @@
   }
 
   /* responsive: shrink cards for medium screens */
-  @media (max-width: 1100px) {
+  @media (max-width: 950px) {
     .listing-card { width: 100%; }
   }
 
   /* ✅ new: reduce card size by half for phones */
-  @media (max-width: 640px) {
+  @media (max-width: 320px) {
     .listing-card {
-      width: 13.333rem; /* half of original width */
+      width: 6.5rem; /* half of original width */
       font-size: 0.85rem;
     }
     .listing-image {
-      height: 9.5rem; /* half of original height */
+      height: 6.5rem; /* half of original height */
     }
     .listing-body {
       padding: 0.6rem 0.7rem;
@@ -609,6 +635,42 @@ const data_flat = {
       price: "£380,000",
       img: "https://drive.google.com/thumbnail?id=1YbhW3ikZZGFySwppvKrwsgITvmrINehB&sz=w1200",
       doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview"
+    },
+    {
+      title: "Comer House, 19, Station Road,New Barnet, Barnet EN5 1QJ",
+      location: "Comer House, 19, Station Road,New Barnet, Barnet EN5 1QJ",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£310,000",
+      img: "https://drive.google.com/thumbnail?id=1ZImxWepdql0J9rAQr_IAPuPc0LG14ob2&sz=w1200",
+      doc: "https://drive.google.com/file/d/1lralh42HYyvwlUphbcEPW4q1nnxhwWQJ/preview"
+    },
+    {
+      title: "Oakleigh Court, Church Hill Road,East Barnet, Barnet EN4 8UX",
+      location: "Oakleigh Court, Church Hill Road,East Barnet, Barnet EN4 8UX",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£290,000",
+      img: "https://drive.google.com/thumbnail?id=1w_cYAjYwT9yfWZSYbw3w135mToe4dKSx&sz=w1200",
+      doc: "https://drive.google.com/file/d/1lLxrAA3W_C914f4RveRCSaqC7hHiAjBB/preview"
+    },
+    {
+      title: "Clarence Close, Barnet, Greater London, EN4 8AD",
+      location: "Clarence Close, Barnet, Greater London, EN4 8AD",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£299,950",
+      img: "https://drive.google.com/thumbnail?id=1QlHVxijdstfjCE6jyxsgrTzSwwu27e27&sz=w1200",
+      doc: "https://drive.google.com/file/d/1M8Eg4hDr1n9CENUM_-ilzPJdnMxxLI57/preview"
+    },
+    {
+      title: "King Edward Road, New Barnet, Barnet, EN5 5AP",
+      location: "King Edward Road, New Barnet, Barnet, EN5 5AP",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£350,000",
+      img: "https://drive.google.com/thumbnail?id=1tX4TetYZm_cbx3RN-HvBkV7RtlMBHgm_&sz=w1200",
+      doc: "https://drive.google.com/file/d/1lyqXDa0gnqOYdTvmIfJEhKBFNPHT_2vT/preview"
     }
   ],
   freehold: [
@@ -620,6 +682,51 @@ const data_flat = {
       price: "£710,000",
       img: "https://drive.google.com/thumbnail?id=1tioBxl59WY6lYhX1HyeIkLESDlufuwBP&sz=w1200",
       doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview"
+    },
+    {
+      title: "Cherry Tree Lane, Potters Bar, Hertsmere, Hertfordshire, EN6 2QG",
+      location: "Cherry Tree Lane, Potters Bar, Hertsmere, Hertfordshire, EN6 2QG",
+      desc: "4 Bedroom Semi-detached House",
+      marketPrice: "—",
+      price: "£634,950",
+      img: "https://drive.google.com/thumbnail?id=1MZZBujtbmqO-minfkiN4l_vEE4O8HgRj&sz=w1200",
+      doc: "https://drive.google.com/file/d/1ad8Jd7BZRIE8uNBq9JOcN1k1VPQNSs_z/preview"
+    },
+    {
+      title: "Cecil Court, Barnet, EN5 4NX",
+      location: "Cecil Court, Barnet, EN5 4NX",
+      desc: "3 Bedroom Semi-detached House",
+      marketPrice: "—",
+      price: "£650,000",
+      img: "https://drive.google.com/thumbnail?id=1P9iPYG-ksUpueYv69GrbYMlUyuJwEBDN&sz=w1200",
+      doc: "https://drive.google.com/file/d/1Y_gHBSkhgOQnUb4M-XWUhz6SYwqMTUaq/preview"
+    },
+    {
+      title: "Brookhill Road, Barnet, Greater London, EN4 8SF",
+      location: "Brookhill Road, Barnet, Greater London, EN4 8SF",
+      desc: "3 Bedroom Bungalow",
+      marketPrice: "—",
+      price: "£485,000",
+      img: "https://drive.google.com/thumbnail?id=11vQDYJfapglk6_uzX_kxcdXBM8f24BiM&sz=w1200",
+      doc: "https://drive.google.com/file/d/13ebID-peJn-rfwGYVZPaesGd_ho4ZGWM/preview"
+    },
+     {
+      title: " Hadley Road, Barnet, Greater London, EN5 5QR",
+      location: "Hadley Road, Barnet, Greater London, EN5 5QR",
+      desc: "4 Bedroom Detached House",
+      marketPrice: "—",
+      price: "£850,000",
+      img: "https://drive.google.com/thumbnail?id=1J6hV7C7ZVtcrsTn540tpcHOakLq2HyhR&sz=w1200",
+      doc: "https://drive.google.com/file/d/1enhne04tGS1iHu5oEgtdjzRhNN-9wsSX/preview"
+    },
+    {
+      title: "Bedford Avenue, Barnet, EN5 2ET",
+      location: "Bedford Avenue, Barnet, EN5 2ET",
+      desc: "5 Bedroom Semi-detached House",
+      marketPrice: "—",
+      price: "£875,000",
+      img: "https://drive.google.com/thumbnail?id=1DM5AdqBo-hctay1tWIuTbDqUn6lifI-5&sz=w1200",
+      doc: "https://drive.google.com/file/d/13eVzOzaOpR49BUUiPlLTYDnJxqoE4mRb/preview"
     }
   ],
   rent: [
@@ -1550,4 +1657,3 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 </script>
 </body>
 </html>
-
