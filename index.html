@@ -1,4 +1,1842 @@
 
+
+<!DOCTYPE html> 
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eagle Findings Limited - Professional property sourcing and investment services across Southeast UK & Midlands. Expert guidance for first-time investors, landlords, and developers." />
+  <title>Eagle Findings Limited - Property Investment & Sourcing Specialists | Southeast UK & Midlands</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta property="og:title" content="Eagle Findings Limited - Property Sourcing & Investment">
+  <meta property="og:description" content="Expert property sourcing and investment services across Southeast UK">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eaglefindings.uk">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eagle Findings Limited - Property Sourcing & Investment">
+  <meta name="twitter:description" content="Premium property sourcing and investment services across Southeast UK & Midlands.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eagle Findings Limited",
+    "url": "https://eaglefindings.uk",
+    "logo": "https://eaglefindings.uk/logo.jpg",
+    "sameAs": [
+      "https://www.facebook.com/share/19w9oxQ1mJ/",
+      "https://www.instagram.com/eagle_findings",
+      "https://www.linkedin.com/company/eaglefindings"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+44 203 1586 323",
+      "contactType": "customer service",
+      "areaServed": "GB"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'eagle-gold': '#F7E7CE',
+            'eagle-navy': '#000080',
+            'eagle-gray': '#F5F5DC'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+            'fade-in': 'fadeIn 0.8s ease-out forwards'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .bg-hero-image {
+      background-image: url('background1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    .bg-services-gradient {
+      background: linear-gradient(135deg, rgba(241, 245, 249, 0.95) 0%, rgba(226, 232, 240, 0.9) 100%),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ffffff" width="1200" height="600"/><circle fill="%23f8fafc" cx="200" cy="150" r="100"/><circle fill="%23f1f5f9" cx="800" cy="300" r="150"/><circle fill="%23e2e8f0" cx="1000" cy="100" r="80"/></svg>');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Add this to maintain background on scroll */
+    }
+
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .cta-button {
+      transition: all 0.3s ease;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(247, 231, 206, 0.4);
+    }
+    
+    .text-shadow-strong {
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Improved mobile responsiveness */
+    @media (max-width: 768px) {
+      .bg-hero-image, .bg-services-gradient {
+        background-attachment: scroll;
+      }
+    }
+
+    /* Focus states for accessibility */
+    .focus-outline:focus {
+      outline: 2px solid #000080;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body class="bg-eagle-gold text-eagle-navy font-sans">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-eagle-gold text-eagle-navy px-4 py-2 rounded-lg font-semibold z-50">
+    Skip to main content
+  </a>
+
+  <header class="bg-eagle-gold text-eagle-navy p-4 flex justify-between items-center shadow-xl fixed w-full z-40 top-0">
+    <div class="flex items-center">
+      <div class="h-12 w-12 mr-3 flex-shrink-0">
+        <img src="logo.jpg" alt="Eagle Findings Logo" class="w-full h-full object-cover rounded-full">
+      </div>
+      <div class="flex flex-col">
+        <span class="text-lg font-bold leading-tight">Eagle Findings</span>
+        <span class="text-xs opacity-80 leading-tight">Property Sourcing & Investment</span>
+      </div>
+    </div>
+    
+    <nav class="hidden lg:flex space-x-8 text-sm font-medium" role="navigation">
+      <a href="#services" class="hover:text-gray-700 focus-outline transition-colors duration-200">Services</a>
+      <a href="#listings" class="hover:text-gray-700 focus-outline transition-colors duration-200">Property Listings</a>
+      <a href="#who-we-serve" class="hover:text-gray-700 focus-outline transition-colors duration-200">Who We Serve</a>
+      <a href="#advantages" class="hover:text-gray-700 focus-outline transition-colors duration-200">Why Choose Us</a>
+      <a href="#testimonials" class="hover:text-gray-700 focus-outline transition-colors duration-200">Testimonials</a>
+      <a href="#contact" class="hover:text-gray-700 focus-outline transition-colors duration-200">Contact</a>
+    </nav>
+    
+    <button id="mobile-menu-btn" class="lg:hidden text-eagle-navy text-2xl focus-outline p-2" aria-label="Open mobile menu">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+  </header>
+  
+  <nav id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-eagle-gold bg-opacity-98 z-50 flex flex-col items-center justify-center space-y-8 text-xl text-eagle-navy lg:hidden" role="navigation">
+    <button id="close-mobile-menu-btn" class="absolute top-6 right-6 text-eagle-navy text-3xl focus-outline p-2" aria-label="Close mobile menu">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <a href="#services" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Services</a>
+    <a href="#listings" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Property Listings</a>
+    <a href="#who-we-serve" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Who We Serve</a>
+    <a href="#advantages" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Why Choose Us</a>
+    <a href="#testimonials" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Testimonials</a>
+    <a href="#contact" class="hover:text-gray-700 focus-outline transition-colors duration-200" onclick="closeMobileMenu()">Contact</a>
+  </nav>
+
+  <main id="main-content" class="pt-20">
+    <section class="bg-hero-image relative min-h-screen flex items-center" role="banner">
+      <div class="absolute inset-0 bg-gradient-to-r from-eagle-navy/80 to-[#00005C]/60"></div>
+      <div class="relative z-10 text-center pt-20 pb-40 px-6 w-full">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-eagle-gold text-shadow-strong animate-fade-in-up">
+          EAGLE FINDINGS
+        </h1>
+
+  <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s"> 
+    Eagle Findings connects serious investors with premium property opportunities across Southeast UK & Midlands. 
+    Our expert sourcing services and 4+ years of market expertise deliver results that matter.
+  </p>
+  <p class="mb-8 text-lg md:text-xl text-white text-shadow-strong max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
+    For free initial consultation, a copy of our investment guide, or to explore property listings, use the buttons below.
+  </p>
+
+  <!-- CTA Buttons Row -->
+  <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.4s">
+    <a href="#listings" 
+       class="cta-button inline-flex items-center justify-center bg-transparent border-2 border-eagle-gold text-eagle-gold px-6 py-3 rounded-lg font-semibold shadow-lg focus-outline">
+      <i class="fas fa-home mr-2" aria-hidden="true"></i> Property Listings
+    </a>
+
+    <button onclick="openModal('consultation')" 
+            class="cta-button inline-flex items-center justify-center bg-transparent border-2 border-eagle-gold text-eagle-gold px-6 py-3 rounded-lg font-semibold shadow-lg focus-outline">
+      <i class="fas fa-phone mr-2" aria-hidden="true"></i> Free Consultation
+    </button>
+    
+    <button onclick="openModal('download')" 
+            class="cta-button inline-flex items-center justify-center bg-transparent border-2 border-eagle-gold text-eagle-gold px-6 py-3 rounded-lg font-semibold shadow-lg focus-outline">
+      <i class="fas fa-download mr-2" aria-hidden="true"></i> Investment Guide
+    </button>
+   </div>
+  </div>
+</section>
+
+    <section class="py-16 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="animate-fade-in">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">4+</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Years Experience</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.1s">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">100%</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Southeast UK & Midlands Focus</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.2s">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">£20M+</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Properties Sourced</div>
+        </div>
+        <div class="animate-fade-in" style="animation-delay: 0.3s">
+          <div class="text-3xl md:text-4xl font-bold text-eagle-navy mb-2">24/7</div>
+          <div class="text-sm md:text-base font-medium text-eagle-navy">Expert Support</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Our Services</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Comprehensive property sourcing solutions designed to maximize your investment returns in the Southeast UK & Midlands market
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">Expert Property Sourcing</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              Our team identifies off-market and pre-market properties that match your specific investment criteria, budget, and location preferences across Southeast Uk & Midlands.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Off-market property access</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Detailed ROI analysis</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Negotiation support</li>
+            </ul>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-chart-line" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">Investment Strategy & Analysis</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              Comprehensive market analysis and investment strategy development tailored to your portfolio goals, risk tolerance, and timeline.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Market trend analysis</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Portfolio diversification</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Exit strategy planning</li>
+            </ul>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-users" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">Professional Network Access</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              Connect with our vetted network of mortgage brokers, solicitors, surveyors, and contractors to streamline your property investment process.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Mortgage broker referrals</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Legal support network</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Trusted contractors</li>
+            </ul>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 shadow-xl rounded-2xl hover-lift border-l-4 border-eagle-gold">
+            <div class="flex items-center mb-6">
+              <div class="bg-eagle-gold text-eagle-navy w-16 h-16 rounded-full flex items-center justify-center mr-4 text-2xl">
+                <i class="fas fa-hands-helping" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-eagle-navy">End-to-End Support</h3>
+            </div>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              From initial consultation through property completion and beyond, our team provides ongoing support to ensure your investment success.
+            </p>
+            <ul class="text-sm text-slate-700 space-y-2">
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Due diligence support</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Completion assistance</li>
+              <li class="flex items-center"><i class="fas fa-check text-eagle-gold mr-2" aria-hidden="true"></i> Ongoing portfolio advice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="who-we-serve" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Who We Serve</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Our specialist services are designed for serious property investors across all experience levels
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-seedling" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">First-Time Investors</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Comprehensive guidance and carefully selected properties perfect for building your initial investment portfolio with confidence.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">Experienced Investors</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Advanced investment opportunities and market insights for seasoned investors looking to expand and optimize their portfolios.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-building" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">Portfolio Landlords</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Strategic property additions to diversify and grow your rental portfolio with high-yield, low-maintenance investments.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 shadow-lg rounded-2xl text-center hover-lift group">
+            <div class="text-4xl mb-4 text-eagle-navy group-hover:scale-110 transition-transform duration-300">
+              <i class="fas fa-hard-hat" aria-hidden="true"></i>
+            </div>
+            <h3 class="font-bold mb-3 text-eagle-navy">Property Developers</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Development opportunities, renovation projects, and value-add properties with significant profit potential across the Southeast.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advantages" class="py-20 px-6 bg-eagle-gold text-eagle-navy relative">
+      <div class="absolute inset-0 bg-eagle-gold/5"></div>
+      <div class="relative z-10 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Eagle Findings Delivers Results</h2>
+          <p class="text-lg max-w-3xl mx-auto">
+            Our proven methodology and local expertise consistently identify profitable opportunities others miss
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-network-wired" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Exclusive Network Access</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Direct relationships with estate agents, developers, and property professionals provide access to opportunities before public listing.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-brain" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">AI-Enhanced Sourcing</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Advanced technology and data analysis tools help identify high-potential properties and predict market movements.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Local Market Intelligence</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Deep understanding of Southeast UK & Midlands micro-markets, planning permissions, and emerging regeneration areas.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-shield-alt" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Risk Assessment</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Thorough due diligence and risk analysis to protect your investment and ensure sustainable returns.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-handshake" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Transparent Process</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Clear communication, regular updates, and transparent fees with no hidden costs or surprise charges.
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-6 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold text-eagle-navy w-14 h-14 rounded-full flex items-center justify-center mr-4 text-xl font-bold">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+              </div>
+              <h3 class="font-bold text-lg">Speed to Market</h3>
+            </div>
+            <p class="text-sm leading-relaxed">
+              Fast-track property identification and acquisition process to secure opportunities before competition.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="listings" class="py-16 px-6 bg-eagle-gold relative">
+  <h2 class="text-3xl font-bold text-center mb-4 text-blue-black">Property Listings</h2>
+  <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+    Explore our latest property opportunities.
+  </p>
+
+  <!-- PROPERTY CARDS -->
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 **justify-center** gap-12">
+    <!-- Leasehold -->
+    <div
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden p-8 text-center"
+      role="group"
+      aria-label="Leasehold category"
+    >
+      <h3 class="font-bold text-xl text-blue-black mb-3">Leasehold</h3>
+      <a href="#" class="view-more inline-block text-sm underline text-blue-600" data-category="leasehold" aria-controls="propertyModal">View more</a>
+    </div>
+
+    <!-- Freehold -->
+    <div
+      <div class="bg-gray-100 border border-gray-300 rounded-2xl shadow-md hover-lift overflow-hidden p-8 text-center"
+      role="group"
+      aria-label="Freehold category"
+    >
+      <h3 class="font-bold text-xl text-blue-black mb-3">Freehold</h3>
+      <a href="#" class="view-more inline-block text-sm underline text-blue-600" data-category="freehold" aria-controls="propertyModal">View more</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY MODAL -->
+<div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="bg-white rounded-2xl shadow-lg max-w-6xl w-full relative p-6">
+    <button id="closeModal" class="absolute top-3 right-3 text-gray-600 text-2xl font-bold focus-outline" aria-label="Close modal">&times;</button>
+    <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+
+    <button id="backButton" class="hidden mb-4 px-3 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus-outline" aria-hidden="true">&larr; Back</button>
+
+    <div class="flex items-center justify-between mb-4">
+  <div class="flex items-center gap-2 w-full">
+    <input type="text" id="searchInput" placeholder="Search properties..." class="w-full border px-3 py-2 rounded" aria-label="Search properties" />
+    <button id="filterToggle" class="text-gray-600 border px-3 py-2 rounded hover:bg-gray-100">
+      <i class="fas fa-filter"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Hidden filter panel -->
+<div id="filterPanel" class="hidden border p-4 rounded-lg bg-gray-50 mb-4">
+  <div class="grid md:grid-cols-3 gap-4">
+    <div>
+      <label class="block text-sm font-semibold mb-1">Sort by</label>
+      <select id="sortOption" class="w-full border px-2 py-1 rounded">
+        <option value="default">Default</option>
+        <option value="priceAsc">Price: Low to High</option>
+        <option value="priceDesc">Price: High to Low</option>
+        <option value="alphaAsc">A → Z</option>
+        <option value="alphaDesc">Z → A</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-sm font-semibold mb-1">Min Price (£)</label>
+      <input type="number" id="minPrice" class="w-full border px-2 py-1 rounded" placeholder="e.g. 300000">
+    </div>
+    <div>
+      <label class="block text-sm font-semibold mb-1">Max Price (£)</label>
+      <input type="number" id="maxPrice" class="w-full border px-2 py-1 rounded" placeholder="e.g. 800000">
+    </div>
+  </div>
+  <div class="flex justify-end mt-3 gap-2">
+    <button id="applyFilter" class="bg-eagle-navy text-white px-4 py-2 rounded hover:bg-blue-900">Apply</button>
+    <button id="resetFilter" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Reset</button>
+  </div>
+</div>
+
+    <div id="modalContent" class="flex flex-wrap gap-6 overflow-y-auto max-h-[70vh] pr-2" aria-live="polite"></div>
+  </div>
+</div>
+
+<!-- DOCUMENT VIEWER -->
+<div id="documentViewer" class="fixed inset-0 bg-white hidden flex flex-col z-50" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="flex justify-between items-center p-4 bg-gray-200 shadow">
+    <button id="docBackButton" class="px-3 py-2 bg-gray-300 rounded hover:bg-gray-400 focus-outline" aria-label="Back to listings">&larr; Back</button>
+    <button id="docCloseButton" class="px-3 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus-outline" aria-label="Close document">&times; Close</button>
+  </div>
+  <iframe id="docFrame" src="" class="flex-1 w-full" title="Property document viewer"></iframe>
+</div>
+
+<style>
+  /* small flicker animation for the swipe text */
+  @keyframes flicker {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+  }
+  .animate-flicker { animation: flicker 1.6s infinite ease-in-out; }
+
+  /* Listing card sizes: approx 2/3 on desktop */
+ .listing-card {
+  flex: 1 1 calc(25% - 1.2rem); /* 4 per row on desktop */
+  max-width: calc(25% - 1.2rem);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+}
+
+/* Tablet & mobile responsiveness */
+@media (max-width: 768px) {
+  .listing-card {
+    flex: 1 1 calc(50% - 1rem); /* 2 per row */
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .listing-card {
+    flex: 1 1 100%; /* 1 per row on very small screens */
+    max-width: 100%;
+  }
+}
+
+  .listing-image {
+    width: 100%;
+    height: 9.5rem; /* half of original 19rem */
+    object-fit: cover;
+  }
+
+  .listing-body {
+    padding: 0.45rem 0.5rem; /* half of original padding */
+  }
+
+  .meta-line { 
+    margin-bottom: 0.25rem; 
+    line-height: 1.25; 
+  }
+
+  .meta-location, .meta-price { 
+    font-weight: 700; 
+  }
+
+  .view-details { 
+    margin-top: 0.25rem; 
+    display: inline-block; 
+    text-decoration: underline; 
+    color: #2563eb; 
+    cursor: pointer; 
+    font-size: 0.85rem;
+  }
+
+  /* Responsive fallback: stack cards on narrow screens */
+  @media (max-width: 950px) {
+    .listing-card { width: 48%; }
+  }
+
+  @media (max-width: 600px) {
+    .listing-card { width: 100%; }
+  }
+
+  /* fade animation for inline arrows */
+  .arrow-fade-in { animation: arrowFadeIn 0.9s forwards; }
+  .arrow-fade-out { animation: arrowFadeOut 0.9s forwards; }
+  @keyframes arrowFadeIn {
+    0% { opacity: 0; transform: translateX(-4px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes arrowFadeOut {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(4px); }
+  }
+
+  /* responsive: shrink cards for medium screens */
+  @media (max-width: 950px) {
+    .listing-card { width: 100%; }
+  }
+
+  /* ✅ new: reduce card size by half for phones */
+  @media (max-width: 320px) {
+    .listing-card {
+      width: 6.5rem; /* half of original width */
+      font-size: 0.85rem;
+    }
+    .listing-image {
+      height: 6.5rem; /* half of original height */
+    }
+    .listing-body {
+      padding: 0.6rem 0.7rem;
+    }
+    .meta-line { margin-bottom: 0.35rem; }
+    .view-details { font-size: 0.8rem; }
+  }
+</style>
+
+<script>
+
+const data_flat = {
+  leasehold: [
+    {
+      title: "Bells Hill, Barnet, EN5",
+      location: "Bells Hill, Barnet, EN5",
+      desc: "2 Bedroom FLat",
+      marketPrice: "—",
+      price: "£310,000",
+      img: "https://drive.google.com/thumbnail?id=1ugVe4lCuf_r6U0tvLtHf69EyNwo6Cvtp&sz=w1200",
+      doc: "https://drive.google.com/file/d/143bwxTrep6yjygzDxAHbmyt_jmNs5_li/preview"
+    },
+    {
+      title: "Warwick Road, EN5",
+      location: "Warwick Road, EN5",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£380,000",
+      img: "https://drive.google.com/thumbnail?id=1YbhW3ikZZGFySwppvKrwsgITvmrINehB&sz=w1200",
+      doc: "https://drive.google.com/file/d/1KYV2OSGW4y1bxlRtwLLTR2JKmtdgTBH2/preview"
+    },
+    {
+      title: "Comer House, 19, Station Road,New Barnet, Barnet EN5 1QJ",
+      location: "Comer House, 19, Station Road,New Barnet, Barnet EN5 1QJ",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£310,000",
+      img: "https://drive.google.com/thumbnail?id=1ZImxWepdql0J9rAQr_IAPuPc0LG14ob2&sz=w1200",
+      doc: "https://drive.google.com/file/d/1lralh42HYyvwlUphbcEPW4q1nnxhwWQJ/preview"
+    },
+    {
+      title: "Oakleigh Court, Church Hill Road,East Barnet, Barnet EN4 8UX",
+      location: "Oakleigh Court, Church Hill Road,East Barnet, Barnet EN4 8UX",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£290,000",
+      img: "https://drive.google.com/thumbnail?id=1w_cYAjYwT9yfWZSYbw3w135mToe4dKSx&sz=w1200",
+      doc: "https://drive.google.com/file/d/1lLxrAA3W_C914f4RveRCSaqC7hHiAjBB/preview"
+    },
+    {
+      title: "Clarence Close, Barnet, Greater London, EN4 8AD",
+      location: "Clarence Close, Barnet, Greater London, EN4 8AD",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£299,950",
+      img: "https://drive.google.com/thumbnail?id=1QlHVxijdstfjCE6jyxsgrTzSwwu27e27&sz=w1200",
+      doc: "https://drive.google.com/file/d/1M8Eg4hDr1n9CENUM_-ilzPJdnMxxLI57/preview"
+    },
+    {
+      title: "King Edward Road, New Barnet, Barnet, EN5 5AP",
+      location: "King Edward Road, New Barnet, Barnet, EN5 5AP",
+      desc: "2 Bedroom Flat",
+      marketPrice: "—",
+      price: "£350,000",
+      img: "https://drive.google.com/thumbnail?id=1tX4TetYZm_cbx3RN-HvBkV7RtlMBHgm_&sz=w1200",
+      doc: "https://drive.google.com/file/d/1lyqXDa0gnqOYdTvmIfJEhKBFNPHT_2vT/preview"
+    }
+  ],
+  freehold: [
+    {
+      title: "Baker Street, Potters Bar, Hertsmere, Hertfordshire, EN6",
+      location: "Baker Street, Potters Bar, Hertsmere, Hertfordshire, EN6",
+      desc: "3 Bedroom House",
+      marketPrice: "—",
+      price: "£710,000",
+      img: "https://drive.google.com/thumbnail?id=1tioBxl59WY6lYhX1HyeIkLESDlufuwBP&sz=w1200",
+      doc: "https://drive.google.com/file/d/1xQDQecu-i9aGK2bi2sr3lBk9EKEsr-bd/preview"
+    },
+    {
+      title: "Cherry Tree Lane, Potters Bar, Hertsmere, Hertfordshire, EN6 2QG",
+      location: "Cherry Tree Lane, Potters Bar, Hertsmere, Hertfordshire, EN6 2QG",
+      desc: "4 Bedroom Semi-detached House",
+      marketPrice: "—",
+      price: "£634,950",
+      img: "https://drive.google.com/thumbnail?id=1MZZBujtbmqO-minfkiN4l_vEE4O8HgRj&sz=w1200",
+      doc: "https://drive.google.com/file/d/1ad8Jd7BZRIE8uNBq9JOcN1k1VPQNSs_z/preview"
+    },
+    {
+      title: "Cecil Court, Barnet, EN5 4NX",
+      location: "Cecil Court, Barnet, EN5 4NX",
+      desc: "3 Bedroom Semi-detached House",
+      marketPrice: "—",
+      price: "£650,000",
+      img: "https://drive.google.com/thumbnail?id=1P9iPYG-ksUpueYv69GrbYMlUyuJwEBDN&sz=w1200",
+      doc: "https://drive.google.com/file/d/1Y_gHBSkhgOQnUb4M-XWUhz6SYwqMTUaq/preview"
+    },
+    {
+      title: "Brookhill Road, Barnet, Greater London, EN4 8SF",
+      location: "Brookhill Road, Barnet, Greater London, EN4 8SF",
+      desc: "3 Bedroom Bungalow",
+      marketPrice: "—",
+      price: "£485,000",
+      img: "https://drive.google.com/thumbnail?id=11vQDYJfapglk6_uzX_kxcdXBM8f24BiM&sz=w1200",
+      doc: "https://drive.google.com/file/d/13ebID-peJn-rfwGYVZPaesGd_ho4ZGWM/preview"
+    },
+     {
+      title: "Hadley Road, Barnet, Greater London, EN5 5QR",
+      location: "Hadley Road, Barnet, Greater London, EN5 5QR",
+      desc: "4 Bedroom Detached House",
+      marketPrice: "—",
+      price: "£850,000",
+      img: "https://drive.google.com/thumbnail?id=1J6hV7C7ZVtcrsTn540tpcHOakLq2HyhR&sz=w1200",
+      doc: "https://drive.google.com/file/d/1enhne04tGS1iHu5oEgtdjzRhNN-9wsSX/preview"
+    },
+    {
+      title: "Bedford Avenue, Barnet, EN5 2ET",
+      location: "Bedford Avenue, Barnet, EN5 2ET",
+      desc: "5 Bedroom Semi-detached House",
+      marketPrice: "—",
+      price: "£875,000",
+      img: "https://drive.google.com/thumbnail?id=1DM5AdqBo-hctay1tWIuTbDqUn6lifI-5&sz=w1200",
+      doc: "https://drive.google.com/file/d/13eVzOzaOpR49BUUiPlLTYDnJxqoE4mRb/preview"
+    }
+  ],
+  rent: [
+    {
+      title: "Peckham",
+      location: "Peckham, London",
+      desc: "2-bedroom flat available for rent. Prime location close to transport and amenities.",
+      marketPrice: "—",
+      price: "Contact for price",
+      img: "https://via.placeholder.com/1200x700?text=Peckham+2-bed",
+      doc: ""
+    }
+  ]
+};
+
+/* DOM refs */
+const modal = document.getElementById("propertyModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalContent = document.getElementById("modalContent");
+const closeModalBtn = document.getElementById("closeModal");
+const backButton = document.getElementById("backButton");
+const searchInput = document.getElementById("searchInput");
+
+const docViewer = document.getElementById("documentViewer");
+const docFrame = document.getElementById("docFrame");
+const docBackButton = document.getElementById("docBackButton");
+const docCloseButton = document.getElementById("docCloseButton");
+
+const swipeArrowsInline = document.getElementById("swipeArrowsInline");
+const swipeHintContainer = document.getElementById("swipeHintContainer");
+const listScroller = document.getElementById("listScroller");
+
+/* Prevent View more from scrolling to top and open modal */
+document.querySelectorAll(".view-more").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const category = btn.getAttribute("data-category");
+    
+    // **FIX:** Ensure filter and search are reset BEFORE rendering/opening
+    const sortSelect = document.getElementById('modal-sort-cards');
+    if (sortSelect) {
+      sortSelect.value = "name-asc"; // Set default sort to A-Z
+    }
+    searchInput.value = ""; // Clear search input
+    
+    renderListings(category); // Load the list, which applies the sort via renderListingCards
+    showModal();
+  });
+});
+
+/* Modal controls */
+closeModalBtn.addEventListener("click", hideModal);
+backButton.addEventListener("click", () => {
+  // Currently listings open directly; back could be used for a categories view later.
+  // We'll hide back button to match current flow.
+  backButton.classList.add("hidden");
+  modalTitle.textContent = "Listings";
+  modalContent.innerHTML = "";
+});
+/* close modal if clicking outside content (on backdrop) */
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) hideModal();
+});
+function showModal() {
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+}
+function hideModal() {
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+
+  // **FIX:** Reset Search and Sort on close
+  searchInput.value = ""; // Clear search input
+  const sortSelect = document.getElementById('modal-sort-cards');
+  if (sortSelect) {
+    // Reset dropdown to "Alphabetical (A-Z)"
+    sortSelect.value = "name-asc"; 
+  }
+}
+
+/* Search */
+searchInput.addEventListener("input", function () {
+  const q = this.value.trim().toLowerCase();
+  const cat = (modalTitle.textContent || "").split(" ")[0].toLowerCase();
+  if (!cat || !data_flat[cat]) return;
+  const filtered = data_flat[cat].filter(p =>
+    (p.title || '').toLowerCase().includes(q) ||
+    (p.location || '').toLowerCase().includes(q) ||
+    (p.desc || '').toLowerCase().includes(q)
+  );
+  renderListingCards(filtered);
+});
+
+/* Render listings */
+function renderListings(category) {
+  modalTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1) + " Listings";
+  modalContent.innerHTML = "";
+  backButton.classList.add("hidden");
+  const listings = data_flat[category] || [];
+  if (listings.length === 0) {
+    modalContent.innerHTML = `<p class="text-center col-span-full text-gray-500">No listings available for ${category}.</p>`;
+    return;
+  }
+  renderListingCards(listings);
+}
+
+/* Create listing cards */
+function renderListingCards(listings) {
+  modalContent.innerHTML = "";
+
+  listings.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+  
+
+  listings.forEach(prop => {
+    // 1. Get raw numeric price (remove £, ,, and convert to number)
+    const rawPrice = prop.price ? parseFloat(prop.price.replace(/[^0-9.]/g, "")) : 0;
+    
+    const card = document.createElement("div");
+    // **MODIFIED:** Added 'property-card' for sorting script
+    card.className = "listing-card property-card"; 
+    
+    // **NEW:** Added data attributes for sorting
+    card.setAttribute('data-name', prop.title || '');
+    card.setAttribute('data-price', rawPrice);
+
+    // Build inner HTML: Market Price label (no value), then price-amount only (bold)
+    card.innerHTML = `
+      <img src="${prop.img || 'https://via.placeholder.com/1200x700?text=No+image'}" alt="${prop.title || 'Property'}" class="listing-image" loading="lazy" />
+      <div class="listing-body">
+        <div class="meta-line meta-location">${prop.location || prop.title}</div>
+        <div class="meta-line text-sm text-gray-700">${prop.desc || ''}</div>
+        <div class="meta-line text-sm text-gray-700">Market Price</div>
+        <div class="meta-line meta-price-amount text-sm text-gray-900">${prop.price || '—'}</div>
+        <a class="view-details" data-doc="${prop.doc || ''}">View details</a>
+      </div>
+    `;
+
+    // Link & card click open document viewer
+    const link = card.querySelector(".view-details");
+    link.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const doc = link.getAttribute("data-doc");
+      openDocument(doc);
+    });
+    card.addEventListener("click", () => openDocument(prop.doc));
+
+    modalContent.appendChild(card);
+  });
+  
+  // **NEW:** Apply initial alphabetical sort after content is built
+  sortModalCards(); 
+}
+
+/* Document viewer */
+function openDocument(url) {
+  if (!url) {
+    alert("No document available for this property.");
+    return;
+  }
+  hideModal();
+  docViewer.classList.remove("hidden");
+  docViewer.setAttribute("aria-hidden", "false");
+  docFrame.src = url;
+}
+docBackButton.addEventListener("click", () => {
+  docViewer.classList.add("hidden");
+  docViewer.setAttribute("aria-hidden", "true");
+  showModal();
+});
+docCloseButton.addEventListener("click", () => {
+  docViewer.classList.add("hidden");
+  docViewer.setAttribute("aria-hidden", "true");
+});
+
+/* Escape key closes modal or document */
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (!modal.classList.contains("hidden")) hideModal();
+    if (!docViewer.classList.contains("hidden")) {
+      docViewer.classList.add("hidden");
+      docViewer.setAttribute("aria-hidden", "true");
+    }
+  }
+});
+
+/* ---------------------------
+   Swipe hint arrows behavior:
+   - arrows fade in beside the text every 4s of inactivity
+   - they fade out after being visible for ~1.5s
+   - any user interaction resets the inactivity timer
+--------------------------- */
+let inactivityTimer = null;
+let arrowsVisible = false;
+const INACTIVITY_INTERVAL = 4000; // 4 seconds
+const ARROW_SHOW_DURATION = 1500; // arrows visible for 1.5s
+
+function showInlineArrows() {
+  if (!swipeArrowsInline) return;
+  if (arrowsVisible) return;
+  arrowsVisible = true;
+  swipeArrowsInline.classList.remove('opacity-0');
+  swipeArrowsInline.classList.add('arrow-fade-in');
+  swipeArrowsInline.classList.remove('arrow-fade-out');
+  // hide after ARROW_SHOW_DURATION
+  setTimeout(() => {
+    swipeArrowsInline.classList.remove('arrow-fade-in');
+    swipeArrowsInline.classList.add('arrow-fade-out');
+    // after fade out completes, hide entirely
+    setTimeout(() => {
+      swipeArrowsInline.classList.add('opacity-0');
+      arrowsVisible = false;
+    }, 800); // match arrowFadeOut duration
+  }, ARROW_SHOW_DURATION);
+}
+
+function resetInactivityTimer() {
+  if (inactivityTimer) clearTimeout(inactivityTimer);
+  // schedule next show
+  inactivityTimer = setTimeout(() => {
+    showInlineArrows();
+    resetInactivityTimer(); // schedule again after showing
+  }, INACTIVITY_INTERVAL);
+}
+
+/* Start the inactivity timer initially */
+resetInactivityTimer();
+
+/* Reset timer on user interactions */
+['scroll', 'touchstart', 'mousemove', 'keydown', 'focusin'].forEach(evt => {
+  window.addEventListener(evt, () => {
+    resetInactivityTimer();
+  }, { passive: true });
+});
+
+/* Also reset when user interacts with scroller specifically */
+if (listScroller) {
+  listScroller.addEventListener('touchstart', resetInactivityTimer, { passive: true });
+  listScroller.addEventListener('scroll', resetInactivityTimer, { passive: true });
+}
+
+/* Accessibility: ensure swipeHint is announced briefly on focus of scroller */
+listScroller.addEventListener('focus', () => {
+  const t = document.getElementById('swipeText');
+  if (t) t.setAttribute('aria-hidden', 'false');
+  resetInactivityTimer();
+});
+
+/* Keep any .carousel logic intact if present elsewhere on page */
+document.querySelectorAll(".carousel").forEach(carousel => {
+  const images = carousel.querySelectorAll("img");
+  let index = 0;
+  if (images.length <= 1) {
+    images.forEach((img, i) => {
+      if (i === 0) img.classList.add('active'); else img.classList.add('hidden');
+    });
+    return;
+  }
+  images.forEach((img, i) => {
+    if (i === 0) img.classList.add('active'); else img.classList.add('hidden');
+  });
+  setInterval(() => {
+    images[index].classList.add("hidden");
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.remove("hidden");
+    images[index].classList.add("active");
+  }, 5000);
+});
+</script>
+
+    <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Client Success Stories</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Real results from real investors who chose Eagle Findings
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-eagle-gray p-8 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold w-12 h-12 rounded-full flex items-center justify-center text-eagle-navy font-bold mr-4">
+                JM
+              </div>
+              <div>
+                <h4 class="font-bold text-eagle-navy">James M.</h4>
+                <p class="text-sm text-slate-700">First-Time Investor</p>
+              </div>
+            </div>
+            <p class="text-slate-700 italic leading-relaxed">
+              "Eagle Findings found me a fantastic BTL property in Canterbury that generates 8% yield. Their guidance through the entire process was invaluable."
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold w-12 h-12 rounded-full flex items-center justify-center text-eagle-navy font-bold mr-4">
+                SP
+              </div>
+              <div>
+                <h4 class="font-bold text-eagle-navy">Sarah P.</h4>
+                <p class="text-sm text-slate-700">Portfolio Landlord</p>
+              </div>
+            </div>
+            <p class="text-slate-700 italic leading-relaxed">
+              "Added three properties to my portfolio through Eagle Findings. Their market knowledge of Southeast UK is exceptional - couldn't be happier with the returns."
+            </p>
+          </div>
+          
+          <div class="bg-eagle-gray p-8 rounded-2xl shadow-lg hover-lift">
+            <div class="flex items-center mb-4">
+              <div class="bg-eagle-gold w-12 h-12 rounded-full flex items-center justify-center text-eagle-navy font-bold mr-4">
+                DK
+              </div>
+              <div>
+                <h4 class="font-bold text-eagle-navy">David K.</h4>
+                <p class="text-sm text-slate-700">Property Developer</p>
+              </div>
+            </div>
+            <p class="text-slate-700 italic leading-relaxed">
+              "Found a development opportunity in the Midlands that Eagle Findings sourced exclusively. The profit margins exceeded expectations by 30%."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 px-6 bg-eagle-gold">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-eagle-navy">Frequently Asked Questions</h2>
+          <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+            Find answers to common questions about our property sourcing and investment process
+          </p>
+        </div>
+        <div class="space-y-4 max-w-4xl mx-auto">
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">What types of properties do you source?</h3>
+            <p class="text-sm text-slate-700">We specialize in sourcing a wide range of residential and commercial properties, including buy-to-let, HMOs, multi-unit blocks, and development sites. Our focus is on high-yield opportunities in the Southeast UK & Midlands.</p>
+          </div>
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">How do you find off-market properties?</h3>
+            <p class="text-sm text-slate-700">We leverage our extensive network of estate agents, mortgage brokers, and property professionals, along with our advanced technology, to identify properties before they are publicly listed. This gives our clients a competitive edge.</p>
+          </div>
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">What is the typical timeframe for sourcing a property?</h3>
+            <p class="text-sm text-slate-700">The timeframe can vary depending on your specific criteria and market conditions. However, our streamlined process and exclusive access to opportunities allow us to move quickly to secure deals for you.</p>
+          </div>
+          <div class="bg-eagle-gray p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-eagle-navy mb-2">Do you work with new investors?</h3>
+            <p class="text-sm text-slate-700">Absolutely. We are passionate about helping first-time investors build a solid foundation. Our end-to-end support ensures you have all the guidance you need from your initial consultation to property completion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+ <section id="contact" class="py-16 px-6 text-center bg-eagle-gold">
+  <h2 class="text-4xl font-bold mb-4 text-eagle-navy">
+    Ready to Start Your Investment Journey?
+  </h2>
+  <p class="text-slate-700 mb-12 max-w-2xl mx-auto">
+    Contact Eagle Findings today to discover your next property investment opportunity
+  </p>
+
+  <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-solid fa-phone"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">Phone</h3>
+      <a href="tel:442031586323" class="text-eagle-navy hover:underline">+44 203 1586 323</a>
+    </div>
+
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-brands fa-whatsapp"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">WhatsApp</h3>
+      <a href="https://wa.me/447706479651?text=Hello%20I%20am%20interested%20in%20your%20services" class="text-eagle-navy hover:underline">+44 770 6479 651</a>
+    </div>
+
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-solid fa-envelope"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">Email</h3>
+      <a href="mailto:info@eaglefindings.uk" class="text-eagle-navy hover:underline whitespace-nowrap">
+        info@eaglefindings.uk
+      </a>
+    </div>
+
+    <div class="bg-eagle-gray text-eagle-navy p-6 md:p-4 rounded-xl hover-lift text-base md:text-sm flex flex-col items-center justify-center text-center">
+      <div class="text-3xl md:text-2xl mb-3 md:mb-2"><i class="fa-solid fa-globe"></i></div>
+      <h3 class="font-bold md:font-semibold mb-2 md:mb-1">Website</h3>
+      <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="text-eagle-navy hover:underline">eaglefindings.uk</a>
+    </div>
+  </div>
+</section>
+
+    <footer class="bg-eagle-gold text-eagle-navy text-center py-8">
+      <div class="flex flex-col items-center max-w-4xl mx-auto px-6">
+        <div class="h-16 w-16 mb-4">
+          <img src="logo.jpg" alt="Eagle Findings Logo" class="w-full h-full object-cover rounded-full">
+        </div>
+        <span class="font-bold text-xl mb-2">Eagle Findings</span>
+        <p class="text-sm opacity-80 mb-1 max-w-2xl">
+          © 2024 Eagle Findings Limited. All rights reserved.<br>
+          Professional Property Sourcing & Investment Services - Southeast UK & Midlands<br>
+          Connecting investors with exceptional opportunities through expertise and technology.
+        </p>
+        <div class="flex space-x-4 text-xl my-4">
+          <a href="https://www.facebook.com/share/19w9oxQ1mJ/" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/447706479651?text=Hello%20I%20am%20interested%20in%20your%20services" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="text-eagle-navy hover:text-gray-700">
+   <i class="fa-brands fa-whatsapp"></i>
+</a>
+          <a href="https://www.instagram.com/eagle_findings?igsh=MWVkN3I1Y2tjd2R0bg==" target="_blank" rel="noopener noreferrer" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@eagle.findings?_t=ZM-8zRdwN5ELuX&_r=1" target="_blank" rel="noopener noreferrer" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.linkedin.com/company/eaglefindings" class="text-eagle-navy hover:text-gray-700 transition-colors duration-200" aria-label="Visit us on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+       <p class="text-eagle-navy" style="font-size:14px; line-height:1.6; text-align:center; margin-left:20px;">
+  <strong>Location: Barnet</strong><br>
+ <strong>Company Registered Address:</strong><br>
+  128, City Road<br>
+  London<br>
+  EC1V 2NX
+</p>
+
+      <!-- LEGAL LINKS (opens modal) -->
+      <div class="mt-6 text-sm">
+        <button onclick="openLegalModal('privacy')" class="hover:underline mr-4">Privacy Policy</button>
+        <button onclick="openLegalModal('terms')" class="hover:underline">Terms & Conditions</button>
+      </div>
+    </div>
+  </footer>
+
+<footer class="bg-eagle-gold py-10"> 
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- Certified by -->
+    <h3 class="text-eagle-navy text-sm font-semibold mb-4 text-center uppercase tracking-wide">Certified by</h3>
+    <div class="flex flex-wrap justify-center items-center gap-8 mb-8">
+      <div class="flex flex-col items-center text-center">
+        <a href="https://www.ico.org.uk" target="_blank" rel="noopener noreferrer">
+          <img src="ico-logo.jpg" alt="ICO Certification" class="h-12">
+        </a>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <a href="https://www.veriphy.co.uk" target="_blank" rel="noopener noreferrer">
+          <img src="veriphy-logo.jpg" alt="Veriphy" class="h-12">
+        </a>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <a href="https://www.propertyredress.co.uk" target="_blank" rel="noopener noreferrer">
+          <img src="property-redress-logo.jpg" alt="Property Redress" class="h-12">
+        </a>
+      </div>
+    </div>
+
+    <!-- Associates -->
+    <h3 class="text-eagle-navy text-sm font-semibold mb-4 text-center uppercase tracking-wide">Associates</h3>
+    <div class="flex flex-wrap justify-center items-center gap-8">
+      <div class="flex flex-col items-center text-center">
+          <img src="property-filter-logo.jpg" alt="Property Filter" class="h-12">
+      </div>
+
+      <div class="flex flex-col items-center text-center">
+          <img src="sourcing-investments-logo.jpg" alt="Sourcing Investments" class="h-12">
+      </div>
+
+      <div class="flex flex-col items-center text-center">
+          <img src="site-findr-logo.jpg" alt="Sitefindr" class="h-12">
+      </div>
+    </div>
+
+  </div>
+</footer>
+    <div id="leadModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"> 
+  <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+    <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-600 text-2xl leading-none" aria-label="Close Modal">&times;</button>
+    <h2 class="text-2xl font-bold mb-4 text-eagle-navy">Enter Your Details</h2>
+    
+    <form id="leadForm" class="space-y-4">
+      <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 border rounded">
+      <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 border rounded">
+
+      <div class="flex space-x-2">
+        <select id="countryCode" required class="p-3 border rounded w-1/3">
+          <option value="+44" selected>🇬🇧 (+44)</option>
+          <option value="+1">🇺🇸 (+1)</option>
+          <option value="+7">🇷🇺 (+7)</option>
+          <option value="+20">🇪🇬 (+20)</option>
+          <option value="+27">🇿🇦 (+27)</option>
+          <option value="+30">🇬🇷 (+30)</option>
+          <option value="+31">🇳🇱 (+31)</option>
+          <option value="+32">🇧🇪 (+32)</option>
+          <option value="+33">🇫🇷 (+33)</option>
+          <option value="+34">🇪🇸 (+34)</option>
+          <option value="+36">🇭🇺 (+36)</option>
+          <option value="+39">🇮🇹 (+39)</option>
+          <option value="+40">🇷🇴 (+40)</option>
+          <option value="+41">🇨🇭 (+41)</option>
+          <option value="+43">🇦🇹 (+43)</option>
+          <option value="+45">🇩🇰 (+45)</option>
+          <option value="+46">🇸🇪 (+46)</option>
+          <option value="+47">🇳🇴 (+47)</option>
+          <option value="+48">🇵🇱 (+48)</option>
+          <option value="+49">🇩🇪 (+49)</option>
+          <option value="+51">🇵🇪 (+51)</option>
+          <option value="+52">🇲🇽 (+52)</option>
+          <option value="+54">🇦🇷 (+54)</option>
+          <option value="+55">🇧🇷 (+55)</option>
+          <option value="+56">🇨🇱 (+56)</option>
+          <option value="+57">🇨🇴 (+57)</option>
+          <option value="+58">🇻🇪 (+58)</option>
+          <option value="+60">🇲🇾 (+60)</option>
+          <option value="+61">🇦🇺 (+61)</option>
+          <option value="+62">🇮🇩 (+62)</option>
+          <option value="+63">🇵🇭 (+63)</option>
+          <option value="+64">🇳🇿 (+64)</option>
+          <option value="+65">🇸🇬 (+65)</option>
+          <option value="+66">🇹🇭 (+66)</option>
+          <option value="+81">🇯🇵 (+81)</option>
+          <option value="+82">🇰🇷 (+82)</option>
+          <option value="+84">🇻🇳 (+84)</option>
+          <option value="+86">🇨🇳 (+86)</option>
+          <option value="+90">🇹🇷 (+90)</option>
+          <option value="+91">🇮🇳 (+91)</option>
+          <option value="+92">🇵🇰 (+92)</option>
+          <option value="+233">🇬🇭 (+233)</option>
+          <option value="+234">🇳🇬 (+234)</option>
+          <option value="+256">🇺🇬 (+256)</option>
+          <option value="+254">🇰🇪 (+254)</option>
+          <option value="+255">🇹🇿 (+255)</option>
+          </select>
+        <input type="tel" id="rawPhone" placeholder="Phone Number" required class="w-2/3 p-3 border rounded">
+      </div>
+
+      <input type="hidden" name="phone" id="fullPhone">
+
+      <input type="hidden" id="leadIntent" name="intent" value="">
+      <button type="submit" class="bg-eagle-gold text-eagle-navy px-6 py-3 rounded font-semibold w-full cta-button">Submit</button>
+    </form>
+  </div>
+</div>
+  </main>
+  
+<div id="chatbotBubble" 
+     style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: eagle-gold; color: eagle-navy; width: 3.5rem; height: 3.5rem; border-radius: 9999px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.5rem;">
+  💬
+</div>
+
+<div id="chatbotWindow" 
+     style="display: none; position: fixed; bottom: 6rem; right: 1.5rem; width: 20rem; background: white; border: 1px solid #ccc; border-radius: 0.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3); overflow: hidden;">
+  <div style="background: eagle-gold; color: eagle-navy; padding: 0.75rem; font-weight: bold;">
+    Eagle Findings - FAQ Assistant
+  </div>
+  <div id="chatLog" style="padding: 0.75rem; height: 16rem; overflow-y: auto; font-size: 0.875rem; color: #333;">
+    <p style="color: #777;">Ask me anything about our services...</p>
+  </div>
+  <div style="padding: 0.75rem; border-top: 1px solid #ddd; display: flex;">
+    <input id="chatInput" type="text" 
+           placeholder="Type your question..." 
+           style="flex: 1; border: 1px solid #ccc; border-radius: 0.5rem; padding: 0.5rem; font-size: 0.875rem; outline: none;">
+    <button id="sendBtn" 
+            style="margin-left: 0.5rem; background: eagle-navy; color: eagle-gold; bg: eagle-navy; padding: 0.5rem 0.75rem; border-radius: 0.5rem; border: none; cursor: pointer;">
+      Send
+    </button>
+  </div>
+</div>
+
+<script>
+  // FAQ Data
+  const faqs = [
+    {
+      q: "What types of properties do you source?",
+      a: "We specialize in sourcing a wide range of residential and commercial properties, including buy-to-let, HMOs, multi-unit blocks, and development sites. Our focus is on high-yield opportunities in the Southeast UK & Midlands."
+    },
+    {
+      q: "How do you find off-market properties?",
+      a: "We leverage our extensive network of estate agents, mortgage brokers, and property professionals, along with our advanced technology, to identify properties before they are publicly listed. This gives our clients a competitive edge."
+    },
+    {
+      q: "What is the typical timeframe for sourcing a property?",
+      a: "The timeframe can vary depending on your specific criteria and market conditions. However, our streamlined process and exclusive access to opportunities allow us to move quickly to secure deals for you."
+    },
+    {
+      q: "Do you work with new investors?",
+      a: "Absolutely. We are passionate about helping first-time investors build a solid foundation. Our end-to-end support ensures you have all the guidance you need from your initial consultation to property completion."
+    }
+  ];
+
+  const bubble = document.getElementById("chatbotBubble");
+  const windowEl = document.getElementById("chatbotWindow");
+  const input = document.getElementById("chatInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const log = document.getElementById("chatLog");
+
+  // Toggle chatbot window
+  bubble.addEventListener("click", () => {
+    windowEl.style.display = (windowEl.style.display === "none" || windowEl.style.display === "") ? "block" : "none";
+  });
+
+  // Function to calculate similarity (Levenshtein ratio)
+  function similarity(str1, str2) {
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+
+    const track = Array(str2.length + 1).fill(null).map(() =>
+      Array(str1.length + 1).fill(null)
+    );
+
+    for (let i = 0; i <= str1.length; i += 1) {
+      track[0][i] = i;
+    }
+    for (let j = 0; j <= str2.length; j += 1) {
+      track[j][0] = j;
+    }
+
+    for (let j = 1; j <= str2.length; j += 1) {
+      for (let i = 1; i <= str1.length; i += 1) {
+        const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+        track[j][i] = Math.min(
+          track[j][i - 1] + 1, // deletion
+          track[j - 1][i] + 1, // insertion
+          track[j - 1][i - 1] + indicator // substitution
+        );
+      }
+    }
+
+    const distance = track[str2.length][str1.length];
+    return 1 - distance / Math.max(str1.length, str2.length);
+  }
+
+  // Send user question
+  function sendMessage() {
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    // Display user message
+    log.innerHTML += `<div style="margin-bottom: 0.5rem; text-align: right;">
+      <span style="background: #C9A227; color: white; padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block;">${userText}</span>
+    </div>`;
+
+    // AI-like matching: find the closest FAQ
+    let bestMatch = null;
+    let bestScore = 0;
+    faqs.forEach(faq => {
+      const score = similarity(userText, faq.q);
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = faq;
+      }
+    });
+
+    if (bestScore > 0.5) { // threshold
+      log.innerHTML += `<div style="margin-bottom: 0.5rem; text-align: left;">
+        <span style="background: #eee; padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block;">${bestMatch.a}</span>
+      </div>`;
+    } else {
+      log.innerHTML += `<div style="margin-bottom: 0.5rem; text-align: left;">
+        <span style="background: #eee; padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block;">
+          I couldn't find an answer. Please 
+          <a href="https://wa.me/447706479651?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank" style="color: green; font-weight: bold;">message us on WhatsApp</a>.
+        </span>
+      </div>`;
+    }
+
+    input.value = "";
+    log.scrollTop = log.scrollHeight;
+  }
+
+  sendBtn.addEventListener("click", sendMessage);
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+</script>
+
+<iframe name="hidden_iframe" style="display:none;" onload="afterSubmit()"></iframe>
+
+<script> 
+  // =========================
+  // PHONE NUMBER DIGIT LENGTHS (EXACT DIGITS REQUIRED from PDF)
+  // =========================
+  // Maps country code value to the EXACT number of digits required (National Significant Number)
+  const phoneLengths = {
+    '+44': { exact: 10 }, // United Kingdom: Fixed 10 digits
+    '+1': { exact: 10 }, // USA/Canada: Fixed 10 digits
+    '+33': { exact: 9 },  // France: Fixed 9 digits
+    '+91': { exact: 10 }, // India: 10 digits
+    '+234': { exact: 8 }, // Nigeria: Usually 8 digits (after code)
+    '+62': { exact: 10 }, // Indonesia: Using 10 as a common value (Varies 9-11)
+    '+92': { exact: 10 }, // Pakistan: Mobile 10 digits
+    '+55': { exact: 11 }, // Brazil: Mobile 11 digits
+    '+7': { exact: 10 }, // Russia: Fixed 10 digits
+    '+52': { exact: 10 }, // Mexico: Fixed 10 digits
+    '+81': { exact: 10 }, // Japan: Fixed 10 digits
+    '+251': { exact: 9 }, // Ethiopia: Fixed 9 digits
+    '+63': { exact: 10 }, // Philippines: Fixed 10 digits
+    '+20': { exact: 10 }, // Egypt: Using 10 as a common value (Varies 9-10)
+    '+243': { exact: 9 }, // DR Congo: Fixed 9 digits
+    '+49': { exact: 10 }, // Germany: Using 10 as a common value (Varies 10-11)
+    '+66': { exact: 9 },  // Thailand: Fixed 9 digits
+    '+39': { exact: 10 }, // Italy: Mobile 10 digits
+    '+255': { exact: 9 }, // Tanzania: Fixed 9 digits
+    '+27': { exact: 9 },  // South Africa: Fixed 9 digits
+    '+254': { exact: 9 }, // Kenya: Fixed 9 digits
+    '+82': { exact: 10 }, // South Korea: Mobile 10 digits
+    '+57': { exact: 10 }, // Colombia: Fixed 10 digits
+    '+34': { exact: 9 },  // Spain: Fixed 9 digits
+    '+256': { exact: 9 }, // Uganda: Fixed 9 digits
+    '+54': { exact: 10 }, // Argentina: Fixed 10 digits
+    '+213': { exact: 9 }, // Algeria: Fixed 9 digits
+    '+86': { exact: 11 }, // China: Mobile 11 digits
+    // NOTE: If any other country code is in your HTML dropdown, please add its exact digit length here.
+  };
+
+
+  // =========================
+  // MOBILE MENU HANDLING (guarded)
+  // =========================
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+
+  function closeMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.add('hidden');
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+      if (mobileMenu) mobileMenu.classList.remove('hidden');
+    });
+  }
+
+  if (closeMobileMenuBtn) {
+    closeMobileMenuBtn.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+  }
+
+  // =========================
+  // MODAL & FORM ELEMENT LOOKUP
+  // =========================
+  const modalEl = document.getElementById('leadModal');
+  const intentEl = document.getElementById('leadIntent');
+  const leadForm = document.getElementById('leadForm');
+  
+  // Phone number elements
+  const countryCodeEl = document.getElementById('countryCode'); 
+  const rawPhoneEl = document.getElementById('rawPhone'); // The visible input field
+  const fullPhoneEl = document.getElementById('fullPhone'); // The hidden field Zapier reads
+
+  // =========================
+  // DIGIT VALIDATION FUNCTION (ENFORCES EXACT LENGTH)
+  // =========================
+  function updatePhoneValidation() {
+    if (!countryCodeEl || !rawPhoneEl) return;
+
+    const selectedCode = countryCodeEl.value;
+    const validation = phoneLengths[selectedCode];
+
+    // Remove any non-digit characters (spaces, dashes, etc.) from the input for validation check
+    const cleanValue = rawPhoneEl.value.replace(/\D/g, '');
+
+    if (validation) {
+      const exactLength = validation.exact;
+      
+      // Set the HTML5 validation attributes to the exact length
+      rawPhoneEl.setAttribute('minlength', exactLength);
+      rawPhoneEl.setAttribute('maxlength', exactLength);
+      rawPhoneEl.placeholder = `Enter exactly ${exactLength} digits`;
+
+      // Use setCustomValidity to provide a clear error message
+      if (cleanValue.length !== exactLength) {
+        rawPhoneEl.setCustomValidity(`Please enter exactly ${exactLength} digits.`);
+      } else {
+        rawPhoneEl.setCustomValidity(''); // Valid
+      }
+    } else {
+      // Fallback for codes not defined in the list
+      rawPhoneEl.removeAttribute('minlength');
+      rawPhoneEl.removeAttribute('maxlength');
+      rawPhoneEl.placeholder = 'Enter phone number';
+      rawPhoneEl.setCustomValidity('');
+    }
+    // Force the browser to check and display the validity state
+    rawPhoneEl.reportValidity(); 
+  }
+  
+  // =========================
+  // EVENT LISTENERS for Validation
+  // =========================
+  if (countryCodeEl && rawPhoneEl) {
+    // 1. Update validation whenever a new country code is selected
+    countryCodeEl.addEventListener('change', updatePhoneValidation);
+    
+    // 2. Update validation whenever the user types
+    rawPhoneEl.addEventListener('input', updatePhoneValidation);
+
+    // Initial run to set the validation for the default selected country
+    setTimeout(updatePhoneValidation, 0); 
+  }
+
+
+  // =========================
+  // MODAL HANDLING (guarded + global)
+  // =========================
+  if (modalEl && intentEl) {
+    window.openModal = function(intent) {
+      intentEl.value = intent || '';
+      modalEl.classList.remove('hidden');
+    };
+
+    window.closeModal = function() {
+      modalEl.classList.add('hidden');
+      if (leadForm) leadForm.reset(); // Clear form on close
+      updatePhoneValidation(); // Reset validation state
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.closeModal();
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target === modalEl) window.closeModal();
+    });
+  } else {
+    window.openModal = window.openModal || function(){};
+    window.closeModal = window.closeModal || function(){};
+  }
+
+  // =========================
+  // FORM SUBMISSION (Native POST via iframe, with flag and MERGING)
+  // =========================
+  let formSubmitted = false; // flag
+
+  if (leadForm && countryCodeEl && rawPhoneEl && fullPhoneEl) {
+    // Set Zapier target attributes
+    leadForm.setAttribute("action", "https://hooks.zapier.com/hooks/catch/24745727/u1xobb6/");
+    leadForm.setAttribute("method", "POST");
+    leadForm.setAttribute("target", "hidden_iframe");
+
+    // BEFORE SUBMIT: Merge country code + phone number into the hidden field
+    leadForm.addEventListener("submit", (e) => {
+      // Run final validation check
+      updatePhoneValidation(); 
+
+      // If the form is invalid (due to incorrect digit length), prevent submission
+      if (!leadForm.checkValidity()) {
+        e.preventDefault();
+        return; 
+      }
+      
+      formSubmitted = true;
+      // CRUCIAL MERGING LOGIC: Takes values from visible fields (strips non-digits) and puts them in the hidden field 'phone' for Zapier
+      fullPhoneEl.value = countryCodeEl.value + " " + rawPhoneEl.value.replace(/\D/g, ''); 
+
+      // ✅ Log form data before submitting to Zapier
+      console.log("Form data:", Object.fromEntries(new FormData(leadForm)));
+
+    });
+
+    // Callback after submit
+    window.afterSubmit = function() {
+      if (!formSubmitted) return; // ignore initial iframe load
+      formSubmitted = false; // reset flag
+
+      alert("✅ Thank you! Your details have been received.");
+      if (window.closeModal) window.closeModal();
+      leadForm.reset();
+
+      // Reset validation state after a successful submission
+      updatePhoneValidation(); 
+
+      if (intentEl && intentEl.value === "download") {
+        window.location.href =
+          "https://drive.google.com/uc?export=download&id=1csCDTniBe_nJbCe8nZMYCIXjJ-_a_EpG";
+      }
+    };
+  }
+</script>
+
+  <!-- LEGAL MODAL (Privacy + Terms) -->
+  <div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-2xl w-full relative overflow-y-auto max-h-[80vh]">
+      <button onclick="closeLegalModal()" class="absolute top-2 right-3 text-gray-600 text-2xl">&times;</button>
+      <div id="legalContent" class="text-sm text-slate-700 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const legalModal = document.getElementById("legalModal");
+      const legalContent = document.getElementById("legalContent");
+
+      const legalDocs = {
+        privacy: `
+          <h2 class="text-xl font-bold mb-4 text-eagle-navy">Privacy Policy</h2>
+          <p><strong>Effective Date:</strong> September 2025</p>
+          <p>Eagle Findings values your privacy and is committed to protecting your personal information.</p>
+          <h3 class="font-bold mt-4">1. Information We Collect</h3>
+          <p>Personal details (name, email, phone) and usage data via cookies.</p>
+          <h3 class="font-bold mt-4">2. How We Use Your Data</h3>
+          <p>To respond to enquiries, improve services, and comply with regulations.</p>
+          <h3 class="font-bold mt-4">3. Your Rights</h3>
+          <p>You may request access, correction, or deletion of your data: <a href="mailto:info@eaglefindings.uk">info@eaglefindings.uk</a></p>
+        `,
+        terms: `
+          <h2 class="text-xl font-bold mb-4 text-eagle-navy">Terms & Conditions</h2>
+          <p><strong>Effective Date:</strong> September 2025</p>
+          <p>These Terms govern your use of Eagle Findings’ website and services.</p>
+          <h3 class="font-bold mt-4">1. Services</h3>
+          <p>We provide property sourcing and advisory services. No guarantees on investment outcomes.</p>
+          <h3 class="font-bold mt-4">2. User Responsibilities</h3>
+          <p>You must provide accurate information and are responsible for your investment decisions.</p>
+          <h3 class="font-bold mt-4">3. Governing Law</h3>
+          <p>These Terms are governed by the laws of England and Wales.</p>
+        `
+      };
+
+      window.openLegalModal = function(type) {
+        legalContent.innerHTML = legalDocs[type] || "";
+        legalModal.classList.remove("hidden");
+      };
+
+      window.closeLegalModal = function() {
+        legalModal.classList.add("hidden");
+      };
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") window.closeLegalModal();
+      });
+
+      // Close modal when clicking outside content
+      legalModal.addEventListener("click", function(e) {
+        if (e.target === legalModal) window.closeLegalModal();
+      });
+    })();
+  </script>
+
+<script>
+  // Ensure smooth scroll to Property Listings works immediately after page load
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('a[href="#listings"]');
+    const listings = document.getElementById("listings");
+
+    if (!listings) return;
+
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        listings.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Close mobile menu if it's open
+        if (typeof closeMobileMenu === "function") closeMobileMenu();
+      });
+    });
+  });
+</script>
+
+<script>
+  /* === NEW SORTING LOGIC FOR MODAL === */
+
+  // Define the sorting function
+  function sortModalCards() {
+    const sortSelect = document.getElementById('modal-sort-cards');
+    const container = document.getElementById('modalContent');
+    
+    if (!sortSelect || !container) return;
+
+    // Collect cards dynamically
+    const cards = Array.from(container.querySelectorAll('.property-card'));
+    if (cards.length === 0) return;
+
+    const sortValue = sortSelect.value;
+    let sortedCards = [...cards];
+
+    if (sortValue.includes('name')) {
+      const order = sortValue === 'name-asc' ? 1 : -1;
+      sortedCards.sort((a, b) => {
+        // Use case-insensitive alphabetical sort
+        return a.dataset.name.toLowerCase().localeCompare(b.dataset.name.toLowerCase()) * order;
+      });
+    } else if (sortValue.includes('price')) {
+      // Price sorting relies on the 'data-price' attribute set in renderListingCards
+      const order = sortValue === 'price-asc' ? 1 : -1;
+      sortedCards.sort((a, b) => {
+        return (parseFloat(a.dataset.price) - parseFloat(b.dataset.price)) * order;
+      });
+    }
+
+    // Re-append the cards in the new sorted order
+    container.innerHTML = ''; // Clear the container first
+    sortedCards.forEach(card => {
+      container.appendChild(card);
+    });
+  }
+
+  // Attach event listener to the dropdown when the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+      const sortSelect = document.getElementById('modal-sort-cards');
+      if (sortSelect) {
+          // Attach listener to re-sort whenever the selection changes
+          sortSelect.addEventListener('change', sortModalCards);
+      }
+  });
+
+// ---------------- FILTER & SORT FEATURE ----------------
+const filterToggle = document.getElementById("filterToggle");
+const filterPanel = document.getElementById("filterPanel");
+const sortOption = document.getElementById("sortOption");
+const minPriceInput = document.getElementById("minPrice");
+const maxPriceInput = document.getElementById("maxPrice");
+const applyFilterBtn = document.getElementById("applyFilter");
+const resetFilterBtn = document.getElementById("resetFilter");
+
+if (filterToggle) {
+  filterToggle.addEventListener("click", () => {
+    filterPanel.classList.toggle("hidden");
+  });
+}
+
+function sortModalCards() {
+  const cards = [...document.querySelectorAll(".property-card")];
+  const sortValue = sortOption?.value;
+  const minVal = parseFloat(minPriceInput?.value || "0");
+  const maxVal = parseFloat(maxPriceInput?.value || "999999999");
+
+  let filtered = cards.filter(card => {
+    const price = parseFloat(card.dataset.price || "0");
+    return price >= minVal && price <= maxVal;
+  });
+
+  switch (sortValue) {
+    case "priceAsc":
+      filtered.sort((a, b) => a.dataset.price - b.dataset.price);
+      break;
+    case "priceDesc":
+      filtered.sort((a, b) => b.dataset.price - a.dataset.price);
+      break;
+    case "alphaAsc":
+      filtered.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+      break;
+    case "alphaDesc":
+      filtered.sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
+      break;
+  }
+
+  const container = document.getElementById("modalContent");
+  container.innerHTML = "";
+  filtered.forEach(card => container.appendChild(card));
+}
+
+applyFilterBtn?.addEventListener("click", sortModalCards);
+sortOption?.addEventListener("change", sortModalCards);
+resetFilterBtn?.addEventListener("click", () => {
+  sortOption.value = "default";
+  minPriceInput.value = "";
+  maxPriceInput.value = "";
+  filterPanel.classList.add("hidden");
+
+  // Figure out which category modal is showing (leasehold/freehold/rent)
+  const cat = (modalTitle.textContent || "").split(" ")[0].toLowerCase();
+  if (cat && data_flat[cat]) {
+    renderListingCards(data_flat[cat]); // re-render full set
+  }
+});
+
+</script>
+</body>
+</html>
+
 <!DOCTYPE html> 
 <html lang="en" class="scroll-smooth">
 <head>
@@ -1672,3 +3510,4 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 </script>
 </body>
 </html>
+
