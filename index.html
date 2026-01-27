@@ -136,6 +136,25 @@
       outline-offset: 2px;
     }
   </style>
+<style>
+  /* 3D Ebook Effect */
+  .ebook-3d-shadow {
+    box-shadow: 
+      -5px 5px 0px #ccc,
+      -10px 10px 0px #eee,
+      -15px 15px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  .ebook-3d-shadow:hover {
+    transform: rotateY(-5deg) rotateX(5deg);
+  }
+  
+  /* Gradient backdrop for the book */
+  .ebook-glow {
+    background: radial-gradient(circle, rgba(247, 231, 206, 0.4) 0%, transparent 70%);
+  }
+</style>
+
 </head>
 
 <body class="bg-eagle-gold text-eagle-navy font-sans">
@@ -236,6 +255,58 @@
         </div>
       </div>
     </section>
+
+<section id="ebook" class="py-24 px-6 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      
+      <div class="w-full lg:w-1/2 flex justify-center relative">
+        <div class="absolute inset-0 ebook-glow scale-150"></div>
+        <img src="ebook-cover.jpg" alt="The Property Investment Blueprint" 
+             class="relative z-10 max-w-[280px] md:max-w-[340px] rounded-r-lg ebook-3d-shadow border-l-4 border-eagle-navy/20">
+      </div>
+
+      <div class="w-full lg:w-1/2 text-left">
+        <span class="inline-block bg-eagle-gold text-eagle-navy px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+          An Investor Resource For Only £9.99
+        </span>
+        <h2 class="text-3xl md:text-5xl font-bold text-eagle-navy mb-6 leading-tight">
+          The Property Investment Blueprint
+        </h2>
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+          Master the UK property market. Our comprehensive guide reveals the exact strategies we use to source high-yield opportunities across the Southeast and Midlands.
+        </p>
+
+        <ul class="space-y-4 mb-10 text-slate-700">
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-eagle-navy mt-1 mr-3"></i>
+            <span><strong>Off-Market Secrets:</strong> How to find deals before they hit Rightmove.</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-eagle-navy mt-1 mr-3"></i>
+            <span><strong>ROI Analysis:</strong> 5 critical metrics for every investment.</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check-circle text-eagle-navy mt-1 mr-3"></i>
+            <span><strong>Market Trends:</strong> 2024-2025 growth areas in the Midlands.</span>
+          </li>
+        </ul>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://amzn.eu/d/0oFTRM3" target="_blank"
+             class="cta-button bg-eagle-navy text-white text-center px-10 py-4 rounded-lg font-bold shadow-xl hover:bg-blue-900">
+            Download Free PDF
+          </a>
+          <button onclick="openEbookPreview()"
+                  class="cta-button border-2 border-eagle-navy text-eagle-navy text-center px-10 py-4 rounded-lg font-bold hover:bg-eagle-gold">
+            Look Inside
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <section id="services" class="py-20 px-6 bg-eagle-gold">
       <div class="max-w-6xl mx-auto">
@@ -1035,6 +1106,32 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     images[index].classList.add("active");
   }, 5000);
 });
+
+<style>
+  #ebookCloseBtn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: #0b1c2d;     /* navy */
+    color: #f7e7ce;          /* champagne */
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #ebookCloseBtn:hover {
+    transform: scale(1.1);
+    background: #091726;
+  }
+
+  #ebookCloseBtn:active {
+    transform: scale(0.95);
+  }
 </script>
 
     <section id="testimonials" class="py-20 px-6 bg-eagle-gold">
@@ -1831,7 +1928,104 @@ resetFilterBtn?.addEventListener("click", () => {
     renderListingCards(data_flat[cat]); // re-render full set
   }
 });
+</script>
 
+<div id="ebookPreviewModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[9999] p-4" onclick="closeEbookPreview()">
+  <div class="bg-[#F7E7CE] text-[#000080] max-w-[600px] w-full max-h-[90vh] overflow-y-auto p-6 md:p-10 rounded-2xl relative shadow-2xl text-left flex flex-col" onclick="event.stopPropagation()">
+    
+    <button class="font-bold text-lg mb-6 flex items-center gap-2 hover:opacity-70 transition-opacity sticky top-0 bg-[#F7E7CE] py-2 z-10" onclick="closeEbookPreview()">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+    
+    <h3 class="text-2xl font-bold mb-4 text-eagle-navy leading-tight">The Property Investment Blueprint</h3>
+    <h3 class="text-2xl font-bold mb-4 text-eagle-navy leading-tight">Introduction</h3>
+    <div class="space-y-4 text-slate-800 leading-relaxed">
+      <p>
+        Property investment has long been considered one of the 
+most reliable paths to building wealth in the UK. With a 
+stable legal system, strong property rights, and a mature 
+rental market, the UK offers numerous opportunities for 
+both novice and experienced investors. 
+This handbook provides a comprehensive guide to 
+navigating the UK property investment landscape, from 
+understanding market fundamentals to building a 
+profitable portfolio. Whether you're looking to generate 
+passive income, build long-term wealth, or diversify your 
+investment portfolio, this guide will equip you with the 
+knowledge and tools needed to succeed.
+      </p>
+
+      <p>
+<h3 class="text-2xl font-bold mb-4 text-eagle-navy leading-tight">Key Benefits of Property Investment</h3>
+Income Generation: Rental properties provide regular monthly
+      </p>
+
+      <div class="relative rounded-lg overflow-hidden mt-6">
+        <div class="blur-[3px] select-none opacity-60">
+          <p class="mb-4">Investors who overlook due diligence often overpay and underestimate risk. By understanding location data, rental demand indicators, and exit strategies, investors dramatically improve outcomes and build resilient portfolios that withstand market shifts. Our blueprint provides the exact framework used to analyze over £20M in sourced properties...</p>
+        </div>
+        
+        <div class="absolute inset-0 flex items-center justify-center bg-[#F7E7CE]/40">
+          <a href="https://amzn.eu/d/0oFTRM3" target="_blank" class="bg-eagle-navy text-eagle-gold px-8 py-3 rounded-lg font-bold shadow-xl hover:scale-105 transition-all text-center">
+            Read Full Ebook
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <p class="mt-8 text-xs text-slate-500 italic text-center">
+      Scroll to view more or click Back to exit.
+    </p>
+  </div>
+</div>
+
+<script>
+  /**
+   * Standardized Modal Logic with Hardware Back Button Support
+   */
+  function openEbookPreview() {
+    const modal = document.getElementById('ebookPreviewModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      // 1. Add a dummy state to history so the back button has something to "go back" from
+      history.pushState({ modalOpen: true }, '');
+    }
+  }
+
+  function closeEbookPreview() {
+    const modal = document.getElementById('ebookPreviewModal');
+    if (modal && !modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+
+      // 2. If the modal was closed manually (by clicking "Back" or overlay), 
+      // check if we need to remove the dummy history state to keep history clean.
+      if (history.state && history.state.modalOpen) {
+        history.back();
+      }
+    }
+  }
+
+  // 3. LISTEN FOR HARDWARE BACK BUTTON
+  window.addEventListener('popstate', function(event) {
+    const modal = document.getElementById('ebookPreviewModal');
+    if (modal && !modal.classList.contains('hidden')) {
+      // The user pressed the back key, so we hide the modal 
+      // but do NOT call history.back() again (it already happened).
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+<script>
+  function closePreview() {
+    document.getElementById("ebookModal").style.display = "none";
+  }
 </script>
 </body>
 </html>
